@@ -236,7 +236,6 @@ price | 19000 | 否 | 价格：限价单必传
 volume| 0.5 | 是 | 数量 
 tradeSide | 1 | 是 | 交易方向：1 buy 2 sell
 tradeType | 1 | 是 | 交易类型：1 limit 2 market
-isClose | true | 是否是平仓单 
 
 
 
