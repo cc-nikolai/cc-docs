@@ -39,16 +39,6 @@ let rates = api.public.config();
   "msg": "succ",
   "i18nArgs": null,
   "data": {
-    //阶梯保证金
-    "ladderMargin": {
-      "1": {
-        "mmLevel": 0.01,//保证金率
-        "level": 1,//保证金等级
-        "start": 0,//当前等级最小持仓价值
-        "end": 100000,//当前等级最大持仓价值
-        "maxLevarage": 50 //最大杠杆倍数
-      }
-    },
     //期权配置
     "optionConfig": {
       "BTCUSD": {
