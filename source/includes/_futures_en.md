@@ -2,35 +2,7 @@
 
 ## Get Futures Symbol
 
-```shell
-curl "http://api.coincall.com/open/futures/market/symbol/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesSymbol()
-```
-
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getSymbol()
-```
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let positions = api.futures.getSymbol();
-``` -->
+Get futures symbol
 
 > Response:
 
@@ -42,18 +14,25 @@ let positions = api.futures.getSymbol();
 	"data": [{
 		"contractId": 1,// Contract ID
 		"symbol": "BTCUSD",// Symbol
-		"symbolName": "BTC-PERP",// Symbol name
-		"price": 20260.31,// Price
-		"changeRate": 0,// Change in percentage
+		"symbolName":"BTC/USD",// Symbol name
+		"displayName":"BTC-PERP",// Symbol display name
+		"baseToken":"BTC",
+		"quoteToken":"USD",
+		"price": 25614.7,// Price
+		"changeRate": -0.003,// Change in percentage
 		"changeVolume": 0,// Change in value
-		"markPrice": 18898.4293759300000000,// Mark price
-		"indexPrice": 20260.31,// Index Price
-		"price24hHigh": 0,// Highest price in 24hrs
-		"price24hLow": 0,// Lowest price in 24hrs
-		"volumeUsd24h": 0,// USD volume in 24hrs
-		"volume24h": 0,// Volume in 24hrs
-		"ts": null,// Timestamp
-		"price24hOpen": 18234.279// Open price on UTC 00:00:00
+		"changePrice":-78.2,
+		"markPrice": 25661.25861712,// Mark price
+		"indexPrice": 25754.025,// Index Price
+		"price24hHigh": 27065.7,// Highest price in 24hrs
+		"price24hLow": 18000,// Lowest price in 24hrs
+		"volumeUsd24h": 3846213875.0958,// USD volume in 24hrs
+		"volume24h": 147370.135,// Volume in 24hrs
+		"ts": 20201116024818,// Timestamp
+		"price24hOpen":25692.9,// Open price on UTC 00:00:00
+		"icon":"https://file.coincall.com/statics/symbol/BTC.png",
+		"hasOption":true,
+		"sortIdx":null
 	}]
 }
 ```
@@ -61,56 +40,17 @@ let positions = api.futures.getSymbol();
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/market/symbol/v1`
+`GET https://api.coincall.com/open/futures/market/symbol/v1`
 
-<aside class="notice">
-   Get futures symbol
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
 
 **Parameter**
 
 Null
 
 
-## Get Futures Position 
+## Get Futures Position(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/futures/position/get/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesPosition()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getPosition(123)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let positions = api.futures.getPosition(123);
-``` -->
+Get futures positions
 
 > Response:
 
@@ -119,7 +59,7 @@ let positions = api.futures.getPosition(123);
   "code": 0,// Status code
   "msg": "success",//Message
   "i18nArgs": null,
-  "data": [
+  "data":
     {
       "id": 1584467417583730700,// ID
       "positionId": 1584467417583730700,// Position ID
@@ -149,55 +89,15 @@ let positions = api.futures.getPosition(123);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/position/get/v1`
-
-<aside class="notice">
-   Get futures positions (SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/position/get/v1`
 
 **Parameter**
 
 Null
 
-## Place Futures Order
+## Place a Futures Order(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/futures/order/create/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -D {}
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.placeFuturesOrder(param)
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.placeOrder(10)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.futures.placeOrder();
-``` -->
+ Place a futures order
 
 > Response:
 
@@ -213,23 +113,11 @@ let rates = api.futures.placeOrder();
 
 ### HTTP Request
 
-`POST http://api.coincall.com/open/futures/order/create/v1`
-
-<aside class="notice">
-    Place futures orders(SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required  | Note
--------------- | -------------- | -------------- | ----
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true |
-sign | xxx | true | Endpoint Signature
+`POST https://api.coincall.com/open/futures/order/create/v1`
 
 **Parameter**
 
-name  | value  | Required | Note
+Name  | Value  | Required | Note
 -------------- | -------------- | -------------- | -------
 symbol | BTCUSD | true | Futures Symbol 
 price | 19000 | false | Price required for limit orders
@@ -241,37 +129,9 @@ isClose | 1 | true | Clarify if the order is a close order
 
 
 
-## Cancel Futures Order
+## Cancel a Futures Order(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/option/order/cancel/v1/{orderId}" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.cancelFuturesOrder(orderId)
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.cancelOrder(123)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.futures.cancelOrder(123);
-``` -->
+Cancel a futures order
 
 > Response:
 
@@ -287,56 +147,18 @@ let rates = api.futures.cancelOrder(123);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/order/cancel/v1/{orderId}`
-
-<aside class="notice">
-   Cancel futures order(SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/order/cancel/v1/{orderId}`
 
 **Parameter**
 
-name | value | true否必填 | 说明
+Name  | Value  | Required | Note
 -------------- | -------------- | -------------- | --------------
 orderId | 111 | true | query string
 
 
-## Get Futures Open Orders
+## Get Futures Open Orders(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/futures/order/pending/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesPendingOrder()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getPendingOrder()
-```
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.futures.getPendingOrder();
-``` -->
+Get open orders 
 
 > Response:
 
@@ -345,7 +167,7 @@ let rates = api.futures.getPendingOrder();
 	"code": 0, // Status code
 	"msg": "success", //Message
 	"i18nArgs": null,
-	"data": [
+	"data":
 		{
 			"id": 1584848662192898000,// ID
 			"orderId": 1584848661807022000,// Order ID
@@ -365,58 +187,17 @@ let rates = api.futures.getPendingOrder();
 }
 ```
 
-
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/order/pending/v1`
-
-<aside class="notice">
-   Get open orders (SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/order/pending/v1`
 
 **Parameter**
 
 Null
 
-## Get Futures Order History
+## Get Futures Order History(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/futures/order/history/v1?pageSize=10&page=1&startTime=111&endTime=333" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesOrderHistory()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getOrderHistory()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let orders = api.futures.getOrderHistory(123);
-``` -->
+Get futures order history
 
 > Response:
 
@@ -450,23 +231,11 @@ let orders = api.futures.getOrderHistory(123);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/order/history/v1?pageSize=10&page=1&startTime=111&endTime=333`
-
-<aside class="notice">
-   Get futures order history(SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/order/history/v1/{}`
 
 **Parameter**
 
-name  | value  | Required | Note
+Name  | Value  | Required | Note
 -------------- | -------------- | -------------- | --------
 pageSize | 10 | true | Quantity per page
 page | 1 | true | Numbe of pages
@@ -475,35 +244,7 @@ endTime | 200000 | true | End time of the history
 
 ## Get Futures Order Book 
 
-```shell
-curl "http://api.coincall.com/open/futures/order/orderbook/v1/{symbol}" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesOrderBook(symbol)
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getOrderBook(symbol)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let orderbook = api.futures.getOrderBook(symbol);
-``` -->
+ Get futures order book
 
 > Response:
 
@@ -529,56 +270,18 @@ let orderbook = api.futures.getOrderBook(symbol);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/order/orderbook/v1/{symbol}`
-
-<aside class="notice">
-   Get futures order book
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/order/orderbook/v1/{}`
 
 **Parameter**
 
-Null
+Name  | Value  | Required | Note
+-------------- | -------------- | -------------- | --------
+symbol | BTCUSD | true | Symbol name
 
 
-## Get Futures Transaction History
+## Get Futures Transaction History(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/futures/trade/history/v1?pageSize=10&page=1&startTime=111&endTime=333" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesTradeHistory()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getTradeHistory(123)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let trades = api.futures.getTradeHistory(123);
-``` -->
+Get futrues transaction history
 
 > Response:
 
@@ -613,23 +316,11 @@ let trades = api.futures.getTradeHistory(123);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/trade/history/v1?pageSize=10&page=1&startTime=111&endTime=333`
-
-<aside class="notice">
-   Get futrues transaction history (SIGNED)----Signature required
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/trade/history/v1/{}`
 
 **Parameter**
 
-name  | value  | Required | 说明
+Name  | Value  | Required | 说明
 -------------- | -------------- | -------------- | --------
 pageSize | 10 | true | Quantity per page
 page | 1 | true | Numbe of pages
@@ -638,35 +329,7 @@ endTime | 200000 | true | End time of the history
 
 ## Get Futures Last Trade
 
-```shell
-curl "http://api.coincall.com/open/futures/trade/lasttrade/v1/{symbol}" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -H "sign:xxx"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.getFuturesLastTrade(symbol)
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.futures.getLastTrade(symbol)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.futures.getLastTrade(symbol);
-``` -->
+Get futures last trade
 
 > Response:
 
@@ -688,55 +351,17 @@ let rates = api.futures.getLastTrade(symbol);
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/trade/lasttrade/v1/{symbol}`
-
-<aside class="notice">
-   Get futures last trade
-</aside>
-
-**header**
-
-name  | value  | Required | Note
--------------- | -------------- | -------------- | --------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true |
-X-REQ-TS-DIFF | 100 | true | 
-sign | xxx | true | Endpoint Signature
+`GET https://api.coincall.com/open/futures/trade/lasttrade/v1/{}`
 
 **Parameter**
 
-Null
+Name  | Value  | Required | Note
+-------------- | -------------- | -------------- | --------
+symbol | BTCUSD | true | Symbol name
 
 ## Set Futures Leverage
 
-```shell
-curl "http://api.coincall.com/open/futures/leverage/set/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-  -D {}
-```
-
-<!-- ```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.setLeverage(10)
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.leverage.set(10)
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.leverage.set();
-``` -->
+ Set futures leverage
 
 > Response:
 
@@ -752,59 +377,20 @@ let rates = api.leverage.set();
 
 ### HTTP Request
 
-`POST http://api.coincall.com/open/futures/leverage/set/v1`
-<aside class="notice">
-    Set futures leverage
-</aside>
-
-
-**header**
-
-name  | value  | Required 
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`POST https://api.coincall.com/open/futures/leverage/set/v1`
 
 **Parameter**
 
-name  | value  | Required 
+Name  | Value  | Required 
 -------------- | -------------- | --------------
-symbol | BTCUSD | true
-leverage | 10 | true
+symbol | BTCUSD | true | Symbol name
+leverage | 10 | true | leverage for this symbol
 
 
 
 ## Get futures leverage
 
-```shell
-curl "http://api.coincall.com/open/futures/leverage/current/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-```
-
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.currentLeverage()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.leverage.current()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let currLeverage = api.leverage.current();
-``` -->
+Get current futrues leverage
 
 > Response:
 
@@ -824,18 +410,7 @@ let currLeverage = api.leverage.current();
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/futures/leverage/current/v1`
-
-<aside class="notice">
-    Get current futrues leverage
-</aside>
-
-**header**
-
-name  | value  | Required 
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`GET https://api.coincall.com/open/futures/leverage/current/v1`
 
 **Parameter**
 

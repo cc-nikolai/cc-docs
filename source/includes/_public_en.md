@@ -2,58 +2,22 @@
 
 ## Get Public Configurations
 
-```shell
-curl "http://api.coincall.com/open/public/config/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.publicConfig()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.publicConfig()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.public.config();
-``` -->
+Get trading-related configuration
 
 > Response:
 
 ```json
 {
   "code": 1,
-  "msg": "succ",
+  "msg": "Success",
   "i18nArgs": null,
   "data": {
-    // Ladder margin
-    "ladderMargin": {
-      "1": {
-        "mmLevel": 0.01,// Maintnance margin ratio
-        "level": 1,// Margin level
-        "start": 0,// Min position at current margin level
-        "end": 100000,// Max position at current margin level
-        "maxLevarage": 50 // Max leverage
-      }
-    },
     // Options configuration
     "optionConfig": {
       "BTCUSD": {
         "volumeDecimal": 2,// Decimal of the volume
         "symbol": "BTCUSD",// Symbol
+        "takerFee":0.0003,// Taker fee
         "multiplier": 0.01,// Multiplier
         "settle": "USD",// Settlement currency
         "limitMaxVolume": 1000,// Limit of the maximum volume
@@ -63,6 +27,7 @@ let rates = api.public.config();
         "tickSize": 0.1,// Tick size
         "greeksDecimal": 6,// Greeks decimal
         "marketMaxVolume": 1000,//
+        "makerFee":-0.0001,//Maker fee
         "maxOrderSize": 200,// Maximum order size
         "base": "BTC"// Base token
       }
@@ -75,6 +40,8 @@ let rates = api.public.config();
         "marketMaxVolume": 100,//
         "minVolume": 0.001,// Minimum volume
         "settle": "USD",// Settlement currency
+        "positionVolume":40000000,
+        "triggerLimit":20,
         "maxOrderSize": 200,// Maximum order size
         "priceDecimal": 2,// Price decimal
         "limitMaxVolume": 1000,// Limit of the maximum volume
@@ -90,62 +57,22 @@ let rates = api.public.config();
 
 ### HTTP Request
 
-`GET http://api.coincall.com/open/public/config/v1`
-<aside class="notice">
-    Get trading-related configuration
-</aside>
-
-
-**header**
-
-name  | value  | Required 
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`GET https://api.coincall.com/open/public/config/v1`
 
 **Parameter**
 
 Null
 
-
 ## Get Funding Rate
 
-
-```shell
-curl "http://api.coincall.com/open/public/fudingRate/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.fundingRate()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.public.fundingRate()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let rates = api.public.fundingRate();
-``` -->
+Get real-time funding rates
 
 > Response:
 
 ```json
 {
   "code": 0,// Status code
-  "msg": "success",// Message
+  "msg": "Success",// Message
   "i18nArgs": null,
   "data": [
     {
@@ -157,28 +84,10 @@ let rates = api.public.fundingRate();
 }
 ```
 
-
 ### HTTP Request
 
-`GET http://api.coincall.com/open/public/fundingRate/v1`
-
-<aside class="notice">
-    Get real-time funding rates
-</aside>
-
-**header**
-
-name  | value  | Required
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`GET https://api.coincall.com/open/public/fundingRate/v1`
 
 **Parameter**
 
 Null
-
-
-
-
-
-

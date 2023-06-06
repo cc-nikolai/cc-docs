@@ -14,7 +14,7 @@
     Please refer to the following field abbreviations for data fields in the options request/response:
 </aside>
 
-| 简写 | 说明 |
+| Name | Note |
 | --- | --- |
 | c | code, Operations for Request Protocol Execution |
 | rc | responseCode, Status of the Response Protocol |

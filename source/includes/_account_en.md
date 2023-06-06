@@ -1,142 +1,74 @@
 # User Account Related
 
-## Get User Info
+## Get User Info(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/user/info/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.userInfo()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.userInfo()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let user = api.user.info();
-``` -->
+Get user information
 
 > Response:
 
 ```json
 {
-	"code": 0,
-	"data": {
-		"email": "",
-		"name": "",
-		"userId": "xxxx"
-	},
-	"i18nArgs": [],
-	"msg": ""
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":{
+        "name":"xxxx",
+        "email":"xxxx",
+        "userId":123456
+    }
 }
 ```
 
-
 ### HTTP Request
 
-`GET http://api.coincall.com/open/user/info/v1`
-<aside class="notice">
-    Get User Information(SIGNED)---- Signature Required
-</aside>
-
-
-**header**
-
-name  | value  | Required 
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`GET https://api.coincall.com/open/user/info/v1`
 
 **Parameter**
+
 Null
 
 
-## Get Account Summary
+## Get Account Summary(SIGNED)
 
-```shell
-curl "http://api.coincall.com/open/account/summary/v1" \
-  -H "X-CC-APIKEY: TEST"
-  -H "X-REQ-TS-DIFF:1222"
-```
-<!-- 
-```java
-import coincall
-
-CoincallClient api = new CoincallClient("key","secret");
-api.accountSummary()
-```
-
-```python
-import coincall
-
-api = coincall.authorize('key','secret')
-api.account.summary()
-```
-
-
-
-```javascript
-const cc = require('coincall');
-
-let api = cc.authorize('test','test');
-let account = api.account.summary();
-``` -->
+Get account summary
 
 > Response:
 
 ```json
 {
-	"code": 0,// Status code
-	"data": {
-    "accountId": 0,// Account ID
-    "availableBalance": 0,// Available balance
-    "canWithdrawAmount": 0,// Maximum amount can be withdrawn
-    "equityAmount": 0,// Total assets value in account
-    "imAmount": 0,// Total initial margin of account
-    "marginBalance": 0,// Margin balance
-    "marginMode": 0,// Margin mode （1 SM 2 PM)
-    "mmAmount": 0,// Total maintenance margin of the account
-    "unrealizedAmount": 0,// Total unrealized P/L of the account
-	},
-	"i18nArgs": [],
-	"msg": ""// Message
+    "code":0,// Status code
+    "msg":"Success",// Message
+    "i18nArgs":null,
+    "data":{
+        "accountId":123456,// Account ID
+        "coin":"USD",
+        "coinIconUrl":"xxxx",
+        "coinDesc":"USD Stablecoins",
+        "coinView":"USD",
+        "equityAmount":100000,// Total assets value in account
+        "availableBalance":99999.16966405,// Available balance
+        "canWithdrawAmount":99999.16966405,// Maximum amount can be withdrawn
+        "marginMode":1,// Margin mode （1 SM 2 PM)
+        "marginBalance":100000,// Margin balance
+        "unrealizedAmount":0,// Total unrealized P/L of the account
+        "imAmount":0,// Total initial margin of account
+        "mmAmount":0,// Total maintenance margin of the account
+        "delta":null,
+        "chainType":null,
+        "btcValue":3.6848964,
+        "dollarValue":100000,
+        "decimal":8
+    }
 }
 
 ```
 
-
 ### HTTP Request
 
-`GET http://api.coincall.com/open/account/summary/v1`
-
-<aside class="notice">
-    Get account summary(SIGNED)---- Signature Required
-</aside>
-
-**header**
-
-name  | value  | Required 
--------------- | -------------- | --------------
-X-CC-APIKEY | rSclsRyRsiAfcoNjv73iD4B80BfW49q7IsIWjU0orf8= | true
-X-REQ-TS-DIFF | 100 | true
+`GET https://api.coincall.com/open/account/summary/v1`
 
 **Parameter**
 
 Null
 
-## Switch Margin Mode
+<!-- ## Switch Margin Mode -->
