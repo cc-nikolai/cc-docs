@@ -35,7 +35,7 @@ with content type `application/x-www-form-urlencoded`. You may mix parameters b
 
 ## Rate Limits
 <aside class="notice">
-    CoinCall has the right to further tighten the rate limits on users with intent to attack.
+    Coincall has the right to further tighten the rate limits on users with intent to attack.
 </aside>
   
 Endpoint | Rate Limit | Rule

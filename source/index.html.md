@@ -1,5 +1,5 @@
 ---
-title: CoinCall Reference
+title: Coincall Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -8,7 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   # - javascript
 
 toc_footers:
-  - <a href='#'>Api Powered by CoinCall</a>
+  - <a href='#'>API Powered by Coincall</a>
 
 includes:
   - base_en
@@ -25,11 +25,11 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the CoinCall API
+    content: Documentation for the Coincall API
 ---
 
 # Introduction
 
-Welcome to the CoinCall API! You can use our API to access CoinCall  Open API endpoints.
+Welcome to the Coincall API! You can use our API to access Coincall  Open API endpoints.
 
 We have language bindings in Java, Curl, Shell, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
