@@ -19,7 +19,7 @@ Get user information
 }
 ```
 
-### HTTP Request
+**HTTP Request**
 
 `GET https://api.coincall.com/open/user/info/v1`
 
@@ -63,7 +63,7 @@ Get account summary
 
 ```
 
-### HTTP Request
+**HTTP Request**
 
 `GET https://api.coincall.com/open/account/summary/v1`
 

@@ -7,16 +7,18 @@ The Coincall API uses the following error codes:
 Codes | Description
 ---------- | -------
 0|Success
-500|Error
+500|Internal servererror
+2015|User does not exist.
 2016|Public key not exist
 2017|Private key not exist
 4002|Token expired.
-7001|No Permission.
 4003|Token auth fail.
 4004|Token kicke out.
-2015|Session error, please try again.
+4005|Duplicate request.
+4006|This country or region is not supported
+7001|No Permission.
 10000|Try again later
-10001|Not allow
+10001|This operation is not allowed
 10002|Result api system error
 10003|Result api resquest illegal
 10004|Parameter illegal

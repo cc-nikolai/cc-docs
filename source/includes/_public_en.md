@@ -1,5 +1,31 @@
 # Public Endpoints
 
+## Check Server Time
+
+Test connectivity to the Rest API and get the current server time.
+
+> Response:
+
+```json
+
+{
+    "code":0,
+    "msg":null,
+    "i18nArgs":null,
+    "data":{
+        "serverTime":1687250525704 // Server time
+    }
+}
+```
+
+**HTTP Request**
+
+`GET https://api.coincall.com/time`
+
+**Parameter**
+
+Null
+
 ## Get Public Configurations
 
 Get trading-related configuration
@@ -55,7 +81,7 @@ Get trading-related configuration
 ```
 
 
-### HTTP Request
+**HTTP Request**
 
 `GET https://api.coincall.com/open/public/config/v1`
 
@@ -65,7 +91,7 @@ Null
 
 ## Get Funding Rate
 
-Get real-time funding rates
+Get real-time funding rate
 
 > Response:
 
@@ -84,10 +110,12 @@ Get real-time funding rates
 }
 ```
 
-### HTTP Request
+**HTTP Request**
 
 `GET https://api.coincall.com/open/public/fundingRate/v1`
 
 **Parameter**
 
-Null
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSDT,ETHUSDT | false | Contract name (if not passed, all will be taken. Multiple can be taken separated by commas)
