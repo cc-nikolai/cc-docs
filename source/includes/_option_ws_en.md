@@ -240,11 +240,11 @@ Payload:
         "s": "BTCUSD-4JUL23-27000-C", // symbol
         "asks": [{
             "pr": "4038.58", // price 
-            "sz": 1 // size 
+            "sz": "1" // size 
         }],
         "bids": [{
             "pr": "1",
-            "sz": 0.2
+            "sz": "0.2"
         }],
         "ts": 1688453641701 // timestamp
     }
@@ -268,9 +268,9 @@ Payload:
     "dt": 6,
     "c": 20,
     "d": [{
-        "q": 1, // qty, quantity
+        "q": "1", // qty, quantity
         "sd": 1, // tradeSide
-        "pr": 2757.03, // price
+        "pr": "2757.03", // price
         "s": "BTCUSD-4JUL23-27000-C", // symbol
         "ts": 1688454356810 // timestamp
     }]
@@ -307,30 +307,6 @@ Payload:
 
 ```
 
-## Fill Signal
-{
-    "action":"subscribe",
-    "dataType":"fillSignal",
-    "payload":{
-        "symbol":"BTCUSD-27MAY23-26000-C"
-    }
-}
-
-```json
-Payload:
-
-{
-    "dt":8,
-    "c":20,
-    "d":{
-        "s":"BTCUSD-27MAY23-26000-C", // option symbol
-        "et":2,
-        "ts":1685092951072 // timestamp
-    }
-}
-
-```
-
 ## Orders
 {
     "action":"subscribe",
@@ -347,8 +323,7 @@ Payload:
         "fq": "1", // filled Qty
         "ap": "505.3", // average price 
         "coid": "1676058285310087168", // client order id 
-        "os": "1", // order status 
-        "im": "0.0000000000000000", // initialMargin in PM
+        "os": "1", // order status
         "oid": "1676058285310087168", // order id
         "pr": "505.3", // price 
         "s": "ETHUSD-29SEP23-1500-C", // symbol 

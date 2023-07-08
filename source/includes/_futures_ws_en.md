@@ -181,14 +181,14 @@ Payload:
     "s": "BTCUSD", // symbol 
     "asks": [{
       "pr": "30831.73", // price 
-      "sz": 180.30200000 // size 
+      "sz": "180.30200000" // size 
     }, {
       "pr": "40000", 
-      "sz": 0.40000000 
+      "sz": "0.40000000 "
     }],
     "bids": [{
       "pr": "1",
-      "sz": 1 
+      "sz": "1 "
     }],
     "ts": 1688384138863 // timestamp
   }
@@ -212,15 +212,15 @@ Payload:
   "dt": 33,
   "c": 20,
   "d": [{
-    "q": 1, // qty quantity
+    "q": "1", // qty quantity
     "sd": 1, // tradeSide
-    "pr": 30831.73000000, // price
+    "pr": "30831.73000000", // price
     "s": "BTCUSD",  // symbol 
     "ts": 1688436545891 // timestamp
   }, {
-    "q": 83.11100000,
+    "q": "83.11100000",
     "sd": 1,
-    "pr": 30139.37000000,
+    "pr": "30139.37000000",
     "s": "BTCUSD",
     "ts": 1688370059868
   }]
@@ -266,13 +266,12 @@ Payload:
     "ap": "0.3435", // average price
     "coid": "1676063763780026368", // client order id 
     "os": "1", // order status
-    "im": "0", // initial Margin
     "oid": "1676063763800997888", // order id
     "pr": "0.3435", // price
     "s": "FTMUSD", // symbol
     "si": "1", // order side
     "ti": "1688439715857", // timestamp
-    "ty": "limit", // order type 
+    "ty": "1", // order type 
     "uid": "8095151726" // user id
   }
 }
