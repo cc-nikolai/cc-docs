@@ -408,7 +408,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 pageSize | number | 10 | true | Number of items per page
 fromId | number | 123123123 | false | Minimum orderId, can be obtained from the result field of the previous page when paging
-startTime | number| 1686308840388 | false |  Start time of the history
+startTime | number| 1686308840388 | false |  Start time of the history, default is the current time pushed forward by 24 hours
 endTime | number | 1686308840388 | false | End time of the history
 
 ## Get Transaction details(SIGNED)
