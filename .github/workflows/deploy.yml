@@ -36,6 +36,8 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
+          cd build
+          echo 'docs.coincall.com' > CNAME
 
       - run: bundle exec middleman build
       - name: Upload artifact
