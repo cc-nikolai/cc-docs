@@ -329,7 +329,7 @@ Payload:
         "s": "ETHUSD-29SEP23-1500-C", // symbol 
         "si": "1", // order side
         "ti": "1688438464863", // timestamp
-        "ty": "1", // order type
+        "ty": "1", // trade type
         "uid": "8095151726" // user id
     }
 }

@@ -136,7 +136,7 @@ Your API Secret is generated when you create an APIKey.
 
 Name | Product | Note
 ---- | ------- | ----
-type | options | Option type: 1 CALL, 2 PUT
+type | options | Option order type: 1 CALL, 2 PUT
 tradeSide | options/futures/websocket | Trade side: 1 BUY, 2 SELL
 tradeType | options/futures/websocket | Trade type: 1 LIMIT, 2 MARKET, 3 POST_ONLY, 4 STOP_LIMIT, 5 STOP_MARKET
 reduceOnly | options/futures/websocket | Reduce only: 0 FALSE, 1 TRUE

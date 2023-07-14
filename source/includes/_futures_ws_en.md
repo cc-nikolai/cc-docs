@@ -228,27 +228,6 @@ Payload:
 
 ```
 
-## Fill signal
-{
-    "action":"subscribe",
-    "dataType":"fillSignal"
-}
-
-```json
-Payload:
-
-{
-    "dt":34,
-    "c":20,
-    "d":{
-        "s":"BTCUSD",
-        "et":2,
-        "ts":1685096551612
-    }
-}
-
-```
-
 ## Orders
 {
 "action":"subscribe",
