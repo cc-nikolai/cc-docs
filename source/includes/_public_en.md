@@ -34,49 +34,50 @@ Get trading-related configuration
 
 ```json
 {
-  "code": 1,
-  "msg": "Success",
-  "i18nArgs": null,
-  "data": {
-    // Options configuration
-    "optionConfig": {
-      "BTCUSD": {
-        "volumeDecimal": 2,// Decimal of the volume
-        "symbol": "BTCUSD",// Symbol
-        "takerFee":0.0003,// Taker fee
-        "multiplier": 0.01,// Multiplier
-        "settle": "USD",// Settlement currency
-        "limitMaxVolume": 1000,// Limit of the maximum volume
-        "priceDecimal": 2,// Price decimal
-        "maxVolume": 1000,// Maximum volume
-        "tickDecimal": 1,// Ticker decimal
-        "tickSize": 0.1,// Tick size
-        "greeksDecimal": 6,// Greeks decimal
-        "marketMaxVolume": 1000,//
-        "makerFee":-0.0001,//Maker fee
-        "maxOrderSize": 200,// Maximum order size
-        "base": "BTC"// Base token
-      }
-    },
-    // Futures Configuration
-    "futuresConfig": {
-      "BTCUSD": {
-        "volumeDecimal": 3,// Volume Decimal
-        "symbol": "BTCUSD",// Symbol
-        "marketMaxVolume": 100,//
-        "minVolume": 0.001,// Minimum volume
-        "settle": "USD",// Settlement currency
-        "positionVolume":40000000,
-        "triggerLimit":20,
-        "maxOrderSize": 200,// Maximum order size
-        "priceDecimal": 2,// Price decimal
-        "limitMaxVolume": 1000,// Limit of the maximum volume
-        "tickDecimal": 1,// ticker decimal
-        "base": "BTC",// Base token
-        "tickSize": 0.1// Tick size
-      }
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":{
+        // Options configuration
+        "optionConfig":{
+            "BTCUSD":{
+                "symbol":"BTCUSD", // Symbol
+                "takerFee":0.0004, // Taker fee
+                "maxOrderNumber":200, // Maximum number of open orders
+                "multiplier":0.01, // Multiplier
+                "settle":"USD", // Settlement currency
+                "priceDecimal":2, // Decimal of price
+                "limitMaxQty":1000, // Maximum value of quantity for limit order
+                "tickDecimal":1, // Decimal of tick
+                "tickSize":0.1, // Tick size
+                "greeksDecimal":5, // Decimal of greeks
+                "makerFee":0.0003, // Maker fee
+                "marketMaxQty":100, // Maximum value of quantity for market order
+                "qtyDecimal":2, // Decimal of quantity
+                "maxPositionQty":1000, // Maximum quantity of position
+                "base":"BTC" // Base token
+            }
+        },
+        "futuresConfig":{
+            "BTCUSD":{
+                "symbol":"BTCUSD", // Symbol
+                "positionQty":100000000, // Maximum quantity of position
+                "takerFee":0.0006, // Taker fee
+                "maxOrderNumber":200, // Maximum number of open orders
+                "settle":"USD", // Settlement currency
+                "priceDecimal":1, // price of Decimal
+                "limitMaxQty":1000, // Maximum value of quantity for limit order
+                "tickDecimal":1, // Decimal of tick
+                "tickSize":0.1, // Tick size
+                "makerFee":0.0002, // Maker fee
+                "triggerLimit":20, 
+                "marketMaxQty":120,// Maximum value of quantity for market order
+                "qtyDecimal":3, // Decimal of quantity
+                "base":"BTC", // Base token
+                "minQty":0.001 // Minimum value of quantity
+            }
+        }
     }
-  }
 }
 ```
 
