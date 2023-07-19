@@ -109,7 +109,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 * Create a prehash string of `method + uri + &uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` (where `+` represents String concatenation, if no prameter here, please use `method + uri + uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` instead).
 * Sign the prehash string with the apiSecret using the HMAC SHA256.
 * Encode the signature in the Base64 format.
-* The `sign` is not case sensitive.
+* The `sign` should be UPPER.
 
 **Example:**
 
