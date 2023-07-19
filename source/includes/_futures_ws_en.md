@@ -25,15 +25,15 @@ First concatenate `method + uri + ?uuid=your_api_key&ts=your_timestamp` (where `
 <aside class="notice">
    <p>If there’s a network problem, the system will automatically disable the connection.</p>
 
-    <p>The connection will break automatically if the subscription is not established or data has not been pushed for more than 300 seconds.</p>
+    <p>The connection will break automatically if the subscription is not established or data has not been pushed for more than 30 seconds.</p>
 
     <p>To keep the connection stable:</p>
 
-    <p>1. Set a timer of N seconds whenever a response message is received, where N is less than 300.</p>
+    <p>1. Set a timer of N seconds whenever a response message is received, where N is less than 30.</p>
 
-    <p>2. If the timer is triggered, which means that no new message is received within N seconds, send the String 'ping'.</p>
+    <p>2. If the timer is triggered, which means that no new message is received within N seconds, send the HeartBeat action.</p>
 
-    <p>3. Expect a 'pong' as a response. If the response message is not received within N seconds, please raise an error or reconnect.</p>
+    <p>3. Expect 'rc':1 as a response. If the response message is not received within N seconds, please raise an error or reconnect.</p>
 </aside>
 
 ## Data Abbreviations
@@ -82,6 +82,21 @@ Please refer to the following field abbreviations for data fields in the futures
 | dt | dataType, websocket channels |
 
 <!-- ## futures -->
+
+## HeartBeat
+{
+    "action":"heartbeat"
+}
+
+```json
+Payload:
+
+{
+    "c":11,
+    "rc":1 // 1 Success
+}
+
+```
 
 ## Index Price
 {

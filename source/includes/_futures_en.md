@@ -330,7 +330,7 @@ Get open orders
                 "remainQty": 1.00000000, // Unfilled Quantity
                 "fillQty": 0E-8, // Filled Quantity
                 "price": 500.00000000, // Price
-                "avgPrice": 0E-8, // Avrage price
+                "avgPrice": 0E-8, // Average price
                 "initMargin": 166.66666667,  // Initial Margin
                 "tradeSide": 1,  // Trade side
                 "tradeType": 1,  // Trade type
@@ -379,7 +379,7 @@ Get futures order history
 			"qty": 1.00000000,  // Order Quantity
 			"fillQty": 1.00000000, // Filled Quantity
 			"price": 0.49110000,   // Price
-			"avgPrice": 0.49110000, // Avrage price
+			"avgPrice": 0.49110000, // Average price
 			"fee": 0.00039288,  // Order transaction fee
 			"rpnl": 0E-8, // Realized Pnl
 			"tradeSide": 2, // Trade side

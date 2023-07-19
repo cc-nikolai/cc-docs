@@ -391,7 +391,7 @@ Get option open orders
 				"remainQty":0.5,// Unfilled Quantity
 				"fillQty": 0,// Filled Quantity
 				"price": 2095.6,// Price
-				"avgPrice": null,// Avrage price
+				"avgPrice": null,// Average price
 				"initMargin": 1047.8,// Initial Margin
 				"tradeSide": 1,// Trade side
 				"tradeType": 1,// Trade type
@@ -440,7 +440,7 @@ Get Option Order History
                 "qty": 1.00000000, // Order Quantity
                 "fillQty": 1.00000000, // Filled Quantity
                 "price": 0.49110000, // Order Price
-                "avgPrice": 0.49110000, // Avrage price
+                "avgPrice": 0.49110000, // Average price
                 "fee":0.22, // fee
                 "rpnl":0.22, // Realized PnL 
                 "tradeSide": 1, // Trade side

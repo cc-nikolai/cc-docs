@@ -102,6 +102,21 @@ Please refer to the following field abbreviations for data fields in the futures
 
 <!-- ## options -->
 
+## HeartBeat
+{
+    "action":"heartbeat"
+}
+
+```json
+Payload:
+
+{
+    "c":11,
+    "rc":1 // 1 Success
+}
+
+```
+
 ## K-line Data
 {
     "action":"subscribe",
