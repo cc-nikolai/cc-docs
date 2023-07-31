@@ -74,12 +74,21 @@ Please refer to the following field abbreviations for data fields in the futures
 | im | initial Margin |
 | oid | orderId |
 | si | trade side |
-| ty | order type |
+| ty | trade type |
 | uid | userId |
 | elp | estimated Liquidation Price |
 | mm | maintenance Margin |
 | upnl | Unrealized Pnl |
 | dt | dataType, websocket channels |
+| ct | createTime |
+| ro | reduceOnly |
+| tid | trade ID |
+| rq | remainQty, Unfilled Quantity |
+| mpr | match price |
+| mq | match quantity |
+| le | leverage |
+| it | isTaker |
+| cq | canceled quantity |
 
 <!-- ## futures -->
 
@@ -252,21 +261,126 @@ Payload:
 ```json
 Payload:
 
+Status: 0 NEW
 {
   "dt": 35,
   "c": 20,
   "d": {
-    "fq": "2", // filled quantity
-    "ap": "0.3435", // average price
-    "coid": "1676063763780026368", // client order id 
-    "os": "1", // order status
-    "oid": "1676063763800997888", // order id
-    "pr": "0.3435", // price
-    "s": "FTMUSD", // symbol
-    "si": "1", // order side
-    "ti": "1688439715857", // timestamp
-    "ty": "1", // order type 
-    "uid": "8095151726" // user id
+    "coid":1000200000, // Client order id
+    "oid": 1663004711982333952, // Order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "pr": "500", // Price
+    "si": 1,  // Trade side > si
+    "ty": 1,  // Trade type > ty
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  //Reduce only
+    "le": 3,  //  Leverage
+    "os": 0 //Status NEW
+  }
+}
+
+Status: 1 FILLED
+{
+  "dt": 35,
+  "c": 20,
+  "d": {
+    "coid":1000200000, // Client order id
+    "oid": 1663004711982333952, // Order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "fq": "1", // Filled Quantity(accumulated)
+    "rq": "0", // Unfilled Quantity
+    "pr": "500", // Order Price
+    "mpr": "499", // filled price in this trade
+    "mq": "0.5", // filled quantity in this trade
+    "ap": "0", // Average filled price(accumulated)
+    "si": 1,  // Trade side
+    "ty": 1,  // Trade type
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  //Reduce only
+    "le": 3,  //  Leverage
+    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "os": 1 // FILLED
+  }
+}
+
+Status: 2 PARTIALLY_FILLED
+{
+  "dt": 35,
+  "c": 20,
+  "d": {
+    "coid":1000200000, // Client order id  
+    "oid": 1663004711982333952, // Order id 
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "fq": "0.5", // Filled Quantity(accumulated)
+    "rq": "0.5", // Unfilled Quantity
+    "pr": "500", // Price
+    "mpr": "499", // filled price in this trade
+    "mq": "0.5", // filled quantity in this trade
+    "ap": "0", // Average filled price(accumulated)
+    "si": 1,  // Trade side
+    "ty": 1,  // Trade type
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  //Reduce only
+    "le": 3,  //  Leverage
+    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "os": 2 // PARTIALLY_FILLED
+  }
+}
+
+Status: 3 CANCELED
+{
+  "dt": 35,
+  "c": 20,
+  "d": {
+    "coid":1000200000, // Client order id
+    "oid": 1663004711982333952, // Order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "fq": "0.5", // Filled Quantity(accumulated)
+    "cq": "0.5", // Canceled Quantity
+    "pr": "500", // Price
+    "ap": "0", // Average filled price(accumulated)
+    "si": 1,  // Trade side
+    "ty": 1,  // Trade type
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  // Reduce only
+    "le": 3,  // Leverage
+    "os": 3 // CANCELED
+  }
+}
+
+Status: 6 INVALID
+{
+  "dt": 35,
+  "c": 20,
+  "d": {
+    "coid":1000200000, // Client order id
+    "oid": 1663004711982333952, // Order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "fq": "0.5", // Filled Quantity(accumulated)
+    "rq": "0.5", // Unfilled Quantity
+    "pr": "500", // Price
+    "ap": "0", // Average filled price(accumulated)
+    "si": 1,  // Trade side
+    "ty": 1,  // Trade type
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  // Reduce only
+    "le": 3,  // Leverage
+    "os": 6 // INVALID
   }
 }
 

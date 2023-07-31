@@ -95,9 +95,18 @@ Please refer to the following field abbreviations for data fields in the futures
 | im | initialMargin in PM |
 | dv | Value in dollar |
 | oid | orderId |
-| si | order side |
-| ty | order type |
+| si | trade side |
+| ty | trade type |
 | uid | userId |
+| ct | createTime |
+| ro | reduceOnly |
+| tid | trade ID |
+| rq | remainQty, Unfilled Quantity |
+| mpr | match price |
+| mq | match quantity |
+| le | leverage |
+| it | isTaker |
+| cq | canceled quantity |
 
 
 <!-- ## options -->
@@ -331,22 +340,123 @@ Payload:
 ```json
 Payload:
 
+Status: 0 NEW
 {
-    "dt": 11,
-    "c": 20,
-    "d": {
-        "fq": "1", // filled Qty
-        "ap": "505.3", // average price 
-        "coid": "1676058285310087168", // client order id 
-        "os": "1", // order status
-        "oid": "1676058285310087168", // order id
-        "pr": "505.3", // price 
-        "s": "ETHUSD-29SEP23-1500-C", // symbol 
-        "si": "1", // order side
-        "ti": "1688438464863", // timestamp
-        "ty": "1", // trade type
-        "uid": "8095151726" // user id
-    }
+  "dt": 11,
+  "c": 20,
+  "d": {
+    "coid":1000200000, // Client order id
+    "oid": 1663004711982333952, // Order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD",// Futures symbol name
+    "q": "1", // Order Quantity
+    "pr": "500", // Price
+    "si": 1,  // Trade side > si
+    "ty": 1,  // Trade type > ty
+    "ct": 1685326195118,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0,  //Reduce only
+    "le": 3,  //  Leverage
+    "os": 0 //Status NEW
+  }
+}
+
+Status: 1 FILLED
+{
+  "dt": 11,
+  "c": 20,
+  "d": {
+    "oid": 1665910350698258432,// Order ID
+    "coid": 123123123,// Client order id
+    "uid": "8095151726", // User id
+    "s": "BTCUSD-6JUN23-24000-C",// Option symbol name
+    "rq":"0.5",// Unfilled Quantity
+    "fq": "0",// Filled Quantity
+    "q": "0.5",// Order Quantity
+    "pr": "2095.6",// Price
+    "mpr": "499", // filled price in this trade
+    "mq": "0.5", // filled quantity in this trade
+    "ap": "2095.6",// Average price
+    "si": 1,// Trade side
+    "ty": 1,// Trade type
+    "ct": 1666667584739,// Time of the order created
+    "ts": 1685326195118,// Time of this event
+    "ro": 0, // Reduce only
+    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "os": 1 // FILLED
+  }
+}
+
+Status: 2 PARTIALLY_FILLED
+{
+  "dt": 11,
+  "c": 20,
+  "d": {
+	"oid": 1665910350698258432,// Order ID
+    "coid": 123123123,// Client order id
+	"uid": "8095151726", // User id
+    "s": "BTCUSD-6JUN23-24000-C",// Option symbol name
+    "rq":"0.5",// Unfilled Quantity
+    "fq": "0",// Filled Quantity(accumulated)
+	"q": "0.5",// Order Quantity
+    "pr": "2095.6",// Price
+	"mpr": "499", // filled price in this trade
+	"mq": "0.5", // filled quantity in this trade
+    "ap": "2095.6",// Average filled price(accumulated)
+    "si": 1,// Trade side
+    "ty": 1,// Trade type
+    "ct": 1666667584739,// Time of the order created
+	"ts": 1685326195118,// Time of this event
+    "ro": 0, // Reduce only
+	"it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+	"os": 2 // PARTIALLY_FILLED
+  }
+}
+
+Status: 3 CANCELED, 10 CANCEL_BY_EXERCISE
+{
+  "dt": 11,
+  "c": 20,
+  "d": {
+    "oid": 1665910350698258432,// Order ID
+    "coid": 123123123,// Client order id
+	"uid": "8095151726", // User id
+    "s": "BTCUSD-6JUN23-24000-C",// Option symbol name
+	"cq": "0.5", // Canceled Quantity
+    "fq": "0",// Filled Quantity(accumulated)
+	"q": "0.5",// Order Quantity
+    "pr": "2095.6",// Price
+    "ap": "2095.6",// Average filled price(accumulated)
+    "si": 1,// Trade side
+    "ty": 1,// Trade type
+    "ct": 1666667584739,// Time of the order created
+	"ts": 1685326195118,// Time of this event
+    "ro": 0, // Reduce only
+	"os": 3 // 3 CANCELED, 10 CANCEL_BY_EXERCISE
+  }
+}
+
+Status: 6 INVALID
+{
+  "dt": 11,
+  "c": 20,
+  "d": {
+    "oid": 1665910350698258432,// Order ID
+    "coid": 123123123,// Client order id
+	"uid": "8095151726", // User id
+    "s": "BTCUSD-6JUN23-24000-C",// Option symbol name
+    "rq":0.5,// Unfilled Quantity
+	"q": 0.5,// Order Quantity
+    "fq": 0,// Filled Quantity(accumulated)
+    "pr": 2095.6,// Price
+    "ap": 2095.6,// Average filled price(accumulated)
+    "si": 1,// Trade side
+    "ty": 1,// Trade type
+    "ct": 1666667584739,// Time of the order created
+	"ts": 1685326195118,// Time of this event
+    "ro": 0, // Reduce only
+	"os": 6 // INVALID
+  }
 }
 
 ```
