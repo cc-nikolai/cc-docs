@@ -1,8 +1,69 @@
 # Options WebSocket
 
+```python
+# Sample code 
+
+import hashlib
+import hmac
+import time
+import websocket
+import json
+import threading
+
+# API INFO
+api_key = "YOUR_API_KEY"
+api_sec = "YOUR_API_SECRET"
+
+def on_open(ws):
+    print("WebSocket connection opened.")
+    # Send a subscribe message after the connection opened.
+    ws.send(json.dumps({ "action":"subscribe", "dataType":"orderBook", "payload":{ "symbol":"BTCUSD-27MAY23-26000-C" } }))
+
+def on_close(ws):
+    print("WebSocket connection closed.")
+
+def on_error(ws, error):
+    print(f'WebSocket error: {error}')
+
+def on_message(ws, message):
+    data = json.loads(message)
+    print(data)
+
+def get_signed_header(ts):
+    verb='GET'
+    uri = '/users/self/verify'
+    auth = verb + uri + '?uuid=' + api_key + '&ts=' + str(ts)
+    signature = hmac.new(api_sec.encode('utf-8'), auth.encode('utf-8'), hashlib.sha256).hexdigest()
+    signature = signature.upper()
+    return signature
+    
+ts = int(time.time()*1000)
+sign = get_signed_header(ts)
+socket = 'wss://ws.coincall.com/options?code=10&uuid=' + api_key +'&ts='+ str(ts) +'&sign=' + sign + '&apiKey=' + api_key
+ws = websocket.WebSocketApp(socket, on_open=on_open, on_close=on_close, on_error=on_error, on_message=on_message)
+
+def run():
+    ws.run_forever()
+
+ws_thread = threading.Thread(target=run)
+ws_thread.start()
+
+while True:
+    # Wait for the WebSocket connection to be established
+    if ws.sock and ws.sock.connected:
+        # Send heartbeat
+        msg = {"action":"heartbeat"}
+        ws.send(json.dumps(msg))
+        time.sleep(3)
+    else:
+        # If the WebSocket connection is not established, wait 3 seconds
+        time.sleep(3)
+
+```
+
 * WSS interface for options: `wss://ws.coincall.com/options`
 
-  * Connection example: `wss://ws.coincall.com/options?code=10&uuid=65905c2be07f49e79ac26aca4b0b3988&ts=1687326076897&sign=CF58E8C7BE6C10EF7D8A65F3D0538F7D6C73182C6AFCA26D2CBE2318E085E494&apiKey=22582BD0CFF14C41EDBF1AB98506286D`
+  * Connection example: `wss://ws.coincall.com/options?code=10&uuid=65905c2be07f49e79ac26aca4b0b3988&ts=1687326076897&sign=CF58E8C7BE6C10EF7D8A65F3D0538F7D6C73182C6AFCA26D2CBE2318E085E494&apiKey=7PvIEreC1g5Kd17S7Ei1mEd3ppyuoixhqlzqM0Rqfhw=`
 
 **Value of Connection Parameters**
 
