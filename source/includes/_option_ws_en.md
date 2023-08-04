@@ -36,7 +36,7 @@ def get_signed_header(ts):
     signature = hmac.new(api_sec.encode('utf-8'), auth.encode('utf-8'), hashlib.sha256).hexdigest()
     signature = signature.upper()
     return signature
-    
+
 ts = int(time.time()*1000)
 sign = get_signed_header(ts)
 socket = 'wss://ws.coincall.com/options?code=10&uuid=' + api_key +'&ts='+ str(ts) +'&sign=' + sign + '&apiKey=' + api_key
@@ -84,17 +84,17 @@ First concatenate `method + uri + ?uuid=your_api_key&ts=your_timestamp` (where `
 `uri` : always `/users/self/verify`
 
 <aside class="notice">
-   <p>If there’s a network problem, the system will automatically disable the connection.</p>
+    <p>If there’s a network problem, the system will automatically disable the connection.</p>
 
-    <p>The connection will break automatically if the subscription is not established or data has not been pushed for more than 300 seconds.</p>
+    <p>The connection will break automatically if the subscription is not established or data has not been pushed for more than 30 seconds.</p>
 
     <p>To keep the connection stable:</p>
 
-    <p>1. Set a timer of N seconds whenever a response message is received, where N is less than 300.</p>
+    <p>1. Set a timer of N seconds whenever a response message is received, where N is less than 30.</p>
 
-    <p>2. If the timer is triggered, which means that no new message is received within N seconds, send the String 'ping'.</p>
+    <p>2. If the timer is triggered, which means that no new message is received within N seconds, send the HeartBeat action.</p>
 
-    <p>3. Expect a 'pong' as a response. If the response message is not received within N seconds, please raise an error or reconnect.</p>
+    <p>3. Expect 'rc':1 as a response. If the response message is not received within N seconds, please raise an error or reconnect.</p>
 </aside>
 
 ## Data Abbreviations
