@@ -1,4 +1,4 @@
-# Futures Endpoints
+# Futures Endpoint
 
 ## Get Symbol Information
 
@@ -358,6 +358,56 @@ Name | Type | Value | Required | Note
 page | number | 1 | false | Page number, default is 1
 pageSize | number | 20 | false | Number of items per page, default is 20
 symbol | string | BTCUSD | false | Filter data for a specific symbol
+
+## Get Order Info(SIGNED)
+
+Get an order information by orderId or clientOrderId
+
+> Response:
+
+```json
+{
+	"code": 0, // Status code
+	"msg": "success", //Message
+	"i18nArgs": null,
+	"data":{
+		{
+			"clientOrderId":1000200000, // Client order id
+			"orderId": 1663004711982333952, // Order id
+			"symbol": "BTCUSD",// Futures symbol name
+			"displayName": "BTC-PERP", // Futures display name
+			"qty": 1.00000000, // Order Quantity
+			"remainQty": 1.00000000, // Unfilled Quantity
+			"fillQty": 0E-8, // Filled Quantity
+			"price": 500.00000000, // Price
+			"avgPrice": 0E-8, // Average price
+			"tradeSide": 1,  // Trade side
+			"tradeType": 1,  // Trade type
+			"createTime": 1685326195118,// Time of the order created
+			"reduceOnly": 0,  //Reduce only
+			"leverage": 3,  //  Leverage
+			"fee": 0, // transaction fee(accumulated)
+			"updateTime": 1685326195118,
+			"state": 0 // order status
+		}
+	}
+}
+```
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/order/singleQuery/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+orderId | number | 111 | false | query string
+clientOrderId | number | 123123123 | false | client order id
+
+**Notice**:
+
+orderId and clientOrderId, one of the two parameters must be entered.
 
 ## Get Order Details(SIGNED)
 

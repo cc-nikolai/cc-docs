@@ -368,7 +368,7 @@ version | string | v1 | true | version, only v1 for now
 symbol | string | BTCUSD | true | Option index symbol name
 
 
-## Get Open orders(SIGNED)
+## Get Open Orders(SIGNED)
 
 Get option open orders
 
@@ -419,6 +419,54 @@ page | number | 1 | false | Page number, default is 1
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
 currency | string | BTC | false | Filter data for a specific currency
 
+## Get Order Info(SIGNED)
+
+Get an order information by orderId or clientOrderId
+
+> Response:
+
+```json
+{
+	"code": 0, // Status code
+	"msg": "success", //Message
+	"i18nArgs": null,
+	"data":{
+		{
+			"orderId": 1665910350698258432,// Order ID
+			"clientOrderId": 123123123,// Client order id
+			"symbol": "BTCUSD-6JUN23-24000-C",// Option symbol name
+			"displayName":"BTC-6JUN23-24000-C",// Option display name
+			"qty": 0.5,// Order Quantity
+			"remainQty":0.5,// Unfilled Quantity
+			"fillQty": 0,// Filled Quantity
+			"price": 2095.6,// Price
+			"avgPrice": null,// Average price
+			"tradeSide": 1,// Trade side
+			"tradeType": 1,// Trade type
+			"createTime": 1666667584739,// Time of the order created
+			"reduceOnly": 0, // Reduce only
+			"fee": 0, // transaction fee(accumulated)
+			"updateTime": 1685326195118,
+			"state": 0 // order status
+		}
+	}
+}
+```
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/order/singleQuery/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+orderId | number | 111 | false | query string
+clientOrderId | number | 123123123 | false | client order id
+
+**Notice**:
+
+orderId and clientOrderId, one of the two parameters must be entered.
 
 ## Get Order Details(SIGNED)
 
