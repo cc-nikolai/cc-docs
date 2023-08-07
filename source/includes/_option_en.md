@@ -1,6 +1,6 @@
 # Options Endpoint
 
-## Get Option Chain
+## Get Option Chain(SIGNED)
 
 Get option chain
 
@@ -92,7 +92,7 @@ Name | Type | Value | Required | Note
 endTime | long | 1666771200000 | true | Expiration time(timestamp)
 index | string | BTCUSD | true | Underlying symbol
 
-## Get Option Details
+## Get Option Details(SIGNED)
 
 Get option details
 
@@ -150,7 +150,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD-24MAY22-48000-P | true | option symbol name
 
-## Get OrderBook
+## Get OrderBook(SIGNED)
 
 Get option order book for 100 depth
 
@@ -189,7 +189,7 @@ Name | Type | Value | Required | Note
 symbol | string | BTCUSD-26OCT22-15000-C | true | Option Name 
 strike | number | 5000 | false | Strike price 
 
-## Get Last Trade
+## Get Last Trade(SIGNED)
 
 Get option last trade
 

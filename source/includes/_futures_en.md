@@ -1,6 +1,6 @@
 # Futures Endpoint
 
-## Get Symbol Information
+## Get Symbol Information(SIGNED)
 
 Get futures symbol
 
@@ -45,7 +45,7 @@ Get futures symbol
 
 Null
 
-## Get OrderBook 
+## Get OrderBook(SIGNED)
 
  Get futures order book for 100 depth
 
@@ -81,7 +81,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 
-## Get Last Trade
+## Get Last Trade(SIGNED)
 
 Get futures last trade
 
@@ -113,7 +113,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 
-## Get leverage
+## Get leverage(SIGNED)
 
 Get current futrues leverage
 
@@ -142,7 +142,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 
-## Set Leverage
+## Set Leverage(SIGNED)
 
  Set futures leverage
 
