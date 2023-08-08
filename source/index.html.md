@@ -19,6 +19,7 @@ includes:
   - futures_en
   - option_ws_en
   - futures_ws_en
+  - referral_en
   - errors_en
 
 search: false
