@@ -239,7 +239,7 @@ Null
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-clientOrderId | number | 123123123 | false | client order id
+clientOrderId | long | 123123123 | false | client order id
 symbol | string | BTCUSD | true | Futures Symbol 
 price | number | 19000.01 | false | Price, required for limit orders
 qty | number | 0.5 | true | Quantity 

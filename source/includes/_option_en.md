@@ -83,7 +83,7 @@ Get option chain
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/get/v1/{}`
+`GET https://api.coincall.com/open/option/get/v1/{index}?{endTime}`
 
 **Parameter**
 
@@ -299,7 +299,7 @@ Place an option order
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-clientOrderId | number | 123123123 | false | client order id
+clientOrderId | long | 123123123 | false | client order id
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
 tradeType | number | 1 | true | Trade Type, 1 LIMIT 2 MARKET 3 POST_ONLY
 symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
@@ -483,6 +483,7 @@ Get Option Order History
         "list":[
             {
                 "orderId": 1665650442392174592, // Order ID
+				"clientOrderId": 1665650442392174592,// Client order id
                 "symbol": "BTCUSD-25NOV22-8000-C", // Option symbol name
                 "displayName": "BTC-25NOV22-8000-C", // Display name
                 "qty": 1.00000000, // Order Quantity
