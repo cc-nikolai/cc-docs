@@ -358,7 +358,7 @@ Cancel option orders by symbol
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/cancelOpenOrders`
+`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{symbol}`
 
 **Parameter**
 

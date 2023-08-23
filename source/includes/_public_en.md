@@ -104,8 +104,9 @@ Get real-time funding rate
   "data": [
     {
       "symbol": "BTCUSD",// Symbol
-      "rate": "-0.00500000",// Margin rate
-      "contractId": "1"// Contract ID
+      "rate": "-0.00500000",// Funding rate
+      "contractId": "1",// Contract ID
+      "ts": 1687250525704 // Timestamp
     }
   ]
 }
@@ -119,4 +120,4 @@ Get real-time funding rate
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSDT,ETHUSDT | false | Contract name (if not passed, all will be taken. Multiple can be taken separated by commas)
+symbol | string | BTCUSD,ETHUSD | false | Contract name (if not passed, all will be taken. Multiple can be taken separated by commas)

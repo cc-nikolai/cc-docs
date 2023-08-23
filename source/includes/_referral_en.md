@@ -42,4 +42,6 @@ page | integer | 1,2,3 | false |
 
 **Notice**
 
-`subAgentId` UID of the sub-agent; if it is not passed, it will return all invitees, and if it is passed, it will return the invitees of the user and the user itself
+`subAgentId` UID of the sub-agent; if it is not passed, it will return all invitees, and if it is passed, it will return the invitees of the user and the user itself. 
+
+*This parameter only used for sub agent, please make sure your account type is a sub agent for coincall, or you will get an error code:10004.*

@@ -297,7 +297,7 @@ Cancel futures orders by symbol
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/futures/order/cancelOpenOrders`
+`GET https://api.coincall.com/open/futures/order/cancelOpenOrders/{version}/{symbol}`
 
 **Parameter**
 
