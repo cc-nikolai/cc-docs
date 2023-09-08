@@ -443,7 +443,7 @@ Status: 1 FILLED
     "ct": 1666667584739,// Time of the order created
     "ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
-    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 1 // FILLED
   }
 }
@@ -469,7 +469,7 @@ Status: 2 PARTIALLY_FILLED
     "ct": 1666667584739,// Time of the order created
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
-	"it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+	"it": 0, // Taker or Maker, 1 TRUE 0 FALSE
 	"os": 2 // PARTIALLY_FILLED
   }
 }

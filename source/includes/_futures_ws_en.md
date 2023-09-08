@@ -365,7 +365,7 @@ Status: 1 FILLED
     "ts": 1685326195118,// Time of this event
     "ro": 0,  //Reduce only
     "le": 3,  //  Leverage
-    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 1 // FILLED
   }
 }
@@ -392,7 +392,7 @@ Status: 2 PARTIALLY_FILLED
     "ts": 1685326195118,// Time of this event
     "ro": 0,  //Reduce only
     "le": 3,  //  Leverage
-    "it": 0, // Taker or Maker, 0 TRUE 1 FALSE
+    "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 2 // PARTIALLY_FILLED
   }
 }
