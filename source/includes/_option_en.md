@@ -1,5 +1,63 @@
 # Options Endpoint
 
+## Get Option Instruments(SIGNED)
+
+Get all option instruments information.
+
+> Response:
+
+```json
+{
+	"code": 0,
+	"msg": "Success",
+	"i18nArgs": null,
+	"data": [{
+		"baseCurrency": "BTC",
+		"expirationTimestamp": 1694678400000,
+		"strike": 22500.0,
+		"symbolName": "BTCUSD-14SEP23-22500-C",
+		"isActive": true,
+		"minQty": 0.01,
+		"tickSize": 0.1
+	}, {
+		"baseCurrency": "BTC",
+		"expirationTimestamp": 1694678400000,
+		"strike": 22500.0,
+		"symbolName": "BTCUSD-14SEP23-22500-P",
+		"isActive": true,
+		"minQty": 0.01,
+		"tickSize": 0.1
+	}, {
+		"baseCurrency": "BTC",
+		"expirationTimestamp": 1694678400000,
+		"strike": 23000.0,
+		"symbolName": "BTCUSD-14SEP23-23000-C",
+		"isActive": true,
+		"minQty": 0.01,
+		"tickSize": 0.1
+	}, {
+		"baseCurrency": "BTC",
+		"expirationTimestamp": 1694678400000,
+		"strike": 23000.0,
+		"symbolName": "BTCUSD-14SEP23-23000-P",
+		"isActive": true,
+		"minQty": 0.01,
+		"tickSize": 0.1
+	}]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/getInstruments/{}`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+baseCurrency | string | BTC | true | option base currency
+
 ## Get Option Chain(SIGNED)
 
 Get option chain
