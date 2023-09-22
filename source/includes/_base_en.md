@@ -41,6 +41,12 @@ Cancel Order | 30 / 2s | per User ID
 
 ## Authentication
 
+### API Resources
+
+If you have any API related issues, please contact `api@coincall.com`.
+
+* [Python SDK](https://github.com/Coincall-exchange/python-coincall)
+
 ### Generating API Keys
 
 [Create an API Key](https://www.coincall.com/account/apikeys) on the website before signing any requests. After creating an APIKey, keep the following information safe:

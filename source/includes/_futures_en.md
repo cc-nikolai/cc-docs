@@ -450,7 +450,7 @@ Get futures order history
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/futures/order/history/v1/{}`
+`GET https://api.coincall.com/open/futures/order/history/v1`
 
 **Parameter**
 
@@ -500,7 +500,7 @@ Get futrues transaction history
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/futures/trade/history/v1/{}`
+`GET https://api.coincall.com/open/futures/trade/history/v1`
 
 **Parameter**
 

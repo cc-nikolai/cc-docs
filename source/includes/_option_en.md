@@ -141,7 +141,7 @@ Get option chain
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/get/v1/{index}?{endTime}`
+`GET https://api.coincall.com/open/option/get/v1/{index}?endTime={endTime}`
 
 **Parameter**
 
@@ -245,7 +245,6 @@ Get option order book for 100 depth
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD-26OCT22-15000-C | true | Option Name 
-strike | number | 5000 | false | Strike price 
 
 ## Get Last Trade(SIGNED)
 
@@ -567,7 +566,7 @@ Get Option Order History
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/history/v1/{}`
+`GET https://api.coincall.com/open/option/order/history/v1`
 
 **Parameter**
 
@@ -621,7 +620,7 @@ Get option transaction history
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/trade/history/v1/{}`
+`GET https://api.coincall.com/open/option/trade/history/v1`
 
 **Parameter**
 
@@ -629,5 +628,5 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
 fromId | number | 123123123 | false | Minimum tradeId, can be obtained from the result field of the previous page when paging
-startTime | number| 1686308840388 | true |  Start time of the history
-endTime | number | 1686308840388 | true | End time of the history
+startTime | number| 1686308840388 | false |  Start time of the history
+endTime | number | 1686308840388 | false | End time of the history
