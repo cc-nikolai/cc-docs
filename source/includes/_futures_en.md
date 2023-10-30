@@ -81,6 +81,54 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 
+## Kline(SIGNED)
+
+Query for historical klines (also known as candles/candlesticks)
+
+> Response:
+
+```json
+{
+	"code": 0,
+	"msg": "Success",
+	"i18nArgs": null,
+	"data": [{
+			"open": 27437.30000000, // Open price
+			"close": 27435.10000000, // Close price
+			"low": 27435.10000000, // Lowest price
+			"high": 27437.30000000, // Highest price
+			"volume": 14.24300000, // Trade volume
+			"time": 1693526400000, // Start time of this line (ms)
+			"period": "D1" // period
+		},
+		{
+			"open": 27435.10000000,
+			"close": 27434.90000000,
+			"low": 27434.90000000,
+			"high": 27435.10000000,
+			"volume": 0.00300000,
+			"time": 1693612800000,
+			"period": "D1"
+		}
+	]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/market/kline/history/v2/{symbol}`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | Symbol name
+period | string | D1 | true | granularity of K-line
+start | integer | 1697760509000 | true | Start time(ms)
+end | integer | 1697771549000 | true | End time(ms)
+limit | integer | 1 | true | Please make sure limit=1.
+
 ## Get Last Trade(SIGNED)
 
 Get futures last trade
