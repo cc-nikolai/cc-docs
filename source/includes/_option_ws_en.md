@@ -371,23 +371,32 @@ Payload:
 
 ```json
 Payload:
-
 {
-    "dt": 7,
-    "c": 20,
-    "d": {
-        "mm": 26223.65036916, // pmMmAmount maintenanceMargin in PM
-        "ab": 100028273.92018174, // available balance
-        "dv": 100176235.63450066, // Value in dollar
-        "im": 165648.38520366, // pmImAmount initialMargin in PM
-        "uid": 8095892901, // userid 
-        "e": 100176235.63450066, // equityAmount 
-        "mb": 100193971.94053756, // marginBalance
-        "delta": "0",
-        "btcv": 3231.69996885, // btc value
-        "wb": 100028273.92018174, // canWithdrawPmAmount 
-        "upnl": 109575.94802862 // unrealizedAmount 
-    }
+	"dt": 7,
+	"c": 20,
+	"d": {
+		"mm": 3.18161452, // pmMmAmount maintenanceMargin in PM
+		"uid": 8095151726, // UID
+		"ab": 49999781762.68412425, // available balance
+		"dv": 49999935154.66088082, // Value in dollar
+		"assets": [{
+			"availableBalance": 138.00000000,
+			"coin": "XRP"
+		}, {
+			"availableBalance": 3999989.00000000,
+			"coin": "TRX"
+		}, {
+			"availableBalance": 49999781762.68412425,
+			"coin": "USDT"
+		}],
+		"im": 1762.52258038, // pmImAmount initialMargin in PM
+		"e": 49999935154.66088082, // equityAmount 
+		"mb": 49999783525.20670463, // marginBalance
+		"delta": "0",
+		"btcv": 1448491.54875762, // btc value
+		"wb": 49999781762.68412425, // canWithdrawPmAmount 
+		"upnl": 49325.72664219 // unrealizedAmount 
+	}
 }
 
 ```
