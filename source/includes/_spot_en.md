@@ -175,7 +175,7 @@ Query for the latest price snapshot, best bid/ask price, and trading volume in t
 		"h": 0.5605, // The highest price in the last 24 hours
 		"l": 0.53, // The lowest price in the last 24 hours
 		"c": 0.5479, // Close price
-		"a": 82023.0, // Amount
+		"a": 82023.0, // Volume in base coin for 24h
 		"v": 44828.4405, // Volume for 24h
 		"i": 0.55363524, // indexprice
 		"cp": 0.017900000000000027, // Price change in value

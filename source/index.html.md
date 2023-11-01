@@ -17,6 +17,7 @@ includes:
   - account_en
   - option_en
   - futures_en
+  - spot_en
   - option_ws_en
   - futures_ws_en
   - referral_en
