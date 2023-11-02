@@ -1,4 +1,4 @@
-# Futures WebSocket
+# Spot WebSocket
 
 ```python
 # Sample code 
