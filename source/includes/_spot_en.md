@@ -231,6 +231,7 @@ price | string | 0.53 | false | Order price.
 
 
 Type | Additional mandatory parameters
+---- | ----
 LIMIT, POST_ONLY | qty, price
 MARKET | qty
 
@@ -252,7 +253,7 @@ Cancel an open order.
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/spot/market/cancel/v1`
+`POST https://api.coincall.com/open/trade/spot/cancel/v1`
 
 
 **Parameter**
@@ -427,7 +428,7 @@ Get all orders; active, canceled, or filled.
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | TRXUSDT | false | Symbol name
-limit | integer | false | Limit for data size per page. [1, 1000]. Default: 500
+limit | integer | 1 | false | Limit for data size per page. [1, 1000]. Default: 500
 startTime | integer | 1698202825192 | false | The start timestamp (ms)
 endTime | integer | 1698202825192 | false | The end timestamp (ms)
 
@@ -474,7 +475,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | TRXUSDT | false | Symbol name
 orderId | number | 42953967928017012 | false | Order ID
-limit | integer | false | Limit for data size per page. [1, 1000]. Default: 500
+limit | integer | 1 | false | Limit for data size per page. [1, 1000]. Default: 500
 startTime | integer | 1698202825192 | false | The start timestamp (ms)
 endTime | integer | 1698202825192 | false | The end timestamp (ms)
 

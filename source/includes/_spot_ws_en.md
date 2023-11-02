@@ -17,7 +17,10 @@ api_sec = "YOUR_API_SECRET"
 def on_open(ws):
     print("WebSocket connection opened.")
     # Send a subscribe message after the connection opened.
-    ws.send(json.dumps({ "action":"subscribe", "dataType":"spotPrice", "payload":{ "symbol":"BTCUSD" } }))
+    # public topic
+    ws.send(json.dumps({ "sub":"market.XRPUSDT.kline.1min", "id":"1698208992286"}))
+    # private topic
+    ws.send(json.dumps({ "sub":"order", "id":"1698208992286"}))
 
 def on_close(ws):
     print("WebSocket connection closed.")
@@ -39,7 +42,10 @@ def get_signed_header(ts):
     
 ts = int(time.time()*1000)
 sign = get_signed_header(ts)
-socket = 'wss://ws.coincall.com/futures?code=10&uuid=' + api_key +'&ts='+ str(ts) +'&sign=' + sign + '&apiKey=' + api_key
+# public spot
+# socket = 'wss://ws.coincall.com/spot/ws'
+# private spot
+socket = 'wss://ws.coincall.com/spot/ws/private?ts='+ str(ts) +'&sign=' + sign + '&apiKey=' + api_key
 ws = websocket.WebSocketApp(socket, on_open=on_open, on_close=on_close, on_error=on_error, on_message=on_message)
 
 def run():
@@ -65,14 +71,12 @@ while True:
 
   * Public connection example: `wss://ws.coincall.com/spot/ws`
 
-  * Private connection example: `wss://ws.coincall.com/futures?code=10&uuid=65905c2be07f49e79ac26aca4b0b3988&ts=1687326076897&sign=CF58E8C7BE6C10EF7D8A65F3D0538F7D6C73182C6AFCA26D2CBE2318E085E494&apiKey=7PvIEreC1g5Kd17S7Ei1mEd3ppyuoixhqlzqM0Rqfhw=`
+  * Private connection example: `wss://ws.coincall.com/spot/ws/private?ts=1687326076897&sign=CF58E8C7BE6C10EF7D8A65F3D0538F7D6C73182C6AFCA26D2CBE2318E085E494&apiKey=7PvIEreC1g5Kd17S7Ei1mEd3ppyuoixhqlzqM0Rqfhw=`
 
 **Value of Private Connection Parameters**
 
 Name | Required | Note |
 --- | -------- | ---- |
-code | true | 10, build connection
-uuid | false | Custom id by user
 ts | true | Timestamp, 1687326076897
 sign | true | Signature
 apiKey | true | your api key
@@ -114,7 +118,7 @@ Payload:
 
 ```
 
-## Orderbook
+## Public Orderbook
 * Once you have subscribed successfully, you will receive a snapshot.
 * The WebSocket will keep pushing delta messages every time the orderbook changes. If you receive a new snapshot message, you will have to reset your local orderbook.
 
@@ -233,7 +237,7 @@ Payload:
 
 ```
 
-## Kline/Candlestick Streams
+## Public Kline/Candlestick Streams
 {
   "sub": "market.$symbol.kline.$interval",
   "id": "$timestamp"
@@ -274,7 +278,7 @@ Payload:
 
 ```
 
-## Symbol Ticker Streams
+## Public Symbol Ticker Streams
 
 Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
 
@@ -301,7 +305,7 @@ Payload:
 
 ```
 
-## Symbol 24Ticker Streams
+## Public Symbol 24Ticker Streams
 
 {
   "sub": "market.overviewv2",
@@ -328,17 +332,52 @@ Payload:
 			"v": 145298.5662, // Volume in quote coin
 			"r": 0.01706733270891875, // Price change in value
 			"cp": 0.0016400000000000026, // // Price change in percentage
-			"i": 0.09783096 // Index price
+			"i": 0.09783096 // Index price.
 		}
 	}
 }
 
 ```
 
-## Orders
+## Public Symbol 24Ticker Streams by a symbol
+
 {
-"action":"subscribe",
-"dataType":"order"
+  "sub": "market.$symbol.overviewv2",
+  "id": "$timestamp"
+}
+
+```json
+Payload:
+
+{
+	"ch": "market.TRXUSDT.overviewv2",
+	"status": "ok",
+	"ts": 1698826877951,
+	"tick": {
+		"TRXUSDT": {
+			"s": "TRXUSDT", // Symbol name
+			"base": "TRX", // Base coin
+			"quote": "USDT", // Quote coin
+			"o": 0.09609, // Open price
+			"h": 0.0982, // Highest price
+			"l": 0.09506, // Lowest price
+			"c": 0.09773, // Close price
+			"a": 1502146.0, // Volume in base coin
+			"v": 145298.5662, // Volume in quote coin
+			"r": 0.01706733270891875, // Price change in value
+			"cp": 0.0016400000000000026, // // Price change in percentage
+			"i": 0.09783096 // Index price.
+		}
+	}
+}
+
+```
+
+## Private Orders
+
+{
+  "sub": "order",
+  "id": "$timestamp"
 }
 
 ```json
@@ -346,153 +385,93 @@ Payload:
 
 Status: 0 NEW
 {
-  "dt": 35,
-  "c": 20,
-  "d": {
-    "coid":1000200000, // Client order id
-    "oid": 1663004711982333952, // Order id
-    "uid": "8095151726", // User id
-    "s": "BTCUSD",// Futures symbol name
-    "q": "1", // Order Quantity
-    "pr": "500", // Price
-    "si": 1,  // Trade side > si
-    "ty": 1,  // Trade type > ty
-    "ct": 1685326195118,// Time of the order created
-    "ts": 1685326195118,// Time of this event
-    "ro": 0,  //Reduce only
-    "le": 3,  //  Leverage
-    "os": 0 //Status NEW
-  }
+	"ch": "order",
+	"ts": 1698893249297,
+	"status": "ok",
+	"tick": {
+		"orderId": 66362398685069333,
+		"clientOrderId": "66362398685069333",
+		"symbol": "XRPUSDT",
+		"price": "0.594",
+		"qty": "1",
+		"tradeSide": "buy",
+		"tradeType": 1,
+		"status": 0,
+		"createTime": 1698893249252
+	}
 }
 
 Status: 1 FILLED
 {
-  "dt": 35,
-  "c": 20,
-  "d": {
-    "coid":1000200000, // Client order id
-    "oid": 1663004711982333952, // Order id
-    "uid": "8095151726", // User id
-    "s": "BTCUSD",// Futures symbol name
-    "q": "1", // Order Quantity
-    "fq": "1", // Filled Quantity(accumulated)
-    "rq": "0", // Unfilled Quantity
-    "pr": "500", // Order Price
-    "mpr": "499", // filled price in this trade
-    "mq": "0.5", // filled quantity in this trade
-    "ap": "0", // Average filled price(accumulated)
-    "si": 1,  // Trade side
-    "ty": 1,  // Trade type
-    "ct": 1685326195118,// Time of the order created
-    "ts": 1685326195118,// Time of this event
-    "ro": 0,  //Reduce only
-    "le": 3,  //  Leverage
-    "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
-    "os": 1 // FILLED
-  }
+	"ch": "order",
+	"ts": 1698895342017,
+	"status": "ok",
+	"tick": {
+		"orderId": 66362398685069357,
+		"clientOrderId": "66362398685069357",
+		"symbol": "XRPUSDT",
+		"price": "0.6243",
+		"qty": "100",
+		"tradeSide": "buy",
+		"status": 1,
+		"avgPrice": "0.60920100",
+		"remainQty": "0",
+		"filledQty": "100",
+		"createTime": 1698895341979,
+		"matchTime": 1698895342004,
+		"tradeId": "726474966362398685069357",
+		"isTaker": 1,
+		"matchPrice": "0.60920100",
+		"matchQty": "100",
+		"tradeType": 2
+	}
 }
 
 Status: 2 PARTIALLY_FILLED
 {
-  "dt": 35,
-  "c": 20,
-  "d": {
-    "coid":1000200000, // Client order id  
-    "oid": 1663004711982333952, // Order id 
-    "uid": "8095151726", // User id
-    "s": "BTCUSD",// Futures symbol name
-    "q": "1", // Order Quantity
-    "fq": "0.5", // Filled Quantity(accumulated)
-    "rq": "0.5", // Unfilled Quantity
-    "pr": "500", // Price
-    "mpr": "499", // filled price in this trade
-    "mq": "0.5", // filled quantity in this trade
-    "ap": "0", // Average filled price(accumulated)
-    "si": 1,  // Trade side
-    "ty": 1,  // Trade type
-    "ct": 1685326195118,// Time of the order created
-    "ts": 1685326195118,// Time of this event
-    "ro": 0,  //Reduce only
-    "le": 3,  //  Leverage
-    "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
-    "os": 2 // PARTIALLY_FILLED
-  }
+	"ch": "order",
+	"ts": 1698899289854,
+	"status": "ok",
+	"tick": {
+		"orderId": 66362398685069360,
+		"clientOrderId": "66362398685069360",
+		"symbol": "XRPUSDT",
+		"price": "0.6",
+		"qty": "10",
+		"tradeSide": "buy",
+		"status": 2,
+		"avgPrice": "0.60000000",
+		"remainQty": "9",
+		"filledQty": "1",
+		"createTime": 1698899237116,
+		"matchTime": 1698899289843,
+		"tradeId": "726475366362398685069360",
+		"isTaker": 0,
+		"matchPrice": "0.6",
+		"matchQty": "1",
+		"tradeType": 1
+	}
 }
 
 Status: 3 CANCELED
 {
-  "dt": 35,
-  "c": 20,
-  "d": {
-    "coid":1000200000, // Client order id
-    "oid": 1663004711982333952, // Order id
-    "uid": "8095151726", // User id
-    "s": "BTCUSD",// Futures symbol name
-    "q": "1", // Order Quantity
-    "fq": "0.5", // Filled Quantity(accumulated)
-    "cq": "0.5", // Canceled Quantity
-    "pr": "500", // Price
-    "ap": "0", // Average filled price(accumulated)
-    "si": 1,  // Trade side
-    "ty": 1,  // Trade type
-    "ct": 1685326195118,// Time of the order created
-    "ts": 1685326195118,// Time of this event
-    "ro": 0,  // Reduce only
-    "le": 3,  // Leverage
-    "os": 3 // CANCELED
-  }
-}
-
-Status: 6 INVALID
-{
-  "dt": 35,
-  "c": 20,
-  "d": {
-    "coid":1000200000, // Client order id
-    "oid": 1663004711982333952, // Order id
-    "uid": "8095151726", // User id
-    "s": "BTCUSD",// Futures symbol name
-    "q": "1", // Order Quantity
-    "fq": "0.5", // Filled Quantity(accumulated)
-    "rq": "0.5", // Unfilled Quantity
-    "pr": "500", // Price
-    "ap": "0", // Average filled price(accumulated)
-    "si": 1,  // Trade side
-    "ty": 1,  // Trade type
-    "ct": 1685326195118,// Time of the order created
-    "ts": 1685326195118,// Time of this event
-    "ro": 0,  // Reduce only
-    "le": 3,  // Leverage
-    "os": 6 // INVALID
-  }
-}
-
-```
-
-## Positions
-{
-    "action":"subscribe",
-    "dataType":"position"
-}
-
-```json
-Payload:
-
-{
-  "dt": 36,
-  "c": 20,
-  "d": {
-    "q": "4", // filled quantity
-    "ap": "0.3435", // average price
-    "elp": "-20963.68918261", // Elp estimated Liquidation Price
-    "im": "0.458", // initMargin
-    "mm": "0.04122", // maintMargin 
-    "mp": "0.3435", // mark price 
-    "s": "FTMUSD", // symbol 
-    "si": "1", // order side
-    "uid": "8095151726", // user id
-    "upnl": "0" // Unrealized Pnl
-  }
+	"ch": "order",
+	"ts": 1698893719826,
+	"status": "ok",
+	"tick": {
+		"orderId": 66362398685069333,
+		"clientOrderId": "66362398685069333",
+		"symbol": "XRPUSDT",
+		"price": "0.594",
+		"qty": "1",
+		"tradeSide": "buy",
+		"status": 3,
+		"avgPrice": "0",
+		"filledQty": "0",
+		"createTime": 1698893249252,
+		"canceledQty": "1",
+		"tradeType": 1
+	}
 }
 
 ```
