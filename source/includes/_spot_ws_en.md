@@ -212,7 +212,7 @@ Payload:
 
 ```
 
-## Trade Streams
+## Public Trade Streams
 {
 	"sub": "market.$symbol.trade.detail",
 	"id": "$timestamp"
