@@ -121,3 +121,100 @@ Get real-time funding rate
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD,ETHUSD | false | Contract name (if not passed, all will be taken. Multiple can be taken separated by commas)
+
+## Set Countdown
+
+Set countdown time, only opened for MM.
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "i18nArgs": null,
+  "data": true
+}
+```
+
+**HTTP Request**
+
+`POST https://api.coincall.com//open/public/countdown/cancel/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | Contract name
+type | integer | 1 | true | Type of trade, 1:options, 2:futures, 3:spot
+countdownTime | integer | 120000 | true | countdown time(ms)
+
+## Get Countdown Settings
+
+Get Countdown Settings, only opened for MM.
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "i18nArgs": null,
+  "data": [
+		{
+			//"status": 1,      // Status: 0:Disconnected, 1:effect. Only return status=1 
+			"type": 1,                      
+		  "symbol": "BTCUSD",
+		  "countdownTime": 120000  
+		},
+		{
+			//"status": 0,          
+			"type": 2,                      
+		  "symbol": "BTCUSD",
+		  "countdownTime": 100000  
+		},
+		{
+			//"status": 0, 
+			"type": 3,                      
+		  "symbol": "TRXUSDT",
+		  "countdownTime": 30000  
+		},
+	]
+}
+```
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/public/countdown/cancel/get/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+type | integer | 1 | true | Type of trade, 1:options, 2:futures, 3:spot
+
+## Reset Countdown Settings
+
+Reset Countdown Settings, only opened for MM.
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "i18nArgs": null,
+  "data": ["BTCUSD","ETHUSD"]     // Symbol which was set successfully
+}
+```
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/public/countdown/cancel/heartbeat/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | Contract name
+type | integer | 1 | true | Type of trade, 1:options, 2:futures, 3:spot
