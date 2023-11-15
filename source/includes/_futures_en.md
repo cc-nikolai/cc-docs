@@ -296,7 +296,9 @@ tradeType | number | 1 | true | Trade Type, 1 LIMIT 2 MARKET 3 POST_ONLY
 timeInForce | string | GTC | false | IOC, FOK. default: GTC
 
 <!-- reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false -->
+
 *Time in force (timeInForce):*
+
 Name | Note
 ---- | ----
 GTC  | Good Till Cancel
