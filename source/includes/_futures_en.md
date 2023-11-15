@@ -393,7 +393,8 @@ Get open orders
                 "reduceOnly": 0,  //Reduce only
                 "leverage": 3,  //  Leverage
                 "expression": null,  // Conditional Expression (GE -- Greater than or equal to, LE -- Less than or equal to)
-                "triggerPrice": null  // Trigger Price
+                "triggerPrice": null,  // Trigger Price
+				"timeInForce": "IOC"
 			}
 		],
 		"pageTotal":1,// Total Page Count
@@ -443,7 +444,8 @@ Get an order information by orderId or clientOrderId
 			"leverage": 3,  //  Leverage
 			"fee": 0, // transaction fee(accumulated)
 			"updateTime": 1685326195118,
-			"state": 0 // order status
+			"state": 0, // order status
+			"timeInForce": "IOC"
 		}
 	}
 }
