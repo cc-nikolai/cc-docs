@@ -531,6 +531,36 @@ Status: 6 INVALID
 
 ```
 
+## Trade
+{
+    "action":"subscribe",
+    "dataType":"trade"
+}
+
+```json
+Payload:
+
+{
+	"dt": 15,
+	"c": 20,
+	"d": {
+		"clientOrderId": "1734123406279839744",
+		"feeRate": "-0.0006",
+		"isTaker": "0",
+		"matchPrice": "22180",
+		"matchQty": "2",
+		"matchValue": "44360",
+		"orderId": "1734123406279839744",
+		"orderSide": "1",
+		"remainQty": "0",
+		"symbol": "BTCUSD-22DEC23-20000-C",
+		"tradeId": "1734129035131924480",
+		"tradeTime": "1702282213169"
+	}
+}
+
+```
+
 ## Positions
 {
     "action":"subscribe",
