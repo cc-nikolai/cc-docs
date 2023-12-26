@@ -1,5 +1,96 @@
 # Futures Endpoint
 
+## Get instruments
+
+Get futures instruments
+
+> Response:
+
+```json
+{
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":[
+        {
+            "ticker_id":"BTC-USD", // symbol id
+            "base_currency":"BTC",
+            "quote_currency":"USD",
+            "last_price":"42782.00000000",
+            "base_volume":"2485.862", // 24 hour trading volume in BASE currency
+            "usd_volume":"106351139.55450000", // 24 hour trading volume in USD
+            "quote_volume":"106351139.55450000", // 24 hour trading volume in QUOTE currency
+            "bid":"42777.9", // Current highest bid price
+            "ask":"42779.6", // Current lowest ask price
+            "high":"43849.6", // Rolling 24-hour highest transaction price
+            "low":"42549.2", // Rolling 24-hour lowest transaction price
+            "product_type":"Futures",
+            "open_interest":"9.35800000",
+            "open_interest_usd":"400346.61622638",
+            "index_price":"42751.48738636", // Last calculated index price for underlying of contract
+            "funding_rate":"0.00016736", // Current funding rate
+            "next_funding_rate":"0.00016736", // Upcoming predicted funding rate
+            "next_funding_rate_timestamp":1703606400000, // Timestamp of the next funding rate change
+            "contract_type":"Vanilla",
+            "contract_price":"42782.00000000",
+            "contract_price_currency":"USD"
+        },
+		{...}]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/market/instruments/v1`
+
+
+**Parameter**
+
+Null
+
+## Get OrderBook
+
+ Get futures order book
+
+> Response:
+
+```json
+{
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":{
+        "symbol":"BTC-USD", // symbol id
+        "bids":[ // // Bid, buyer. Sort by price desc
+            [
+                "42759.1", // price
+                "0.568" // size
+            ] 
+        ],
+        "asks":[ // Ask, seller. Order by price asc
+            [
+                "42761.2",
+                "2.94"
+            ]
+        ],
+        "timestamp":1703579842559 // // The timestamp (ms) that the system generates the data
+    }
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/market/orderbook`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | Symbol name
+depth | Integer | BTC-USD | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 100] Default: 1.
+
 ## Get Symbol Information(SIGNED)
 
 Get futures symbol
