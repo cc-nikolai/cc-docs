@@ -88,8 +88,8 @@ Null
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSD | true | Symbol name
-depth | Integer | BTC-USD | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 100] Default: 1.
+symbol | string | BTC-USD | true | Symbol name
+depth | Integer | 1 | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 100] Default: 1.
 
 ## Get Symbol Information(SIGNED)
 
