@@ -362,8 +362,15 @@ tradeType | number | 1 | true | Trade Type, 1 LIMIT 3 POST_ONLY
 symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
 qty | number | 0.5 | true | Quantity 
 price | number | 19000.01 | false | Price, required for limit orders
+stp | integer | 1 | false | Value: [1,2,3]
 
 <!-- reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false -->
+
+Value | Name | Note |
+--- | -------- | ---- |
+1 | CM | Cancel Maker
+2 | CT | Cancel Taker
+3 | CB | Cancel Both
 
 
 ## Cancel Order(SIGNED)
