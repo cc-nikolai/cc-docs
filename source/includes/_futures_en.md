@@ -24,7 +24,7 @@ Get futures instruments
             "ask":"42779.6", // Current lowest ask price
             "high":"43849.6", // Rolling 24-hour highest transaction price
             "low":"42549.2", // Rolling 24-hour lowest transaction price
-            "product_type":"Futures",
+            "product_type":"Perpetual",
             "open_interest":"9.35800000",
             "open_interest_usd":"400346.61622638",
             "index_price":"42751.48738636", // Last calculated index price for underlying of contract
