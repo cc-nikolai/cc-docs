@@ -139,7 +139,7 @@ Set countdown time, only opened for MM.
 
 **HTTP Request**
 
-`POST https://api.coincall.com//open/public/countdown/cancel/v1`
+`POST https://api.coincall.com/open/futures/countdown/cancel/v1`
 
 **Parameter**
 
@@ -185,7 +185,7 @@ Get Countdown Settings, only opened for MM.
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/public/countdown/cancel/get/v1`
+`GET https://api.coincall.com/open/futures/countdown/cancel/get/v1`
 
 **Parameter**
 
@@ -210,11 +210,11 @@ Reset Countdown Settings, only opened for MM.
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/public/countdown/cancel/heartbeat/v1`
+`POST https://api.coincall.com/open/futures/countdown/cancel/heartbeat/v1`
 
 **Parameter**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSD | true | Contract name
+symbol | string | BTCUSD,ETHUSD | true | Contract name
 type | integer | 1 | true | Type of trade, 1:options, 2:futures, 3:spot
