@@ -253,7 +253,7 @@ Cancel an open order.
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/trade/spot/cancel/v1`
+`POST https://api.coincall.com/open/spot/trade/cancel/v1`
 
 
 **Parameter**
