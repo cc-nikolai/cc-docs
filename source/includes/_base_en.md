@@ -83,7 +83,7 @@ SIGNED | Requires valid API-Key and Signed.
 All private REST requests must contain the following headers:
 
 * `X-CC-APIKEY` The API Key as a String.
-* `sign` The Base64-encoded signature (see Signing Messages subsection for details).
+* `sign` The Hex-encoded signature (see Signing Messages subsection for details).
 * `ts` The timestamp of your request .e.g : 1688436087184
 * `X-REQ-TS-DIFF` sent to specify the number of milliseconds after `ts` the request is valid for. If `X-REQ-TS-DIFF` is not sent, **it defaults to 5000**.
 
@@ -112,7 +112,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 * Add `?` after request uri path, separate each parameter with a `&` which represents Parameters concatenation, sort them alphabetically. (If no prameter here, can only add `?` after request uri path)
 * Create a prehash string of `method + uri + &uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` (where `+` represents String concatenation, if no prameter here, please use `method + uri + uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` instead).
 * Sign the prehash string with the apiSecret using the HMAC SHA256.
-* Encode the signature in the Base64 format.
+* Encode the signature in the Hex format.
 * The `sign` should be UPPER.
 
 **Example:**

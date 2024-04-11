@@ -281,7 +281,7 @@ Cancels all active orders on one symbol.
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/spot/trade/cancelAll/v1`
+`POST https://api.coincall.com/open/spot/trade/cancelAll/v1`
 
 
 **Parameter**
