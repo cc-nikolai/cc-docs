@@ -406,6 +406,33 @@ orderId and clientOrderId, one of the two parameters must be entered.
 
 ## Cancel Orders(SIGNED)
 
+Cancel option orders by index
+
+> Response:
+
+```json
+{
+	"code": 0,// Status code
+	"msg": "Success",// Message
+	"i18nArgs": null,
+	"data": null
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{index}`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+version | string | v1 | true | version, only v1 for now
+index | string | BTCUSD | true | coin index symbol name
+
+## Cancel Orders by symbol(SIGNED)
+
 Cancel option orders by symbol
 
 > Response:
@@ -422,14 +449,13 @@ Cancel option orders by symbol
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{symbol}`
+`GET https://api.coincall.com/open/option/order/batchCancelByOption/v1/{symbol}`
 
 **Parameter**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-version | string | v1 | true | version, only v1 for now
-symbol | string | BTCUSD | true | Option index symbol name
+symbol | string | KASUSD-31MAY24-0.1250-C | true | Options symbol name
 
 
 ## Get Open Orders(SIGNED)
