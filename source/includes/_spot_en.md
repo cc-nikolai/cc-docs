@@ -199,6 +199,10 @@ symbol | string | TRXUSDT | false | Symbol name
 
 ## Place Order(SIGNED)
 
+<aside class="notice">
+    CALL cannot be traded via API.
+</aside>
+
 Create a new order.
 
 > Response:
