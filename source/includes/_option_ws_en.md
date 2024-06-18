@@ -589,3 +589,26 @@ Payload:
 }
 
 ```
+
+## Positions
+{"action":"subscribe", "dataType":"allPositions"}
+
+```json
+Payload:
+
+{
+    "dt": 19,
+    "c": 20,
+    "d": {
+        "q": "1", // quantity 
+        "ap": "4274.79", // average price
+        "im": "0", // Im initMargin 
+        "mm": "0", // Mm maintMargin
+        "s": "BTCUSD-4JUL23-27000-C", // symbol
+        "si": "1", // order side
+        "uid": "8095151726", // user id
+        "upnl": "-42.79" // Unrealized Pnl
+    }
+}
+
+```
