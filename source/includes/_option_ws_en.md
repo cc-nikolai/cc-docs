@@ -561,7 +561,7 @@ Payload:
 
 ```
 
-## Positions
+## Position
 {
     "action":"subscribe",
     "dataType":"position",
@@ -591,7 +591,7 @@ Payload:
 ```
 
 ## Positions
-{"action":"subscribe", "dataType":"allPositions"}
+{"action":"subscribe", "dataType":"position"}
 
 ```json
 Payload:
