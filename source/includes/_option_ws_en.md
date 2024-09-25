@@ -17,10 +17,10 @@ api_sec = "YOUR_API_SECRET"
 def on_open(ws):
     print("WebSocket connection opened.")
     # Send a subscribe message after the connection opened.
-    ws.send(json.dumps({ "action":"subscribe", "dataType":"orderBook", "payload":{ "symbol":"BTCUSD-27MAY23-26000-C" } }))
+    ws.send(json.dumps({ "action":"subscribe", "dataType":"orderBook", "payload":{ "symbol":"BTCUSD-27DEC24-65000-C" } }))
 
-def on_close(ws):
-    print("WebSocket connection closed.")
+def on_close(ws, status, message):
+    print(f'WebSocket connection closed. status: {status}, message: {message}')
 
 def on_error(ws, error):
     print(f'WebSocket error: {error}')

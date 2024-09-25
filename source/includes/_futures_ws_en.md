@@ -19,8 +19,8 @@ def on_open(ws):
     # Send a subscribe message after the connection opened.
     ws.send(json.dumps({ "action":"subscribe", "dataType":"spotPrice", "payload":{ "symbol":"BTCUSD" } }))
 
-def on_close(ws):
-    print("WebSocket connection closed.")
+def on_close(ws, status, message):
+    print(f'WebSocket connection closed. status: {status}, message: {message}')
 
 def on_error(ws, error):
     print(f'WebSocket error: {error}')
