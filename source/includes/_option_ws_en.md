@@ -187,6 +187,37 @@ Payload:
 
 ```
 
+## RFQ list
+{
+    "action":"subscribe",
+    "dataType":"blockTrade"
+}
+
+```json
+Payload:
+
+// New Order msgType:1
+{
+    "dt": 20,
+    "c": 20,
+    "d": {
+        "msg": "{"msgType":1,"content":{"seekVOList":[{"symbol":"BTCUSD-11OCT24-64000-C","amount":0.1,"role":1,"tradeSide":1,"displayName":"BTC-11OCT24-64000-C","seekId":1840692011045359616,"uid":8098448373,"price":1986.02321251,"ctime":1727690148510,"id":1840692011118247938,"state":0,"underSymbol":"BTC","tradeType":1}],"endTime":1727691948510,"seekId":1840692011045359616}}"
+    },
+    "ts": 1727690148550
+}
+
+// Cancel Order msgType:2
+{
+    "dt": 20,
+    "c": 20,
+    "d": {
+        "msg": "{"msgType":2,"content":[1840692011045359616]}"
+    },
+    "ts": 1727690155297
+}
+
+```
+
 ## K-line Data
 {
     "action":"subscribe",

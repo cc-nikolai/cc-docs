@@ -16,6 +16,7 @@ includes:
   - public_en
   - account_en
   - option_en
+  - rfq_en
   - futures_en
   - spot_en
   - option_ws_en
