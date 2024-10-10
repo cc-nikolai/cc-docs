@@ -86,13 +86,14 @@ Creates quote for RFQ
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-requestId |integer | 1840685647012708354 | true | request RFQ ID.
-orderOpenApiDetailReqs | string | 10 | true | Json Map
+requestId | integer | 1840685647012708354 | true | request RFQ ID.
+orderOpenApiDetailReqs | string |  | true | Json Map
 -> price | string | 10.1 | true | quote price
 -> symbol | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> type | string | 1 | true | 1 Options, 2 Futures, 3 Spot
 
 **Parameter Example**
+
 body = {
             {'orderOpenApiDetailReqs': '[{"price":"2000","symbol":"BTCUSD-11OCT24-65000-C","type":"1"},{"price":"1000","symbol":"BTCUSD-11OCT24-60000-C","type":"1"}]', 
             'requestId': 1840600952218980352}

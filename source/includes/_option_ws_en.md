@@ -344,7 +344,9 @@ Payload:
     }
 }
 
-Message channel for the 100 best ask/bid full data. After subscription, when there are changes in the order book, the system will push the real-time ticker symbol information to you
+**Update Speed: 100ms**
+
+Message channel for the 100 best ask/bid full data.
 
 ```json
 Payload:

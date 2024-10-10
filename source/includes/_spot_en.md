@@ -221,6 +221,7 @@ Create a new order.
 
 `POST https://api.coincall.com/open/spot/trade/order/v1`
 
+**Rate Limit: 60/s**
 
 **Parameter**
 
@@ -259,6 +260,7 @@ Cancel an open order.
 
 `POST https://api.coincall.com/open/spot/trade/cancel/v1`
 
+**Rate Limit: 60/s**
 
 **Parameter**
 

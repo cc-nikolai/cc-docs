@@ -351,6 +351,8 @@ Place an option order
 
 `POST https://api.coincall.com/open/option/order/create/v1`
 
+**Rate Limit: 60/s**
+
 **Parameter**
 
 
@@ -392,6 +394,8 @@ Cancel an option order
 **HTTP Request**
 
 `POST https://api.coincall.com/open/option/order/cancel/v1`
+
+**Rate Limit: 60/s**
 
 **Parameter**
 

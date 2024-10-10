@@ -374,6 +374,8 @@ Null
 
 `POST https://api.coincall.com/open/futures/order/create/v1`
 
+**Rate Limit: 60/s**
+
 **Parameter**
 
 Name | Type | Value | Required | Note
@@ -414,6 +416,8 @@ Cancel a futures order
 **HTTP Request**
 
 `POST https://api.coincall.com/open/futures/order/cancel/v1`
+
+**Rate Limit: 60/s**
 
 **Parameter**
 
