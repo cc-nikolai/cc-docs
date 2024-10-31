@@ -375,6 +375,51 @@ Value | Name | Note |
 3 | CB | Cancel Both
 
 
+## Amend Order(SIGNED)
+
+Modify unfilled or partially filled orders
+
+> Response:
+
+```json
+{
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":1663820914095300608 // Order id
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/order/modify/v1`
+
+**Rate Limit: 60/s**
+
+**Parameter**
+
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+clientOrderId | long | 123123123 | false | client order id. Either orderId or clientOrderId is required
+orderId | number | 1663820914095300000 | false | order id. Either orderId or clientOrderId is required
+symbol | string | BTCUSD-26OCT22-15000-C | true |  Option symbol
+qty | number | 0.5 | false | Order quantity after modification. Do not pass it if not modify the qty 
+price | number | 19000.01 | false | Order price after modification. Do not pass it if not modify the price
+
+**Notice**:
+
+* The ack of amend order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
+
+* You can only modify unfilled or partially filled orders.
+
+* Do not support modify the `clientOrderId`.
+
+* When the `qty` or `price` of a new order does not match order validation requirements, the modification will be rejected, and the original order will remain unchanged.
+
+* If the original order is partially filled and the new order quantity is less than or equal to the executed quantity, the original order will be fully filled.
+
 ## Cancel Order(SIGNED)
 
 Cancel an option order

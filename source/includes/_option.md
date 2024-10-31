@@ -1,5 +1,55 @@
 # 期权接口
 
+## Cancel batchOrders(SIGNED)
+
+Cancel batch Orders by ids
+
+> Request:
+
+```json
+POST http://api.coincal.com/open/option/batchorders/cancel/v1
+body
+[
+    {
+        "symbol":"BTCUSD",
+        "ordId":"590908157585625111"
+    },
+    {
+        "instId":"BTCUSD",
+        "ordId":"590908544950571222"
+    }
+]
+```
+
+> Response:
+
+```json
+{
+	"code": 0,// Status code
+	"msg": "Success",// Message
+	"i18nArgs": null,
+	"data": null
+}
+```
+
+
+**HTTP Request**
+
+`POST http://api.coincal.com/open/option/batchorders/cancel/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | symbol name
+orderId | list | BTCUSD | false | coin index symbol name
+orderId | list | BTCUSD | false | coin index symbol name
+
+**Notice**:
+
+orderId and clientOrderId, one of the two parameters must be entered.
+
+
 
 ## 查询T型报价表
 
