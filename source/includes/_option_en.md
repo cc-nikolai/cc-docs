@@ -379,14 +379,30 @@ Value | Name | Note |
 
 Modify unfilled or partially filled orders
 
+> Request:
+
+```sh
+curl -X POST 
+-H "sign:3260D3D58F2982B9E3982D2BD51B0CF18E153B6F35686DE30ACA1A267925C832" 
+-H "X-REQ-TS-DIFF:3000" 
+-H "x-cc-apikey:mtQ/qQcbFnccSV061nGvWC1Ni9lXf4sBw36NAaDsKMs=" 
+-H "ts:1730337237761" 
+-H "Content-Type:application/json; charset=utf-8" 
+-H "Content-Length:79" 
+-H "Host:api.coincall.com" 
+-H "Connection:Keep-Alive" 
+-d '{"symbol":"BTCUSD-8NOV24-40000-P","orderId":"1851808894377136128","price":10,"qty":1.5}
+' "https://api.coincall.com/open/option/order/modify/v1"
+```
+
 > Response:
 
 ```json
 {
-    "code":0,
-    "msg":"Success",
-    "i18nArgs":null,
-    "data":1663820914095300608 // Order id
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": 1851808894377136128 // order id
 }
 ```
 
@@ -411,13 +427,9 @@ price | number | 19000.01 | false | Order price after modification. Do not pass 
 **Notice**:
 
 * The ack of amend order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
-
 * You can only modify unfilled or partially filled orders.
-
 * Do not support modify the `clientOrderId`.
-
 * When the `qty` or `price` of a new order does not match order validation requirements, the modification will be rejected, and the original order will remain unchanged.
-
 * If the original order is partially filled and the new order quantity is less than or equal to the executed quantity, the original order will be fully filled.
 
 ## Cancel Order(SIGNED)
@@ -468,6 +480,59 @@ Cancel option orders by index
 }
 ```
 
+## Batch Cancel Order(SIGNED)
+
+Cancel batch Orders by ids
+
+> Request:
+
+```sh
+curl -X POST 
+-H "sign:3260D3D58F2982B9E3982D2BD51B0CF18E153B6F35686DE30ACA1A267925C832" 
+-H "X-REQ-TS-DIFF:12" 
+-H "x-cc-apikey:mtQ/qQcbFnccSV061nGvWC1Ni9lXf4sBw36NAaDsKMs=" 
+-H "ts:1730337237761" 
+-H "Content-Type:application/json; charset=utf-8" 
+-H "Content-Length:79" 
+-H "Host:api.coincall.com" 
+-H "Connection:Keep-Alive" 
+-d '{"clientOrderIdList":[2215534552962207610],"orderIdList":[2215534552962207611]}' "https://api.coincall.com/open/option/order/batchCancel/v1"
+```
+
+> Response:
+
+```json
+{
+        "code": 0,
+        "msg": "Success",
+        "i18nArgs": null,
+        "data": [{
+                "clOrdId": 2215534552962207610, // client order id
+                "ordId": 2215534552962207611, // order id
+                "ts": 1730337238487, 
+                "scode": 0, // 0 success, 1 failed
+                "smsg": null
+        }]
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/order/batchCancel/v1`
+
+**Parameter**
+
+Name | Type | Required | Note
+---- | ---- | -------- | ----
+orderIdList | list | false | orderId list
+clientOrderIdList | list | false | clientOrderId list
+
+**Notice**:
+
+* Either `orderIdList` or `clientOrderIdList` is required. If both are provided, priority will be given to the `orderIdList`.
+* You can cancel unfilled or partially filled orders.
+* The ack of cancel order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
 
 **HTTP Request**
 

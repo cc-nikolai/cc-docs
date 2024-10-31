@@ -457,6 +457,60 @@ Name | Type | Value | Required | Note
 version | string | v1 | true | version, only v1 for now
 symbol | string | BTCUSD | true | Futures symbol name
 
+## Batch Cancel Order(SIGNED)
+
+Cancel batch Orders by ids
+
+> Request:
+
+```sh
+curl -X POST 
+-H "sign:3260D3D58F2982B9E3982D2BD51B0CF18E153B6F35686DE30ACA1A267925C832" 
+-H "X-REQ-TS-DIFF:12" 
+-H "x-cc-apikey:mtQ/qQcbFnccSV061nGvWC1Ni9lXf4sBw36NAaDsKMs=" 
+-H "ts:1730337237761" 
+-H "Content-Type:application/json; charset=utf-8" 
+-H "Content-Length:79" 
+-H "Host:api.coincall.com" 
+-H "Connection:Keep-Alive" 
+-d '{"clientOrderIdList":[2215534552962207610],"orderIdList":[2215534552962207611]}' "https://api.coincall.com/open/futures/order/batchCancel/v1"
+```
+
+> Response:
+
+```json
+{
+        "code": 0,
+        "msg": "Success",
+        "i18nArgs": null,
+        "data": [{
+                "clOrdId": 2215534552962207610, // client order id
+                "ordId": 2215534552962207611, // order id
+                "ts": 1730337238487, 
+                "scode": 0, // 0 success, 1 failed
+                "smsg": null
+        }]
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/futures/order/batchCancel/v1`
+
+**Parameter**
+
+Name | Type | Required | Note
+---- | ---- | -------- | ----
+orderIdList | list | false | orderId list
+clientOrderIdList | list | false | clientOrderId list
+
+**Notice**:
+
+* Either `orderIdList` or `clientOrderIdList` is required. If both are provided, priority will be given to the `orderIdList`.
+* You can cancel unfilled or partially filled orders.
+* The ack of cancel order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
+
 
 ## Get Open Orders(SIGNED)
 

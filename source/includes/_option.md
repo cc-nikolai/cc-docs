@@ -6,19 +6,17 @@ Cancel batch Orders by ids
 
 > Request:
 
-```json
-POST http://api.coincal.com/open/option/batchorders/cancel/v1
-body
-[
-    {
-        "symbol":"BTCUSD",
-        "ordId":"590908157585625111"
-    },
-    {
-        "instId":"BTCUSD",
-        "ordId":"590908544950571222"
-    }
-]
+```sh
+curl -X POST 
+-H "sign:3260D3D58F2982B9E3982D2BD51B0CF18E153B6F35686DE30ACA1A267925C832" 
+-H "X-REQ-TS-DIFF:12" 
+-H "x-cc-apikey:mtQ/qQcbFnccSV061nGvWC1Ni9lXf4sBw36NAaDsKMs=" 
+-H "ts:1730337237761" 
+-H "Content-Type:application/json; charset=utf-8" 
+-H "Content-Length:79" 
+-H "Host:api.coincall.com" 
+-H "Connection:Keep-Alive" 
+-d '{"clientOrderIdList":"orderIdList":[2215534552962207611]}' "https://api.coincall.com/open/option/order/batchCancel/v1"
 ```
 
 > Response:
@@ -35,7 +33,7 @@ body
 
 **HTTP Request**
 
-`POST http://api.coincal.com/open/option/batchorders/cancel/v1`
+`POST https://api.coincal.com/open/option/batchorders/cancel/v1`
 
 **Parameter**
 
