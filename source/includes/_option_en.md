@@ -777,3 +777,32 @@ pageSize | number | 20 | false | Number of items per page, default is 20, maximu
 fromId | number | 123123123 | false | Minimum tradeId, can be obtained from the result field of the previous page when paging
 startTime | number| 1686308840388 | false |  Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
+
+## Get Exercise Details(SIGNED)
+
+Get option exercise history
+
+> Response:
+
+```json
+{
+	"code": 0,// Status code
+	"msg": "success",//Message
+	"i18nArgs": null,
+	"data": []
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/settle/exercise/history/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD-24MAY22-48000-P | true | options symbol name
+pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
+startTime | number| 1686308840388 | false | Start time of the history
+endTime | number | 1686308840388 | false | End time of the history
