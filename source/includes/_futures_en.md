@@ -726,10 +726,55 @@ Get Funding Rate History
 
 ```json
 {
-	"code": 0,// Status code
-	"msg": "success",//Message
-	"i18nArgs": null,
-	"data": []
+    "code": 0,
+    "msg": "success",
+    "i18nArgs": null,
+    "data": {
+        "list": [
+            {
+                "id": 379372,
+                "symbol": "TONUSD",
+                "displayName": "TONUSDT Perp",
+                "tradeSide": 1,
+                "qty": 2.00000000,
+                "fundFee": -0.00114441,
+                "fundRate": 0.00010000,
+                "ctime": 1730160005432
+            },
+            {
+                "id": 379361,
+                "symbol": "TRXUSD",
+                "displayName": "TRXUSDT Perp",
+                "tradeSide": 2,
+                "qty": 2.00000000,
+                "fundFee": 0.00002432,
+                "fundRate": 0.00010000,
+                "ctime": 1730160004652
+            },
+            {
+                "id": 379270,
+                "symbol": "TONUSD",
+                "displayName": "TONUSDT Perp",
+                "tradeSide": 1,
+                "qty": 2.00000000,
+                "fundFee": -0.00114441,
+                "fundRate": 0.00010000,
+                "ctime": 1730131205546
+            },
+            {
+                "id": 379259,
+                "symbol": "TRXUSD",
+                "displayName": "TRXUSDT Perp",
+                "tradeSide": 2,
+                "qty": 2.00000000,
+                "fundFee": 0.00002432,
+                "fundRate": 0.00010000,
+                "ctime": 1730131204634
+            }
+        ],
+        "pageTotal": 1,
+        "total": 4
+    }
 }
 ```
 
@@ -742,7 +787,7 @@ Get Funding Rate History
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSD | true | futures symbol name
+symbol | string | BTCUSD | false | futures symbol name
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
 startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history

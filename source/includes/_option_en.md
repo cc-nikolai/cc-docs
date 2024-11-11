@@ -786,10 +786,27 @@ Get option exercise history
 
 ```json
 {
-	"code": 0,// Status code
-	"msg": "success",//Message
-	"i18nArgs": null,
-	"data": []
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": {
+        "list": [
+            {
+                "symbol": "ETHUSD-13SEP24-2200-C",
+                "time": 1726248852785,
+                "qty": 2.00000000,
+                "tradeSide": 2,
+                "strike": 2200.00000000,
+                "exercisePrice": 2409.38569142,
+                "openCashFlow": 367.60000000,
+                "settlementCashFlow": -418.77138284,
+                "netCashFlow": -51.17138284,
+                "fees": 0.72317826
+            }
+        ],
+        "hasNext": true,
+        "hasPrev": false
+    }
 }
 ```
 
@@ -802,7 +819,7 @@ Get option exercise history
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSD-24MAY22-48000-P | true | options symbol name
+symbol | string | BTCUSD-24MAY22-48000-P | false | options symbol name
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
 startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
