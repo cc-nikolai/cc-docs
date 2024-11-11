@@ -788,6 +788,7 @@ Get Funding Rate History
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | false | futures symbol name
-pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 500
 startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
+pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
+page | number | 1 | false | default is 1
