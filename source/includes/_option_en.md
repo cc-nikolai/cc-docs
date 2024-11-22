@@ -374,6 +374,81 @@ Value | Name | Note |
 2 | CT | Cancel Taker
 3 | CB | Cancel Both
 
+## Batch Create Order(SIGNED)
+
+Create batch Orders
+
+> Request:
+
+```sh
+curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
+--header 'Content-Type: application/json' \
+--header 'sign: XXXXXXXXXXX' \
+--data '{
+    "orders": [
+        {
+            "symbol": "BTCUSD-22NOV24-104000-C",
+            "qty": 0.1,
+            "tradeSide": 1,
+            "tradeType": 1,
+            "price": 2321.0,
+            "remark": "test remark",
+            "stp": 1,
+            "clientOrderId": 202411191237
+        },
+        {
+            "symbol": "BTCUSD-22NOV24-104000-C",
+            "qty": 0.5,
+            "tradeSide": 1,
+            "tradeType": 0,
+            "price": 2329.0,
+            "remark": "test remark",
+            "stp": 1,
+            "clientOrderId": 202411191238
+        }
+    ]
+}'
+```
+
+> Response:
+
+```json
+{
+    "code": 0,// Status code
+    "msg": "Success",// Message
+    "i18nArgs": null,
+    "data":
+    	[{
+        "scode":0,
+        "smsg":"Success",
+        "i18nArgs":null,
+        "sdata":1663820914095300608
+    	},
+    {
+        "scode":0,
+        "smsg":"Success",
+        "i18nArgs":null,
+        "sdata":1663820914095300609
+    }]
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/order/batchCreate/v1`
+
+**Parameter**
+
+Name | Type | Required | Note
+---- | ---- | -------- | ----
+clientOrderId | long | 123123123 | false | client order id
+tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
+tradeType | number | 1 | true | Trade Type, 1 LIMIT 3 POST_ONLY
+symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
+qty | number | 0.5 | true | Quantity 
+price | number | 19000.01 | false | Price, required for limit orders
+stp | integer | 1 | false | Value: [1,2,3]
 
 ## Amend Order(SIGNED)
 
