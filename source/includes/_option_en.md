@@ -555,6 +555,17 @@ Cancel option orders by index
 }
 ```
 
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{index}`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+version | string | v1 | true | version, only v1 for now
+index | string | BTCUSD | true | coin index symbol name
+
 ## Batch Cancel Order(SIGNED)
 
 Cancel batch Orders by ids
@@ -608,17 +619,6 @@ clientOrderIdList | list | false | clientOrderId list
 * Either `orderIdList` or `clientOrderIdList` is required. If both are provided, priority will be given to the `orderIdList`.
 * You can cancel unfilled or partially filled orders.
 * The ack of cancel order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
-
-**HTTP Request**
-
-`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{index}`
-
-**Parameter**
-
-Name | Type | Value | Required | Note
----- | ---- | ----- | -------- | ----
-version | string | v1 | true | version, only v1 for now
-index | string | BTCUSD | true | coin index symbol name
 
 ## Cancel Orders by symbol(SIGNED)
 
