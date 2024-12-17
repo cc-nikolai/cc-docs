@@ -899,3 +899,100 @@ startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
 page | number | 1 | false | default is 1
+
+## Batch Change Order (TRADE)
+
+You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+
+> Response:
+```json
+{
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": [
+        {
+            "code": 10558,
+            "msg": "less.than.min.amount",
+            "i18nArgs": null,
+            "data": 1864874951539036160
+        },
+        {
+            "code": 10558,
+            "msg": "less.than.min.amount",
+            "i18nArgs": null,
+            "data": 1864874917338681344
+        },
+        {
+            "code": 10534,
+            "msg": "order.size.exceeds.the.maximum.limit.per.order",
+            "i18nArgs": null,
+            "data": 1864874821687578624
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864874396066385920
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864874872598040576
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864875076764176384
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864874434381352960
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864875025362980864
+        },
+        {
+            "code": 0,
+            "msg": null,
+            "i18nArgs": null,
+            "data": 1864874983130533888
+        },
+        {
+            "code": 10540,
+            "msg": "Order has expired",
+            "i18nArgs": null,
+            "data": 1863899495616614400
+        }
+    ]
+}
+```
+
+**HTTP Request**
+
+`POST http://api.coincall.com/open/option/order/batchModify/v1`
+
+ **Parameter:**
+
+| Name          | Type   | Value                  | Required | Note                                                                    |
+| ------------- | ------ | ---------------------- | -------- | ----------------------------------------------------------------------- |
+| symbol        | string | BTCUSD-26OCT22-15000-C | TRUE     | Option symbol                                                           |
+| qty           | number | 0.5                    | FALSE    | Order quantity after modification. Do not pass it if not modify the qty |
+| price         | number | 19000.01               | FALSE    | Order price after modification. Do not pass it if not modify the price  |
+| clientOrderId | long   | 123123123              | FALSE    | client order id. Either orderId or clientOrderId is required            |
+| orderId       | number | 1663820914095300000    | FALSE    | order id. Either orderId or clientOrderId is required                   |
+
+For each modification request in the instruction:
+
+- The ack of amend order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
+- You can only modify unfilled or partially filled orders.
+- Do not support modify the `clientOrderId`.
+- When the `qty` or `price` of a new order does not match order validation requirements, the modification will be rejected, and the original order will remain unchanged.
+- If the original order is partially filled and the new order quantity is less than or equal to the executed quantity, the original order will be fully filled.
