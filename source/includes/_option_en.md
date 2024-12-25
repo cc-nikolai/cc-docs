@@ -378,6 +378,8 @@ Value | Name | Note |
 
 Create batch Orders
 
+You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+
 > Request:
 
 ```sh
@@ -569,6 +571,8 @@ index | string | BTCUSD | true | coin index symbol name
 ## Batch Cancel Order(SIGNED)
 
 Cancel batch Orders by ids
+
+You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
@@ -900,11 +904,83 @@ endTime | number | 1686308840388 | false | End time of the history
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
 page | number | 1 | false | default is 1
 
-## Batch Change Order (TRADE)
+## Batch Change Order (SIGNED)
 
 You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
+> Request:
+
+```sh
+curl -X https://api.coincall.com/open/option/order/batchModify/v1' \
+--header 'Content-Type: application/json' \
+--header 'sign: XXXXXXXXXXX' \
+--data '{
+    "orders": [
+        {
+            "symbol": "BTCUSD-13DEC24-80000-P",
+            "orderId": "1864874434381352960",
+            "price": "15",
+            "qty": "1.6"
+        },
+        {
+            "symbol": "BTCUSD-13DEC24-80000-P",
+            "orderId": "1864874396066385920",
+            "price": "20",
+            "qty": "2.9"
+        },
+        {
+            "symbol": "BCHUSD-13DEC24-260-P",
+            "orderId": "1864875076764176384",
+            "price": "1.55",
+            "qty": "550"
+        },
+        {
+            "symbol": "ICPUSD-13DEC24-7.75-P",
+            "orderId": "1864875025362980864",
+            "price": "1.514",
+            "qty": "110"
+        },
+        {
+            "symbol": "BNBUSD-13DEC24-490-P",
+            "orderId": "1864874983130533888",
+            "price": "2.9",
+            "qty": "31"
+        },
+         {
+            "symbol": "KASUSD-13DEC24-0.1800-P",
+            "orderId": "1864874951539036160",
+            "price": "1.16",
+            "qty": "12"
+        },
+        {
+            "symbol": "DOGEUSD-13DEC24-0.178-P",
+            "orderId": "1864874917338681344",
+            "price": "0.10",
+            "qty": "113"
+        },
+        {
+            "symbol": "SOLUSD-13DEC24-1925.00-P",
+            "orderId": "1864874872598040576",
+            "price": "3.17",
+            "qty": "311"
+        },
+        {
+            "symbol": "ETHUSD-13DEC24-2950-P",
+            "orderId": "1864874821687578624",
+            "price": "5.123",
+            "qty": "150103234"
+        },
+        {
+            "symbol": "ETHUSD-13DEC24-2700-P",
+            "orderId": "1863899495616614400",
+            "price": "1.3333331",
+            "qty": "25"
+        }
+    ]
+}'
+```
 > Response:
+
 ```json
 {
     "code": 0,
