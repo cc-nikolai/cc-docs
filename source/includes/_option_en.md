@@ -2,7 +2,7 @@
 
 ## Get Option Instruments(SIGNED)
 
-Get all option instruments information..
+Get all option instruments information.
 
 > Response:
 
