@@ -4,7 +4,7 @@ Welcome to the Coincall API! You can use our API to access Coincall  Open API en
 
 ## General Information
 
-* Some endpoints will require an API Key to access. Please refer to this page to setup API Key.
+* Some endpoints will require an API Key to access. Please refer to this page to setup API Key..
 * Base endpoint for REST: **https://api.coincall.com**
 * While setting API Key, it is recommended to set IP access whitelist for security.
 * Never share your API Key/Secret with anyone.
