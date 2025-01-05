@@ -1072,3 +1072,65 @@ For each modification request in the instruction:
 - Do not support modify the `clientOrderId`.
 - When the `qty` or `price` of a new order does not match order validation requirements, the modification will be rejected, and the original order will remain unchanged.
 - If the original order is partially filled and the new order quantity is less than or equal to the executed quantity, the original order will be fully filled.
+
+
+## Call-over settlement price public data
+
+Public data, no signature required, returns a certain currency, all call-over settlement prices, in reverse chronological order, queried before 8:00 UTC today, returns yesterday, the day before yesterday, until the first day with data (data only available after launch).
+
+**HTTP Request**
+
+`GET http://api.coincall.com/open/option/get-delivery-prices/V1`
+
+- 1S once
+
+**Parameter:**
+
+| **Parameter** | **Required** | **Type** | **Enum**         | **Description**                                                     |
+| ------------- | ------------ | -------- | ---------------- | ------------------------------------------------------------------- |
+| symbol        | TRUE         | string   | BTCUSD<br>ETHUSD | Index identifier, matches (base) cryptocurrency with quote currency |
+
+> Response:
+
+```JSON
+{
+  "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data": [
+      {
+        "date": "2024-12-23",
+        "delivery_price": 7131.214606410254
+      },
+      {
+        "date": "2024-12-22",
+        "delivery_price": 7150.943217777777
+      },
+      {
+        "date": "2024-12-21",
+        "delivery_price": 7175.988445532345
+      },
+    ],
+    "records_total": 58
+  }
+}
+```
+
+## Option chain information
+
+Returns all expiration dates by currency
+
+**HTTP Request**
+
+`GET /open/option/get/v1/{index}?endTime={endTime}`
+
+- Change endTime to FALSE, if not filled, return the current expired all to the date
+- The interface does not need a signature, change it to public data, 1s once
+- UTC 8:00 sharp asset snapshot of each currency
+
+**Parameter:**
+
+| Name    | Type   | Value         | Required | Note                       |
+| ------- | ------ | ------------- | -------- | -------------------------- |
+| endTime | long   | 1666771200000 | FALSE    | Expiration time(timestamp) |
+| index   | string | BTCUSD        | TRUE     | Underlying symbol          |
