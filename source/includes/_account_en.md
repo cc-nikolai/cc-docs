@@ -98,3 +98,114 @@ Get account summary
 Null
 
 <!-- ## Switch Margin Mode -->
+
+## Get Query API (SIGNED)
+
+`GET /open/auth/user/query-api`
+
+**Request Parameters:**
+
+Headers:
+
+| Key         | Value      | required | description             |
+| ----------- | ---------- | -------- | ----------------------- |
+| X-CC-APIKEY | aabcdadfse | TRUE     | apikey  <br>User apikey |
+
+**Response Parameters**
+
+| Name      | Type    | Value        | Note                                                                                                              |
+| --------- | ------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| userId    | integer | 123456       |                                                                                                                   |
+| apiKey    | string  | asj198BDS981 |                                                                                                                   |
+| readOnly  | integer | 0, 1         | 0:Read and Write. 1:Read only                                                                                     |
+| isMaster  | boolean | true, false  |                                                                                                                   |
+| parentUid | Long    | 123456789    | API，UID；API，0  <br>If it is a sub-account API, return the main account UID; if it is a main account API, return 0 |
+
+> Response:
+
+```JSON
+{
+    "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data":{
+        "userId": 123456,
+        "apiKey": "xxxxxxxx",
+        "readOnly": 0, //0:Read and Write. 1:Read only
+        "isMaster": true, //mainaccount:true. sub-account:false
+        "parentUid": "0", //The main account uid. Returns "0" when the endpoint is called by main account
+    }
+}
+```
+# Get Equity Snapshot (SIGNED)
+
+`GET https://api.coincall.com/open/account/equity_snapshot/v1`
+
+- If no parameters are passed, all dates after the launch will be returned. If there is more data, the operation and maintenance will archive it.
+- For assets, 0 does not return
+- Add to the new liquidation
+
+**Parameter:**
+
+| Name | Type | Value         | Required | Note |
+| ---- | ---- | ------------- | -------- | ---- |
+| time | long | 1666771200000 | FALSE    |      |
+
+> Response:
+
+```JSON
+{
+  "code":0,
+    "msg":"Success",
+    "i18nArgs":null,
+    "data": [
+      {
+        "date": "2024-12-23",
+          {
+            "coin": "USDT",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "BTC",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "ETH",
+            "equityAmount": 1.12345678,
+          }  
+      },
+      {
+        "date": "2024-12-22",
+        {
+            "coin": "USDT",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "BTC",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "ETH",
+            "equityAmount": 1.12345678,
+          }  
+      },
+      {
+        "date": "2024-12-21",
+        {
+            "coin": "USDT",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "BTC",
+            "equityAmount": 1.12345678,
+          }    
+          {
+            "coin": "ETH",
+            "equityAmount": 1.12345678,
+          }  
+      },
+    ],
+    "records_total": 58
+  }
+}
+```
