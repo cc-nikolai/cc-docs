@@ -115,7 +115,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 * Encode the signature in the Hex format.
 * The `sign` should be UPPER.  
   
-***Examples***  
+***Examples:***  
 **The following API key and secret are for demonstration purposes only**   
 | key      | value |
 | ----------- | ----------- |
@@ -167,7 +167,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 
 `SHA2-256(STDIN)= B196FEEC510CF118EE68D313B3FE32E350427B9B161468E48B07B530A1828BC4`  
 
-**Attentions**  
+**Attentions:**  
 
     The timestamp value is the same as the `ts` header with UNIX millisecond timestamp of when the request was created and sent, e.g. 1688436087184
 
@@ -180,6 +180,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
     <aside class="notice">
         GET request parameters are counted as uri, not body
     </aside>  
+    
     Your API Secret is generated when you create an APIKey.  
 
     In a POST request, the order of the request parameter fields needs to be sorted, and null values in the fields should be removed before performing the signature calculation.
