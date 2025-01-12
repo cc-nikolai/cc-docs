@@ -125,7 +125,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 **HMAC SHA256 Signature Calculation Principles**  
     `sign=hmac.new(your_api_secret.encode('utf-8'), your_prehash_string.encode('utf-8'), hashlib.sha256).hexdigest()`  
 
-**Example1: The request type is POST, and parameters are sent through the query string**
+**Example1: The request type is POST, and parameters are sent through the query string**  
 - requestMethod:  
       POST
 - uri:  
@@ -139,7 +139,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 `  
 `SHA2-256(STDIN)= B6D7D7853A096258782A270FCAEE810DD520CDB51B76E48DC787D2E982D9AB0A`  
 
-**Example2: The request type is POST, and content-type is application/json**
+**Example2: The request type is POST, and content-type is application/json**  
 - requestMethod:  
       POST
 - uri:  
@@ -153,7 +153,7 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 
     `SHA2-256(STDIN)= A32855D60620D3B948DD48B62FB6E4D3D3980C6B664C7C5EB25927A9B7626BF6`  
 
-**Example3: The request type is GET, and parameters are sent through the query string**
+**Example3: The request type is GET, and parameters are sent through the query string**  
 - requestMethod:  
       GET
 - uri:  
