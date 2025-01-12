@@ -118,10 +118,10 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 ***Examples:***  
 **The following API key and secret are for demonstration purposes only**  
 
-| key               | value                                        |    
-| ----------------- | ---------------------------------------------|    
-| apiKey(uuid)      | xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts= |    
-| secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8 |    
+key               | value                     
+----------------- | ---------------------------------------------
+apiKey(uuid)      | xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=
+secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8
 
 **HMAC SHA256 Signature Calculation Principles**  
     `sign=hmac.new(your_api_secret.encode('utf-8'), your_prehash_string.encode('utf-8'), hashlib.sha256).hexdigest()`  
