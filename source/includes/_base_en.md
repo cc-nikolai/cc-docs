@@ -113,27 +113,76 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 * Create a prehash string of `method + uri + &uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` (where `+` represents String concatenation, if no prameter here, please use `method + uri + uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` instead).
 * Sign the prehash string with the apiSecret using the HMAC SHA256.
 * Encode the signature in the Hex format.
-* The `sign` should be UPPER.
+* The `sign` should be UPPER.  
+  
+***Examples***  
+**The following API key and secret are for demonstration purposes only**   
+| key      | value |
+| ----------- | ----------- |
+| apiKey(uuid)      | xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=       |
+| secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8 |  
 
-**Example:**
+**HMAC SHA256 Signature Calculation Principles**  
+    `sign=hmac.new(your_api_secret.encode('utf-8'), your_prehash_string.encode('utf-8'), hashlib.sha256).hexdigest()`  
 
-`your_prehash_string=POST/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
+**Example1: The request type is POST, and parameters are sent through the query string**
+- requestMethod:  
+      POST
+- uri:  
+      /open/futures/leverage/set/v1
+- queryString:  
+      leverage=1&symbol=BTCUSD
+- prehashString:      
+`POST/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
+- HMAC SHA256 Signature Calculation          
+    ` echo -n "POST/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000" | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'
+`  
+`SHA2-256(STDIN)= B6D7D7853A096258782A270FCAEE810DD520CDB51B76E48DC787D2E982D9AB0A`  
 
-`sign=hmac.new(your_api_secret.encode('utf-8'), your_prehash_string.encode('utf-8'), hashlib.sha256).hexdigest()`
+**Example2: The request type is POST, and content-type is application/json**
+- requestMethod:  
+      POST
+- uri:  
+      /open/options/create/v1
+- requestBody(json string):  
+      {"name":"mike","num":"2","order":[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":null,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]}  
+- prehashString:  
+      POST/open/options/create/v1?name=mike&num=2&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000  
+- HMAC SHA256 Signature Calculation  
+    `echo -n 'POST/open/options/create/v1?name=mike&num=2&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
 
-The timestamp value is the same as the `ts` header with UNIX millisecond timestamp of when the request was created and sent, e.g. 1688436087184
+    `SHA2-256(STDIN)= A32855D60620D3B948DD48B62FB6E4D3D3980C6B664C7C5EB25927A9B7626BF6`  
 
-The request `method` should be in UPPERCASE: e.g. `GET` and `POST`.
+**Example3: The request type is GET, and parameters are sent through the query string**
+- requestMethod:  
+      GET
+- uri:  
+      /get/userInfo/v1
+- queryString:  
+      name=Mike&age=18
+- prehashString:      
+`GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB%2BY1leitFl356YHrmts%3D&ts=1688436087184&x-req-ts-diff=3000`
+- HMAC SHA256 Signature Calculation          
+    ` echo -n 'GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB%2BY1leitFl356YHrmts%3D&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
 
-The `uri` is the path of requesting an endpoint, separate each parameter with a `&`, `?` represents Parameters concatenation.
+`SHA2-256(STDIN)= B196FEEC510CF118EE68D313B3FE32E350427B9B161468E48B07B530A1828BC4`  
 
-Example: `/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD`
+**Attentions**  
 
-<aside class="notice">
-    GET request parameters are counted as uri, not body
-</aside>
+    The timestamp value is the same as the `ts` header with UNIX millisecond timestamp of when the request was created and sent, e.g. 1688436087184
 
-Your API Secret is generated when you create an APIKey.
+    The request `method` should be in UPPERCASE: e.g. `GET` and `POST`.
+
+    The `uri` is the path of requesting an endpoint, separate each parameter with a `&`, `?` represents Parameters concatenation.
+
+    Example: `/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD`
+
+    <aside class="notice">
+        GET request parameters are counted as uri, not body
+    </aside>  
+    Your API Secret is generated when you create an APIKey.  
+
+    In a POST request, the order of the request parameter fields needs to be sorted, and null values in the fields should be removed before performing the signature calculation.
 
 
 ## Field Type Enumeration
