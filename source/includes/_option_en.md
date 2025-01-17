@@ -1116,22 +1116,3 @@ Public data, no signature required, returns a certain currency, all call-over se
   }
 }
 ```
-
-## Option chain information
-
-Returns all expiration dates by currency
-
-**HTTP Request**
-
-`GET /open/option/get/v1/{index}?endTime={endTime}`
-
-- Change endTime to FALSE, if not filled, return the current expired all to the date
-- The interface does not need a signature, change it to public data, 1s once
-- UTC 8:00 sharp asset snapshot of each currency
-
-**Parameter:**
-
-| Name    | Type   | Value         | Required | Note                       |
-| ------- | ------ | ------------- | -------- | -------------------------- |
-| endTime | long   | 1666771200000 | FALSE    | Expiration time(timestamp) |
-| index   | string | BTCUSD        | TRUE     | Underlying symbol          |
