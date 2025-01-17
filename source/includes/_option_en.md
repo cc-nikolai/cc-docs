@@ -147,7 +147,7 @@ Get option chain
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-endTime | long | 1666771200000 | true | Expiration time(timestamp)
+endTime | long | 1666771200000 | false | Expiration time(timestamp)
 index | string | BTCUSD | true | Underlying symbol
 
 ## Get Option Details(SIGNED)
