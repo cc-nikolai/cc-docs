@@ -422,16 +422,16 @@ curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
     "i18nArgs": null,
     "data":
     	[{
-        "scode":0,
-        "smsg":"Success",
+        "code":0,
+        "msg":"Success",
         "i18nArgs":null,
-        "sdata":1663820914095300608
+        "data":1663820914095300608
     	},
     {
-        "scode":0,
-        "smsg":"Success",
+        "code":0,
+        "msg":"Success",
         "i18nArgs":null,
-        "sdata":1663820914095300609
+        "data":1663820914095300609
     }]
 }
 ```
