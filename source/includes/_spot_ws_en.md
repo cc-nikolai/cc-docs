@@ -474,4 +474,33 @@ Status: 3 CANCELED
 	}
 }
 
+```  
+## Trade
+
+{"sub":"trade","id": "$timestamp"}
+
+```json
+Payload:
+{
+    "ch": "trade",
+    "ts": 1737546328185,
+    "status": "ok",
+    "tick": {
+        "symbol": "BTCUSDT",  // symbol
+        "clientOrderId": "1353995724356345856", // client order id
+        "feeRate": "0.0001",  // feeRate
+        "tradeFee": "0.9402304000000", // tradeFee
+        "isTaker": "0", // isTaker
+        "price": "94023.04000000", // matchPrice
+        "volume": "0.1", // matchQty
+        "matchVolume": "9402.304000000", //matchVolume
+        "orderId": 1353995724356345856, // order id
+        "tradeSide": "2", // trade side
+        "remainVolume": "0.89999", // remainQty
+        "userId": 8802923697, // User id
+        "ts": 1737546328185, // trade time
+        "tradeId": "17041353995724356345856" // tradeId
+    }
+}
+
 ```
