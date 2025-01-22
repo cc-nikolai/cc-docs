@@ -44,7 +44,7 @@ Name | Type | Value | Required | Note
 symbol | string | TRXUSDT | false | Symbol name
 limit | integer | 1 | false | Limit for data size per page. [1, 1000]. Default: 500
 
-## Kline(SIGNED)
+## Kline
 
 Query for historical klines (also known as candles/candlesticks)
 

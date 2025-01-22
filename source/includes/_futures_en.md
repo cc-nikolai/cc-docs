@@ -136,7 +136,7 @@ Get futures symbol
 
 Null
 
-## Get OrderBook(SIGNED)
+## Get OrderBook
 
  Get futures order book for 100 depth
 
