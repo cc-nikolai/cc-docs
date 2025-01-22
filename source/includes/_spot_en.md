@@ -1,6 +1,6 @@
 # Spot Endpoint
 
-## Get Instruments(SIGNED)
+## Get Instruments
 
 Query for the instrument specification of online trading pairs.
 
@@ -83,7 +83,7 @@ start | integer | 1698202825192 | false | The start timestamp (ms)
 end | integer | 1698202825192 | false | The end timestamp (ms)
 limit | integer | 1 | false | Limit for data size per page. [1, 1000]. Default: 200
 
-## Get Orderbook(SIGNED)
+## Get Orderbook
 
 Query for orderbook depth data.
 
@@ -121,7 +121,7 @@ Name | Type | Value | Required | Note
 symbol | string | TRXUSDT | true | Symbol name
 depth | integer | 1 | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 100,200] Default: 1.
 
-## Get Public Trading History(SIGNED)
+## Get Public Trading History
 
 Query recent public trading data.
 
@@ -156,7 +156,7 @@ Name | Type | Value | Required | Note
 symbol | string | TRXUSDT | true | Symbol name
 limit | integer | 1 | false | Limit for data size per page.spot: [ 1, 100], default: 1
 
-## Get Tickers 24hr(SIGNED)
+## Get Tickers 24hr
 
 Query for the latest price snapshot, best bid/ask price, and trading volume in the last 24 hours.
 

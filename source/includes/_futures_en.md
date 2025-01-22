@@ -91,7 +91,7 @@ Name | Type | Value | Required | Note
 symbol | string | BTC-USD | true | Symbol name
 depth | Integer | 1 | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 100] Default: 1.
 
-## Get Symbol Information(SIGNED)
+## Get Symbol Information
 
 Get futures symbol
 
@@ -172,7 +172,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 
-## Kline(SIGNED)
+## Kline
 
 Query for historical klines (also known as candles/candlesticks)
 
@@ -220,7 +220,7 @@ start | integer | 1697760509000 | true | Start time(ms)
 end | integer | 1697771549000 | true | End time(ms)
 limit | integer | 1 | true | Please make sure limit=1.
 
-## Get Last Trade(SIGNED)
+## Get Last Trade
 
 Get futures last trade
 
