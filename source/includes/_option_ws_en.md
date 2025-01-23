@@ -188,8 +188,14 @@ Payload:
 ```
 
 ## RFQ list
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"blockTrade"
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"blockTrade"
 }
 
@@ -219,8 +225,18 @@ Payload:
 ```
 
 ## K-line Data
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"kline",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-24000-P",
+        "period":"h1"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"kline",
     "payload":{
         "symbol":"BTCUSD-27MAY23-24000-P",
@@ -249,8 +265,18 @@ Payload:
 ```
 
 ## Pricing Information
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"bsInfo",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-23500-C"
+    }
+}
+
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"bsInfo",
     "payload":{
         "symbol":"BTCUSD-27MAY23-23500-C"
@@ -292,9 +318,19 @@ Payload:
 ```
 
 ## Option Chain Data
-
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"tOption",
+    "payload":{
+        "symbol":"BTCUSD",
+        "end":1685174400000
+    }
+}
+
+### subscribe
+{
+    "action":"unsubscribe",
     "dataType":"tOption",
     "payload":{
         "symbol":"BTCUSD",
@@ -336,8 +372,17 @@ Payload:
 ```
 
 ## OrderBook
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"orderBook",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"orderBook",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
@@ -371,8 +416,17 @@ Payload:
 ```
 
 ## Last Trades
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"lastTrade",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
@@ -397,8 +451,15 @@ Payload:
 ```
 
 ## Real-Time Account Margin
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"accountBalance"
+}
+
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"accountBalance"
 }
 
@@ -435,8 +496,15 @@ Payload:
 ```
 
 ## Orders
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"order"
+}
+
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"order"
 }
 
@@ -565,8 +633,14 @@ Status: 6 INVALID
 ```
 
 ## Trade
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"trade"
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"trade"
 }
 
@@ -595,8 +669,18 @@ Payload:
 ```
 
 ## Position
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"position",
+    "payload":{
+        "symbol":"BTCUSD-4JUL23-27000-C"
+    }
+}
+
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"position",
     "payload":{
         "symbol":"BTCUSD-4JUL23-27000-C"
@@ -624,7 +708,10 @@ Payload:
 ```
 
 ## Positions
+### subscribe
 {"action":"subscribe", "dataType":"position"}
+### unsubscribe
+{"action":"unsubscribe", "dataType":"position"}
 
 ```json
 Payload:

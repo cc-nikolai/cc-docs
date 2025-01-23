@@ -169,8 +169,17 @@ Payload:
 ```
 
 ## Index Price
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"spotPrice",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"spotPrice",
     "payload":{
         "symbol":"BTCUSD"
@@ -201,8 +210,18 @@ Payload:
 ```
 
 ## K-line Data
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"kline",
+    "payload":{
+        "symbol":"BTCUSD",
+        "period":"h1"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"kline",
     "payload":{
         "symbol":"BTCUSD",
@@ -246,8 +265,17 @@ Payload:
 ```
 
 ## OrderBook
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"orderBook",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"orderBook",
     "payload":{
         "symbol":"BTCUSD"
@@ -284,8 +312,17 @@ Payload:
 ```
 
 ## Last Trades
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"lastTrade",
     "payload":{
         "symbol":"BTCUSD"
@@ -316,8 +353,14 @@ Payload:
 ```
 
 ## Orders
+### subscribe
 {
 "action":"subscribe",
+"dataType":"order"
+}
+### unsubscribe
+{
+"action":"unsubscribe",
 "dataType":"order"
 }
 
@@ -450,8 +493,14 @@ Status: 6 INVALID
 ```
 
 ## Trade
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"trade"
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"trade"
 }
 
@@ -481,8 +530,14 @@ Payload:
 ```
 
 ## Positions
+### subscribe
 {
     "action":"subscribe",
+    "dataType":"position"
+}
+### unsubscribe
+{
+    "action":"unsubscribe",
     "dataType":"position"
 }
 
