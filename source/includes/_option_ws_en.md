@@ -195,7 +195,7 @@ Payload:
 }
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"blockTrade"
 }
 
@@ -236,7 +236,7 @@ Payload:
 }
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"kline",
     "payload":{
         "symbol":"BTCUSD-27MAY23-24000-P",
@@ -276,7 +276,7 @@ Payload:
 
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"bsInfo",
     "payload":{
         "symbol":"BTCUSD-27MAY23-23500-C"
@@ -328,9 +328,9 @@ Payload:
     }
 }
 
-### subscribe
+### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"tOption",
     "payload":{
         "symbol":"BTCUSD",
@@ -382,7 +382,7 @@ Payload:
 }
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"orderBook",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
@@ -426,7 +426,7 @@ Payload:
 }
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"lastTrade",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
@@ -459,7 +459,7 @@ Payload:
 
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"accountBalance"
 }
 
@@ -504,7 +504,7 @@ Payload:
 
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"order"
 }
 
@@ -640,7 +640,7 @@ Status: 6 INVALID
 }
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"trade"
 }
 
@@ -680,7 +680,7 @@ Payload:
 
 ### unsubscribe
 {
-    "action":"unsubscribe",
+    "action":"unSubscribe",
     "dataType":"position",
     "payload":{
         "symbol":"BTCUSD-4JUL23-27000-C"
@@ -711,7 +711,7 @@ Payload:
 ### subscribe
 {"action":"subscribe", "dataType":"position"}
 ### unsubscribe
-{"action":"unsubscribe", "dataType":"position"}
+{"action":"unSubscribe", "dataType":"position"}
 
 ```json
 Payload:
