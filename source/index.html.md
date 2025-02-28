@@ -25,7 +25,7 @@ includes:
   - referral_en
   - errors_en
 
-search: true
+search: false
 
 code_clipboard: true
 
