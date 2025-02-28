@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ruby-version: 2.6
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,13 +42,6 @@ jobs:
       - name: Build site
         run: bundle exec middleman build
 
-      - name: Debug List build directory
-        run: |
-          echo '=== List build directory ==='
-          ls -alh ./build
-          echo '=== Directory size ==='
-          du -sh ./build
-
       - name: Configure CNAME
         run: echo 'docs.coincall.com' > ./build/CNAME
 
@@ -65,5 +57,4 @@ jobs:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v3
