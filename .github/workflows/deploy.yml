@@ -43,7 +43,7 @@ jobs:
       - name: Build site
         run: bundle exec middleman build
 
-      - name: Debug: List build directory
+      - name: Debug List debug dir
         run: |
           echo '=== 列出 build 目录内容 ==='
           ls -alh build || echo 'build 目录不存在'
