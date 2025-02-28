@@ -43,6 +43,13 @@ jobs:
       - name: Build site
         run: bundle exec middleman build
 
+      - name: Debug: List build directory
+        run: |
+          echo "=== 列出 build 目录内容 ==="
+          ls -alh build || echo "build 目录不存在"
+          echo "=== 计算 build 目录大小 ==="
+          du -sh build || echo "无法计算 build 目录大小"
+
       - name: Configure CNAME
         run: |
           cd build
@@ -51,8 +58,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages-a  # Explicitly set artifact name
-          path: ./build
+          name: github-pages
+          path: build
 
   deploy:
     environment:
@@ -63,6 +70,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3        
+        uses: actions/deploy-pages@v3
         with:
-          artifact_name: github-pages-a  # 确保匹配 build 任务上传的名称
+          artifact_name: github-pages
