@@ -45,10 +45,10 @@ jobs:
 
       - name: Debug: List build directory
         run: |
-          echo "=== 列出 build 目录内容 ==="
-          ls -alh build || echo "build 目录不存在"
-          echo "=== 计算 build 目录大小 ==="
-          du -sh build || echo "无法计算 build 目录大小"
+          echo '=== 列出 build 目录内容 ==='
+          ls -alh build || echo 'build 目录不存在'
+          echo '=== 计算 build 目录大小 ==='
+          du -sh build || echo '无法计算 build 目录大小'
 
       - name: Configure CNAME
         run: |
