@@ -31,7 +31,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>API文档正在维护中</h1>
+    <h1>API文件正在維護中</h1>
     <h1>The API documentation is under maintenance</h1>
   </div>
 </body>
