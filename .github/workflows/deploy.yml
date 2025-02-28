@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
-    
+
 permissions:
   contents: read
   pages: write
   id-token: write
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,13 +17,16 @@ jobs:
       ruby-version: 2.6
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.ruby-version }}
 
-      - uses: actions/cache@v2
+      - name: Cache gems
+        uses: actions/cache@v4
         with:
           path: vendor/bundle
           key: gems-${{ runner.os }}-${{ env.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
@@ -31,22 +34,25 @@ jobs:
             gems-${{ runner.os }}-${{ env.ruby-version }}-
             gems-${{ runner.os }}-
 
-      - run: bundle config set deployment 'true'
-      - name: bundle install
+      - name: Install dependencies
         run: |
+          bundle config set deployment 'true'
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-          
-      - run: bundle exec middleman build
-      - run: |
+
+      - name: Build site
+        run: bundle exec middleman build
+
+      - name: Configure CNAME
+        run: |
           cd build
           echo 'docs.coincall.com' > CNAME
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./build
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -56,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages-artifact@v1
+        uses: actions/deploy-pages@v4
