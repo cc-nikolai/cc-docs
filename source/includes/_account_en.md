@@ -43,6 +43,14 @@ Get account summary
 		"totalBtcValue": 1450291.99007375, // Balance in BTC
 		"totalDollarValue": 50014750313.273344637523471200000000, // Balance in USD
 		"totalUsdtValue": 50000314222.5510097100000000, // Balance in USDT
+		"imAmount": "15647.08532640",  //initial margin amount
+        "mmAmount": "10850.05133640", //maintenance margin amount
+        "imRatio": "0.147982", //initial margin rate
+        "mmRatio": "0.102614", //maintenance margin rate
+        "equity": "99932.41659503000", //account equity
+        "availableMargin": "90088.98159503", //aviliable margin amount
+        "marginBalance": "105736.06692143", //margin balance amount
+        "unrealizedPnL": "-43.65032640", //unrealized Profit and Loss
 		"accounts": [{
 			"accountId": null, // Account ID
 			"coin": "ETH", // Coin name
