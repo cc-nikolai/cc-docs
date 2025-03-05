@@ -59,6 +59,7 @@ Get account summary
 			"coinView": "ETH",
 			"equityAmount": "0", // Total assets value in account
 			"availableBalance": "0", // Available balance
+			"cashBalanceAmount": 105736.06692143, //cash balance amount
 			"canWithdrawAmount": "0", // Maximum amount can be withdrawn
 			"marginMode": 1, // Margin mode （1 SM 2 PM)
 			"marginBalance": "0", // Margin balance
@@ -79,6 +80,7 @@ Get account summary
 			"coinView": "USDT",
 			"equityAmount": "49999934983.83391905",
 			"availableBalance": "49999781762.68412424",
+			"cashBalanceAmount": 0,
 			"canWithdrawAmount": "49999781762.68412424",
 			"marginMode": 1,
 			"marginBalance": "49999783525.20670462",
