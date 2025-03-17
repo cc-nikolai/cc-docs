@@ -385,10 +385,10 @@ symbol | string | BTCUSD | true | Futures Symbol
 price | number | 19000.01 | false | Price, required for limit orders
 qty | number | 0.5 | true | Quantity 
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
-tradeType | number | 1 | true | Trade Type, 1 LIMIT 2 MARKET 3 POST_ONLY
+tradeType | number | 1 | true | Trade Type, 1 LIMIT 2 MARKET 3 POST_ONLY 4 STOP_LIMIT 5 STOP_MARKET
 timeInForce | string | GTC | false | IOC, FOK. default: GTC
 reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false
-
+triggerPrice | number | 18000.01 | false | The trigger price when tradeType is 4 (STOP_LIMIT) or 5 (STOP_MARKET)
 *Time in force (timeInForce):*
 
 Name | Note
