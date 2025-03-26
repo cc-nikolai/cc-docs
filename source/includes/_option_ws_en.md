@@ -207,7 +207,30 @@ Payload:
     "dt": 20,
     "c": 20,
     "d": {
-        "msg": "{"msgType":1,"content":{"seekVOList":[{"symbol":"BTCUSD-11OCT24-64000-C","amount":0.1,"role":1,"tradeSide":1,"displayName":"BTC-11OCT24-64000-C","seekId":1840692011045359616,"uid":8098448373,"price":1986.02321251,"ctime":1727690148510,"id":1840692011118247938,"state":0,"underSymbol":"BTC","tradeType":1}],"endTime":1727691948510,"seekId":1840692011045359616}}"
+        "msg": {
+            "msgType": 1,  //-1 - UNKNOWN，1 - ADD_SEEK，2 - CANCEL_SEEK，3 - EXPIRE_CANCEL_SEEK，4 - ADD_QUOTE，5 - CANCEL_QUOTE，6 - EXPIRE_CANCEL_QUOTE，7 - DEAL_NOTIFY_MARKET_MAKER，8 - MSG_FOR_MARKET_MAKER，9 - MSG_FOR_COMMONUSER
+            "content": {
+                "seekVOList": [
+                    {
+                        "symbol": "BTCUSD-11OCT24-64000-C",
+                        "amount": 0.1,
+                        "role": 1,
+                        "tradeSide": 1,
+                        "displayName": "BTC-11OCT24-64000-C",
+                        "seekId": 1840692011045359616,
+                        "uid": 8098448373,
+                        "price": 1986.02321251,
+                        "ctime": 1727690148510,
+                        "id": 1840692011118247938,
+                        "state": 0,
+                        "underSymbol": "BTC",
+                        "tradeType": 1
+                    }
+                ],
+                "endTime": 1727691948510,
+                "seekId": 1840692011045359616
+            }
+        }
     },
     "ts": 1727690148550
 }
