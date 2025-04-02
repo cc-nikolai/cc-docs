@@ -717,15 +717,28 @@ Payload:
     "dt": 12,
     "c": 20,
     "d": {
-        "q": "1", // quantity 
-        "ap": "4274.79", // average price
-        "im": "0", // Im initMargin 
-        "mm": "0", // Mm maintMargin
-        "s": "BTCUSD-4JUL23-27000-C", // symbol
-        "si": "1", // order side
-        "uid": "8095151726", // user id
-        "upnl": "-42.79" // Unrealized Pnl
-    }
+        "ap": "0.3435", // average price
+        "elp": -63.31,  // Elp estimated Liquidation Price
+        "im": "0.458", // Im initMargin 
+        "mm": "0.04122", // Mm maintMargin 
+        "mp": 0.3435, // mark price 
+        "os": "5", // postition statues 1 - opening 5 - close
+        "q": "0",  // filled quantity
+        "s": "BTCUSD-12JUL24-63000-C",  // symbol
+        "si": "1", // side 交易方向
+        "tim": "", //Initial margin in this currency
+        "tmm": "", //Maintenance margin in this currency
+        "uid": "8098470908", // user id
+        "upnl": "0",  // Unrealized Pnl calculated at the lastPrice
+        "pnlbmp": "0",  // Unrealized Pnl  calculated at the markprice
+        "roibmp": "0",  // Roi calculated at the markprice
+        "rho": "0.009074", //greek letters
+        "vega": "0.021028" //greek letters
+        "delta": "0.09202" //greek letters
+        "gamma": "1.05E-4" //greek letters
+        "theta": "-3.583298" //greek letters
+    },
+    "ts": 1719908110173
 }
 
 ```

@@ -545,20 +545,29 @@ Payload:
 Payload:
 
 {
-  "dt": 36,
-  "c": 20,
-  "d": {
-    "q": "4", // filled quantity
-    "ap": "0.3435", // average price
-    "elp": "-20963.68918261", // Elp estimated Liquidation Price
-    "im": "0.458", // initMargin
-    "mm": "0.04122", // maintMargin 
-    "mp": "0.3435", // mark price 
-    "s": "FTMUSD", // symbol 
-    "si": "1", // order side
-    "uid": "8095151726", // user id
-    "upnl": "0" // Unrealized Pnl
-  }
+    "dt": 36,
+    "c": 20,
+    "d": {
+        "ap": "2976.11", // average price
+        "elp": "-86087698.84122056", // Elp estimated Liquidation Price
+        "im": "80.81664", // Im initMargin 初始保证金
+        "le": "5", //leverage
+        "mm": "1.93959936", // Mm maintMargin
+        "mp": "3367.36", // mark price 
+        "os": "1", // postition statues 1 - opening 2 - close
+        "q": "0.12",// filled quantity
+        "s": "ETHUSD", // symbol
+        "si": "1", // side 交易方向
+        "tim": "", //Initial margin in this currency
+        "tmm": "", //Maintenance margin in this currency
+        "uid": "8098470908", // user id
+        "upnl": "46.95", // Unrealized Pnl calculated at the markPirce
+        "upnlblp": "46.95", //Unrealized Pnl calculated at the lastprice
+        "roiblp": "46.95", // Roi calculated at the lastprice
+        "lp": "2976.21", // lastPrice
+        "ctp":"E" // Perp
+},
+    "ts": 1719907751060
 }
 
 ```
