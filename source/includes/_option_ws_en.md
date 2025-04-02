@@ -717,7 +717,7 @@ Payload:
         "mm": "0.04122", // Mm maintMargin 
         "mp": 0.3435, // mark price 
         "os": "5", // postition statues 1 - opening 5 - close
-        "q": "0",  // filled quantity,The current hold volume (Total position volume - Closed position volume)
+        "q": "0",  // filled quantity,Current quantity of this position, after any position changes. Snapshot value, not a delta.
         "s": "BTCUSD-12JUL24-63000-C",  // symbol
         "si": "1", // side 交易方向 1 - long 2 - short
         "tim": "", //Initial margin in this currency
