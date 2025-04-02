@@ -695,19 +695,13 @@ Payload:
 ### subscribe
 {
     "action":"subscribe",
-    "dataType":"position",
-    "payload":{
-        "symbol":"BTCUSD-4JUL23-27000-C"
-    }
+    "dataType":"position"
 }
 
 ### unsubscribe
 {
     "action":"unSubscribe",
-    "dataType":"position",
-    "payload":{
-        "symbol":"BTCUSD-4JUL23-27000-C"
-    }
+    "dataType":"position"
 }
 
 ```json
@@ -739,32 +733,6 @@ Payload:
         "theta": "-3.583298" //greek letters
     },
     "ts": 1719908110173
-}
-
-```
-
-## Positions
-### subscribe
-{"action":"subscribe", "dataType":"position"}
-### unsubscribe
-{"action":"unSubscribe", "dataType":"position"}
-
-```json
-Payload:
-
-{
-    "dt": 19,
-    "c": 20,
-    "d": {
-        "q": "1", // quantity 
-        "ap": "4274.79", // average price
-        "im": "0", // Im initMargin 
-        "mm": "0", // Mm maintMargin
-        "s": "BTCUSD-4JUL23-27000-C", // symbol
-        "si": "1", // order side
-        "uid": "8095151726", // user id
-        "upnl": "-42.79" // Unrealized Pnl
-    }
 }
 
 ```

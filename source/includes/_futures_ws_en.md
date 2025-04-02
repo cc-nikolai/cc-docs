@@ -529,7 +529,7 @@ Payload:
 
 ```
 
-## Positions
+## Position
 ### subscribe
 {
     "action":"subscribe",
