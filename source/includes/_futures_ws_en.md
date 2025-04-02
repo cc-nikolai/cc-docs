@@ -555,9 +555,9 @@ Payload:
         "mm": "1.93959936", // Mm maintMargin
         "mp": "3367.36", // mark price 
         "os": "1", // postition statues 1 - opening 2 - close
-        "q": "0.12",// filled quantity
+        "q": "0.12",// filled quantity,The current hold valume (Total position valumn - Closed position valumne)
         "s": "ETHUSD", // symbol
-        "si": "1", // side 交易方向
+        "si": "1", // side 交易方向 1 - long 2 - short
         "tim": "", //Initial margin in this currency
         "tmm": "", //Maintenance margin in this currency
         "uid": "8098470908", // user id

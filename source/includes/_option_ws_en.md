@@ -719,7 +719,7 @@ Payload:
         "os": "5", // postition statues 1 - opening 5 - close
         "q": "0",  // filled quantity
         "s": "BTCUSD-12JUL24-63000-C",  // symbol
-        "si": "1", // side 交易方向
+        "si": "1", // side 交易方向 1 - long 2 - short
         "tim": "", //Initial margin in this currency
         "tmm": "", //Maintenance margin in this currency
         "uid": "8098470908", // user id
@@ -727,9 +727,9 @@ Payload:
         "pnlbmp": "0",  // Unrealized Pnl  calculated at the markprice
         "roibmp": "0",  // Roi calculated at the markprice
         "rho": "0.009074", //greek letters
-        "vega": "0.021028" //greek letters
-        "delta": "0.09202" //greek letters
-        "gamma": "1.05E-4" //greek letters
+        "vega": "0.021028",//greek letters
+        "delta": "0.09202", //greek letters
+        "gamma": "1.05E-4", //greek letters
         "theta": "-3.583298" //greek letters
     },
     "ts": 1719908110173
