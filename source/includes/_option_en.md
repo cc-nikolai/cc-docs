@@ -50,7 +50,7 @@ Get all option instruments information.
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/getInstruments/{}`
+`GET https://api.coincall.com/open/option/getInstruments/{baseCurrency}`
 
 **Parameter**
 
@@ -200,7 +200,7 @@ Get option details
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/detail/v1/{}`
+`GET https://api.coincall.com/open/option/detail/v1/{symbol}`
 
 **Parameter**
 
@@ -238,7 +238,7 @@ Get option order book for 100 depth
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/orderbook/v1/{}`
+`GET https://api.coincall.com/open/option/order/orderbook/v1/{symbol}`
 
 **Parameter**
 
@@ -272,7 +272,7 @@ Get option last trade
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/trade/lasttrade/v1/{}`
+`GET https://api.coincall.com/open/option/trade/lasttrade/v1/{symbol}`
 
 **Parameter**
 
@@ -693,7 +693,7 @@ Get option open orders
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/pending/v1/{}`
+`GET https://api.coincall.com/open/option/order/pending/v1`
 
 **Parameter**
 
