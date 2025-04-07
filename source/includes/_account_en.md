@@ -111,7 +111,7 @@ Null
 
 ## Get Query API (SIGNED)
 
-`GET /open/auth/user/query-api`
+`GET https://api.coincall.com/open/auth/user/query-api`
 
 **Request Parameters:**
 
