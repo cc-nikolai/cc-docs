@@ -168,6 +168,7 @@ Please refer to the following field abbreviations for data fields in the futures
 | le | leverage |
 | it | isTaker |
 | cq | canceled quantity |
+| tif | time in force |
 
 
 <!-- ## options -->
@@ -551,7 +552,8 @@ Status: 0 NEW
     "ts": 1685326195118,// Time of this event
     "ro": 0,  //Reduce only
     "le": 3,  //  Leverage
-    "os": 0 //Status NEW
+    "os": 0, //Status NEW
+    "tif": 0 //timeInForce
   }
 }
 
@@ -577,7 +579,8 @@ Status: 1 FILLED
     "ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
     "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
-    "os": 1 // FILLED
+    "os": 1, // FILLED
+    "tif": 0 //timeInForce
   }
 }
 
@@ -603,7 +606,8 @@ Status: 2 PARTIALLY_FILLED
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
 	"it": 0, // Taker or Maker, 1 TRUE 0 FALSE
-	"os": 2 // PARTIALLY_FILLED
+	"os": 2, // PARTIALLY_FILLED
+    "tif": 0 //timeInForce
   }
 }
 
@@ -626,7 +630,8 @@ Status: 3 CANCELED, 10 CANCEL_BY_EXERCISE
     "ct": 1666667584739,// Time of the order created
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
-	"os": 3 // 3 CANCELED, 10 CANCEL_BY_EXERCISE
+	"os": 3, // 3 CANCELED, 10 CANCEL_BY_EXERCISE
+    "tif": 0 //timeInForce
   }
 }
 
@@ -649,7 +654,8 @@ Status: 6 INVALID
     "ct": 1666667584739,// Time of the order created
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
-	"os": 6 // INVALID
+	"os": 6, // INVALID
+    "tif": 0 //timeInForce
   }
 }
 
