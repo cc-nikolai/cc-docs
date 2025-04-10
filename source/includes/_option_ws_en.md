@@ -553,7 +553,7 @@ Status: 0 NEW
     "ro": 0,  //Reduce only
     "le": 3,  //  Leverage
     "os": 0, //Status NEW
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -580,7 +580,7 @@ Status: 1 FILLED
     "ro": 0, // Reduce only
     "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 1, // FILLED
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -607,7 +607,7 @@ Status: 2 PARTIALLY_FILLED
     "ro": 0, // Reduce only
 	"it": 0, // Taker or Maker, 1 TRUE 0 FALSE
 	"os": 2, // PARTIALLY_FILLED
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -631,7 +631,7 @@ Status: 3 CANCELED, 10 CANCEL_BY_EXERCISE
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
 	"os": 3, // 3 CANCELED, 10 CANCEL_BY_EXERCISE
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -655,7 +655,7 @@ Status: 6 INVALID
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
 	"os": 6, // INVALID
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 

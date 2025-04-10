@@ -386,7 +386,7 @@ Status: 0 NEW
     "ro": 0,  //Reduce only
     "le": 3,  //  Leverage
     "os": 0, //Status NEW
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -414,7 +414,7 @@ Status: 1 FILLED
     "le": 3,  //  Leverage
     "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 1, // FILLED
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -442,7 +442,7 @@ Status: 2 PARTIALLY_FILLED
     "le": 3,  //  Leverage
     "it": 0, // Taker or Maker, 1 TRUE 0 FALSE
     "os": 2, // PARTIALLY_FILLED
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -467,7 +467,7 @@ Status: 3 CANCELED
     "ro": 0,  // Reduce only
     "le": 3,  // Leverage
     "os": 3, // CANCELED
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
@@ -492,7 +492,7 @@ Status: 6 INVALID
     "ro": 0,  // Reduce only
     "le": 3,  // Leverage
     "os": 6, // INVALID
-    "tif": 0 //timeInForce
+    "tif": 0 //timeInForce 0 - GTC ,  1 - GTC (POSTONLY) , 2 - IOC , 3 - FOK
   }
 }
 
