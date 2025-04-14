@@ -230,9 +230,9 @@ Transfer funds between subaccounts
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 fromUserId | integer | 1695796692726153 | true |  Sender user id for funds transfer (funds out)
-toUserId | integer | 1 | 1695796692726100 | true |  Recipient user id for fund transfer (funds in)
+toUserId | integer | 1695796692726100 | true |  Recipient user id for fund transfer (funds in)
 amount | number | 20 | true |  Transfer amount
-currency | String | 20 | true | Transfer currency
+currency | String | ETH,USDT | true | Transfer currency
 
 
 > Response: 
