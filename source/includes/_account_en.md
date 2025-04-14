@@ -239,18 +239,13 @@ currency | String | ETH,USDT | true | Transfer currency
 
 ```json
 curl 
--X POST 
+-X POST "https://beta.seizeyouralpha.com/open/user/subAccount/fund/transfer/v1"
 -H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
 -H "sign: D6D850F24E488EFF8B859E748370345437757DDEFBAF921613D06B0D7BA220F9" 
 -H "ts: 1744629390441" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/json" 
--d '{
-    "fromUserId": 1695796692726153,
-    "toUserId": 1695796692779320,
-    "amount": 222,
-    "currency": "USDT"
-}' "https://beta.seizeyouralpha.com/open/user/subAccount/fund/transfer/v1"
+-H "content-type: application/x-www-form-urlencoded;charset=UTF-8"
+--data-raw 'fromUserId=1695796692726153&toUserId=1695796692779320&currency=USDT&amount=111' 
 
 ```
 
