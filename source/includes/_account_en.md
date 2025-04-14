@@ -152,8 +152,23 @@ Headers:
 ### (not released) 
 query deposit and withdrawal history
 
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/account/historyList/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+type | integer | -1,0,1 | false |  query type -1 all 0 deposit 1 withdrawal
+page | integer | 1 | false | Page number, default is 1
+pageSize | integer | 20 | false | Number of items per page, default is 20
+
+
 > Response: 
-```json
+
+```JSON
 {
   "code": 0,
   "msg": null,
@@ -201,17 +216,5 @@ query deposit and withdrawal history
 
 ```
 
-
-**HTTP Request**
-
-`GET https://api.coincall.com/open/account/historyList/v1`
-
-**Parameter**
-
-Name | Type | Value | Required | Note
----- | ---- | ----- | -------- | ----
-type | integer | -1,0,1 | false |  query type -1 all 0 deposit 1 withdrawal
-page | integer | 1 | false | Page number, default is 1
-pageSize | integer | 20 | false | Number of items per page, default is 20
 
 
