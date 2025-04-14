@@ -219,3 +219,32 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 
 
 
+## Subaccount funds transfer API (SIGNED)  
+### (not released) 
+Transfer funds between subaccounts
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/user/subAccount/fund/transfer/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+fromUserId | integer | 1695796692726153 | true |  Sender user id for funds transfer (funds out)
+toUserId | integer | 1 | 1695796692726100 | true |  Recipient user id for fund transfer (funds in)
+amount | number | 20 | true |  Transfer amount
+currency | String | 20 | true | Transfer currency
+
+
+> Response: 
+
+```json
+{
+    "code": 0,
+    "msg": null,
+    "i18nArgs": null,
+    "data":  null
+}
+
+```
