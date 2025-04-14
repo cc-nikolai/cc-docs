@@ -148,8 +148,7 @@ Headers:
 }
 ```
 
-## Deposit / Withdraw History API (SIGNED)  
-### (not released) 
+## Deposit / Withdraw History API (SIGNED)  [to be released] 
 query deposit and withdrawal history
 
 
@@ -219,8 +218,7 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 
 
 
-## Subaccount funds transfer API (SIGNED)  
-### (not released) 
+## Subaccount funds transfer API (SIGNED)  [to be released]
 Transfer funds between subaccounts
 
 **HTTP Request**
