@@ -223,7 +223,7 @@ Transfer funds between subaccounts
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/user/subAccount/fund/transfer/v1`
+`Post https://api.coincall.com/open/user/subAccount/fund/transfer/v1`
 
 **Parameter**
 
