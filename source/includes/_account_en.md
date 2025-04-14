@@ -149,7 +149,7 @@ Headers:
 ```
 
 ## deposit-withdrawal-history API (SIGNED)  [to be released] 
-query deposit and withdrawal history
+Query deposit and withdrawal history
 
 
 **HTTP Request**
@@ -238,7 +238,8 @@ currency | String | ETH,USDT | true | Transfer currency
 > Rquest: 
 
 ```json
-curl -X POST 
+curl 
+-X POST 
 -H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
 -H "sign: D6D850F24E488EFF8B859E748370345437757DDEFBAF921613D06B0D7BA220F9" 
 -H "ts: 1744629390441" 
