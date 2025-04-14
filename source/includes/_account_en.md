@@ -223,7 +223,7 @@ Transfer funds between subaccounts
 
 **HTTP Request**
 
-`Post https://api.coincall.com/open/user/subAccount/fund/transfer/v1`
+`POST https://api.coincall.com/open/user/subAccount/fund/transfer/v1`
 
 **Parameter**
 
@@ -233,6 +233,25 @@ fromUserId | integer | 1695796692726153 | true |  Sender user id for funds trans
 toUserId | integer | 1695796692726100 | true |  Recipient user id for fund transfer (funds in)
 amount | number | 20 | true |  Transfer amount
 currency | String | ETH,USDT | true | Transfer currency
+
+
+> Rquest: 
+
+```json
+curl -X POST 
+-H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
+-H "sign: D6D850F24E488EFF8B859E748370345437757DDEFBAF921613D06B0D7BA220F9" 
+-H "ts: 1744629390441" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" 
+-d '{
+    "fromUserId": 1695796692726153,
+    "toUserId": 1695796692779320,
+    "amount": 222,
+    "currency": "USDT"
+}' "https://beta.seizeyouralpha.com/open/user/subAccount/fund/transfer/v1"
+
+```
 
 
 > Response: 
