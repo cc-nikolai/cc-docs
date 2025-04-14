@@ -245,7 +245,7 @@ curl
 -H "ts: 1744629390441" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "content-type: application/x-www-form-urlencoded;charset=UTF-8"
---data-raw "fromUserId=1695796692726153&toUserId=1695796692779320&currency=USDT&amount=111z"
+--data-raw "fromUserId=1695796692726153&toUserId=1695796692779320&currency=USDT&amount=111"
 
 ```
 
