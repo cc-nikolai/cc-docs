@@ -170,49 +170,50 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 
 ```JSON
 {
-  "code": 0,
-  "msg": null,
-  "i18nArgs": null,
-  "data": {
-    "list": [
-      {
-        "transactionRecordId": 2880637015540805600,  // transaction ID
-        "createTime": "2025-01-18T15:36:43.199+00:00", //create time
-        "side": "deposit", //deposit or withdraw
-        "coin": "SETH",    //currency
-        "amount": 0.5,     //amount
-        "serviceFee": 0,   //Deposit and withdrawal fee.
-        "address": "0x6595e62302e44b4c9db049e91fdb4b010c8b73bf",  //Deposit destination address.
-        "network": "Test SETH (ERC20)", //network type 
-        "addressUrl": "https://sepolia.etherscan.io/address/\n0x6595e62302e44b4c9db049e91fdb4b010c8b73bf", //chain adress url
-        "txId": "0x7c17c831db60ffa4cf3305859828e021fc9130fb95327c91896861e2422fd556", //chain txId 
-        "txIdUrl": "https://sepolia.etherscan.io/tx/\n0x7c17c831db60ffa4cf3305859828e021fc9130fb95327c91896861e2422fd556", //chain txId url
-        "status": "Completed", //status includes: cancel,Processing,Cancelled,Completed,Failed
-        "confirmingThreshold": 64, //Minimum confirmation count for the cryptocurrency.
-        "confirmedNum": 67, //Confirmation count for the cryptocurrency
-        "type": "external" // "external" refers to on-chain transactions; "internal" refers to Loop transactions.
-      },
-      {
-        "transactionRecordId": 2905095341540290600,
-        "createTime": "2025-03-27T03:11:39.045+00:00",
-        "side": "withdraw",
-        "coin": "USDT",
-        "amount": 1200,
-        "serviceFee": 2,
-        "address": "0x18E03648Ab40A9DDFB8b6bD4A65C5317EbABdD9E",
-        "network": "Tron (TRC20)",
-        "addressUrl": "https://tronscan.org/#/address/0x18E03648Ab40A9DDFB8b6bD4A65C5317EbABdD9E",
-        "txId": null,
-        "txIdUrl": "https://tronscan.org/#/transaction/null",
-        "status": "Cancelled",
-        "confirmingThreshold": null,
-        "confirmedNum": null,
-        "type": null
-      }
-    ],
-    "pageTotal": 0,
-    "total": 0
-  }
+    "code": 0,
+    "msg": null,
+    "i18nArgs": null,
+    "data": {
+        "list": [
+            {
+        		"transactionRecordId": 2880637015540805600,      // transaction ID
+        		"createTime": "2025-01-18T15:36:43.199+00:00",   //create time
+        		"side": "deposit",   //deposit or withdraw
+        		"coin": "SETH",      //currency
+        		"amount": 0.5,       //amount
+        		"serviceFee": 0,     //Deposit and withdrawal fee.
+        		"address": "0x6595e62302e44b4c9db049e91fdb4b010c8b73bf",    //Deposit destination address.
+        		"network": "Test SETH (ERC20)",   //network type 
+        		"addressUrl": "https://sepolia.etherscan.io/address/\n0x6595e62302e44b4c9db049e91fdb4b010c8b73bf",   //chain adress url
+        		"txId": "0x7c17c831db60ffa4cf3305859828e021fc9130fb95327c91896861e2422fd556",   //chain txId 
+        		"txIdUrl": "https://sepolia.etherscan.io/tx/\n0x7c17c831db60ffa4cf3305859828e021fc9130fb95327c91896861e2422fd556",   //chain txId url
+        		"status": "Completed",   //status includes: cancel,Processing,Cancelled,Completed,Failed
+        		"confirmingThreshold": 64,   //Minimum confirmation count for the cryptocurrency.
+        		"confirmedNum": 67,   //Confirmation count for the cryptocurrency
+        		"type": "external"   // "external" refers to on-chain transactions; "internal" refers to Loop transactions.
+            },
+            {
+                "transactionRecordId": 2905095341540290600,
+                "createTime": "2025-03-27T03:11:39.045+00:00",
+                "side": "withdraw",
+                "coin": "USDT",
+                "amount": 1200,
+                "serviceFee": 2,
+                "address": "0x18E03648Ab40A9DDFB8b6bD4A65C5317EbABdD9E",
+                "network": "Tron (TRC20)",
+                "addressUrl": "https://tronscan.org/#/address/0x18E03648Ab40A9DDFB8b6bD4A65C5317EbABdD9E",
+                "txId": null,
+                "txIdUrl": "https://tronscan.org/#/transaction/null",
+                "status": "Cancelled",
+                "confirmingThreshold": null,
+                "confirmedNum": null,
+                "type": null
+            }
+        ],
+        "pageTotal": 0,
+        "total": 0
+    }
+}
 
 ```
 
