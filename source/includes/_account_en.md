@@ -133,7 +133,7 @@ Headers:
 
 > Response:
 
-```JSON
+```json
 {
     "code":0,
     "msg":"Success",
@@ -168,7 +168,7 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 
 > Response: 
 
-```JSON
+```json
 {
     "code": 0,
     "msg": null,
