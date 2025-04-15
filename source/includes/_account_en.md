@@ -148,7 +148,7 @@ Headers:
 }
 ```
 
-## deposit-withdrawal-history API (SIGNED)
+## Get Deposit and Withdrawal History API (SIGNED)
 Query deposit and withdrawal history
 
 
