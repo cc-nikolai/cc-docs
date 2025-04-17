@@ -397,6 +397,8 @@ Payload:
 
 ## OrderBook
 ### subscribe
+*  Single subscribe 
+  
 {
     "action":"subscribe",
     "dataType":"orderBook",
@@ -404,6 +406,21 @@ Payload:
         "symbol":"BTCUSD-27MAY23-26000-C"
     }
 }
+* Batch subscribe
+
+{
+    "action": "subscribe",
+    "dataType": "orderBook",
+    "payload": {
+        "symbol": [
+            "BTCUSD-25APR25-85000-C",
+            "BTCUSD-25APR25-84000-C"
+        ]
+    }
+} 
+
+**The maximum number of options allowed for batch subscription is 100**
+
 ### unsubscribe
 {
     "action":"unSubscribe",
