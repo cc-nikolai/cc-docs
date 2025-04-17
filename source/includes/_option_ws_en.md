@@ -407,7 +407,7 @@ Payload:
     }
 } 
 
-*  Batch subscribe (to be released)
+*  Batch subscribe
 
 {
     "action": "subscribe",
