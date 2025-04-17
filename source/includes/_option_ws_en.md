@@ -406,7 +406,7 @@ Payload:
         "symbol":"BTCUSD-27MAY23-26000-C"
     }
 }
-* Batch subscribe
+* Batch subscribe (to be released)
 
 {
     "action": "subscribe",
