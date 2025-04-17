@@ -379,7 +379,7 @@ Value | Name | Note |
 
 Create batch Orders
 
-You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
@@ -573,7 +573,7 @@ index | string | BTCUSD | true | coin index symbol name
 
 Cancel batch Orders by ids
 
-You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
@@ -819,7 +819,7 @@ Get option transaction history
 	"data": {
 		"list": [
 			{
-				"id": 1584745240079241216,// ID
+				"id": 1584745240079241216,// DataBase record ID
 				"optionId": null,// Option ID
 				"symbol":"BTCUSD-2JUN23-18000-C",// Option symbol name
 				"displayName":"BTC-2JUN23-18000-C",// Option display name
@@ -907,7 +907,7 @@ page | number | 1 | false | default is 1
 
 ## Batch Change Order (SIGNED)
 
-You can submit and modify up to 20 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
