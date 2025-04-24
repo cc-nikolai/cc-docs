@@ -6,7 +6,7 @@ Use this interface to configure MMP.
 
 **HTTP Request** 
 
-`POST https://api.coincall.com/set-mmp-config/v1`
+`POST https://api.coincall.com/open/mmp/set-mmp-config/v1`
 
 **Parameter**
 
@@ -43,7 +43,7 @@ Get MMP config.
 
 **HTTP Request**  
 
-`GET https://api.coincall.com/get-mmp-config/v1`
+`GET https://api.coincall.com/open/mmp/get-mmp-config/v1`
 
 **Parameter** 
 
@@ -79,7 +79,7 @@ Reset MMP config.
 
 **HTTP Request**  
 
-`POST https://api.coincall.com/reset-mmp/v1`
+`POST https://api.coincall.com/open/mmp/reset-mmp/v1`
 
 **Parameter** 
 
