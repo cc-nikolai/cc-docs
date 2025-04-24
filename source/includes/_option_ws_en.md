@@ -289,7 +289,10 @@ Payload:
 ```
 
 ## Pricing Information
-### subscribe
+### subscribe 
+
+*  Single subscribe  
+  
 {
     "action":"subscribe",
     "dataType":"bsInfo",
@@ -298,12 +301,41 @@ Payload:
     }
 }
 
+* Batch subscribe 
+  
+{
+    "action":"subscribe",
+    "dataType":"bsInfo",
+    "payload":{
+        "symbol":[
+            "BTCUSD-27MAY23-23500-C",
+            "BTCUSD-27MAY23-26500-C"
+        ]
+    }
+}
+
 ### unsubscribe
+
+*  Single subscribe  
+  
 {
     "action":"unSubscribe",
     "dataType":"bsInfo",
     "payload":{
         "symbol":"BTCUSD-27MAY23-23500-C"
+    }
+}
+
+* Batch subscribe 
+
+{
+    "action":"unSubscribe",
+    "dataType":"bsInfo",
+    "payload":{
+        "symbol":[
+            "BTCUSD-27MAY23-23500-C",
+            "BTCUSD-27MAY23-26500-C"
+        ]
     }
 }
 
@@ -423,11 +455,27 @@ Payload:
 **The maximum number of options allowed for batch subscription is 100**
 
 ### unsubscribe
+
+*  Single subscribe  
+  
 {
     "action":"unSubscribe",
     "dataType":"orderBook",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+
+*  Batch subscribe 
+  
+{
+    "action":"unSubscribe",
+    "dataType":"orderBook",
+    "payload":{
+        "symbol": [
+            "BTCUSD-25APR25-85000-C",
+            "BTCUSD-25APR25-84000-C"
+        ]
     }
 }
 
@@ -459,6 +507,9 @@ Payload:
 
 ## Last Trades
 ### subscribe
+
+*  Single subscribe  
+
 {
     "action":"subscribe",
     "dataType":"lastTrade",
@@ -466,12 +517,41 @@ Payload:
         "symbol":"BTCUSD-27MAY23-26000-C"
     }
 }
+
+*  Batch subscribe 
+  
+  {
+    "action":"subscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":[
+            "BTCUSD-27MAY23-26000-C",
+            "BTCUSD-27MAY23-27000-C"
+        ]
+    }
+}
+
 ### unsubscribe
+
+*  Single subscribe  
 {
     "action":"unSubscribe",
     "dataType":"lastTrade",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+
+*  Batch subscribe 
+  
+  {
+    "action":"unSubscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":[
+            "BTCUSD-27MAY23-26000-C",
+            "BTCUSD-27MAY23-27000-C"
+        ]
     }
 }
 
