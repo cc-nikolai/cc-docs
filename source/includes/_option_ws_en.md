@@ -316,7 +316,7 @@ Payload:
 
 ### unsubscribe
 
-*  Single subscribe  
+*  Single unsubscribe  
   
 {
     "action":"unSubscribe",
@@ -326,7 +326,7 @@ Payload:
     }
 }
 
-* Batch subscribe 
+* Batch unsubscribe 
 
 {
     "action":"unSubscribe",
@@ -456,7 +456,7 @@ Payload:
 
 ### unsubscribe
 
-*  Single subscribe  
+*  Single unsubscribe  
   
 {
     "action":"unSubscribe",
@@ -466,7 +466,7 @@ Payload:
     }
 }
 
-*  Batch subscribe 
+*  Batch unsubscribe 
   
 {
     "action":"unSubscribe",
@@ -533,7 +533,7 @@ Payload:
 
 ### unsubscribe
 
-*  Single subscribe  
+*  Single unsubscribe  
 {
     "action":"unSubscribe",
     "dataType":"lastTrade",
@@ -542,7 +542,7 @@ Payload:
     }
 }
 
-*  Batch subscribe 
+*  Batch unsubscribe 
   
   {
     "action":"unSubscribe",
