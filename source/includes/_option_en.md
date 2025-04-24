@@ -366,6 +366,7 @@ qty | number | 0.5 | true | Quantity
 price | number | 19000.01 | false | Price, required for limit orders
 stp | integer | 1 | false | Value: [1,2,3]
 reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false
+mmp	 | boolean	| TRUE,FALSE	| FALSE | Market Maker Protection (MMP): TRUE indicates that the order is an MMP order.Effective for options only.
 
 <!-- reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false -->
 
@@ -731,6 +732,7 @@ Get an order information by orderId or clientOrderId
 			"reduceOnly": 0, // Reduce only
 			"fee": 0, // transaction fee(accumulated)
 			"updateTime": 1685326195118,
+            "mmp": true, // MMP
 			"state": 0 // order status
 		}
 	}
@@ -780,7 +782,8 @@ Get Option Order History
                 "tradeType": 1, // Trade type
                 "createTime": 1666667584739,// Time of the order created
                 "state": 1, // Order status
-                "reduceOnly": 0 // Reduce only
+                "reduceOnly": 0, // Reduce only
+                "mmp": true // MMP
             }
         ],
         "hasNext": false, // Whether there is a next page
@@ -835,7 +838,8 @@ Get option transaction history
 				"fee": 0.00190200,// Fees
 				"time": 1666667683034,// Transaction time
 				"reduceOnly":0, // Reduce only
-				"isTaker":0 // Filled by taker side
+				"isTaker":0, // Filled by taker side
+                "mmp": true // MMP
 			}
 		],
 		"hasNext": true, // Whether there is a next page
