@@ -444,8 +444,8 @@ curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
 
 **Parameter**
 
-Name | Type | Required | Note
----- | ---- | -------- | ----
+Name | Type | value | Required | Note
+---- | ---- | -------- | --------|---
 clientOrderId | long | 123123123 | false | client order id
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
 tradeType | number | 1 | true | Trade Type, 1 LIMIT 3 POST_ONLY
@@ -453,6 +453,7 @@ symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
 qty | number | 0.5 | true | Quantity 
 price | number | 19000.01 | false | Price, required for limit orders
 stp | integer | 1 | false | Value: [1,2,3]
+mmp	 | boolean	| TRUE,FALSE	| FALSE | Market Maker Protection (MMP): TRUE indicates that the order is an MMP order.Effective for options only.
 
 ## Amend Order(SIGNED)
 
