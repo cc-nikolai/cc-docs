@@ -52,6 +52,19 @@ Null
 ## Get OrderBook
 
  Get futures order book
+ 
+> Request:
+
+```json
+
+curl -X GET 
+-H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
+-H "sign: DDD580BDF67B2CE93FACA962C96716D425FE878652A22A92CDDBFF39971584D1" 
+-H "ts: 1745918318045" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/market/orderbook?symbol=BTC-USD"
+
+```
 
 > Response:
 
@@ -94,6 +107,7 @@ depth | Integer | 1 | false | Limit size for each bid and ask, [ 1, 10, 20, 50, 
 ## Get Symbol Information
 
 Get futures symbol
+
 
 > Response:
 
