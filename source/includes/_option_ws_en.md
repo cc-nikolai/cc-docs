@@ -408,6 +408,7 @@ Payload:
         "cp": -124.21240000, // changePrice, Price change in value
         "biv": 0.01, // bidIv, Best bid IV
         "aiv": 0.01, // askIv, Best ask IV
+        "miv": 0.01, // markIv
         "cr": -0.0298, // changeRate, Price change in percentage
         "bs": 0.2, // bidSize, Best bid size
         "as": 0, // askSize, Best ask size
