@@ -222,9 +222,9 @@ Get RFQ Order Trade details.
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-fromId | 	Number | 	1919971554599542784	|false	 |  trade id
-direction | String | NEXT | false |  direction: PREV or NEXT
-pageSize | Number | 20 | false | pageSize:  The value should be less than 500
+fromId | 	Number | 	1919971554599542784	|false	 | id
+direction | String | NEXT | false |  direction: PREV or NEXT， Default: NEXT
+pageSize | Number | 20 | false | pageSize:  The value should be less than 500, Default: 20
 currency | String | BTC | false | Query currency type
 
 > Request:
