@@ -210,6 +210,7 @@ Some APIs use cursor-based paging, where each query uses a reference record ID (
 
 ### Input Parameters
 **fromId** 
+
 - The reference ID for pagination
 - Typically taken from a record on the previous or next page.
 - null or 0L indicates the first (most recent) page. 
