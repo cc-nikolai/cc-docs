@@ -205,6 +205,34 @@ isTaker | options/futures/websocket | Filled by taker side: 0 FALSE 1 TRUE
 period | websocket | granularity of K-line: m1 1minute, m5 5minutes, m15 15minutes, m30 30minutes, h1 1hour, h4 4hours, d1 1day, w1 1week, mn1 1month, quarter 3months
 stp | options | stp type: 1 CM, 2 CT, 3 CB
 
+## Pagination query
+Some APIs use cursor-based paging, where each query uses a reference record ID (fromId) and a paging direction (direction) to retrieve records that are newer or older than the given ID. This approach supports navigating through data using "Previous" and "Next" pages.
+
+### Input Parameters
+**fromId** 
+- he reference ID for pagination
+- Typically taken from a record on the previous or next page.
+- null or 0L indicates the first (most recent) page. 
+  
+**direction** 
+- Used to specify the pagination direction: 
+
+Value | Meaning | Query Condition | Sort Order
+----  | --------| ----------------| -----------
+NEXT | Forward pagination (older data) |  id < fromId | ORDER BY id DESC
+PREV | backward pagination (newer data) | id > fromId | ORDER BY id ASC (then reversed before display)
+
+### Response Fields  
+**hasNext** 
+
+- Indicates if there is a next page
+- In NEXT mode: Indicates if more older records exist
+- In PREV mode: Indicates if newer records exist when paging back.
+
+**hasPrev** 
+- Indicates if there is a previous page
+- In PREV mode: True if not on the last page.
+  
 ## Error Information
 
 ```javascript
