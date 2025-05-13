@@ -229,9 +229,10 @@ PREV | backward pagination (newer data) | id > fromId | ORDER BY id ASC (then re
 - In NEXT mode: Indicates if more older records exist
 - In PREV mode: Indicates if newer records exist when paging back.
 
-**hasPrev** 
+**hasPrev**  
 - Indicates if there is a previous page
-- In PREV mode: True if not on the last page.
+- In NEXT mode: True if not on the first page
+- In PREV mode: True if not on the last page
   
 ## Error Information
 
