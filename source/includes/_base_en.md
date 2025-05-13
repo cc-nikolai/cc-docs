@@ -209,13 +209,14 @@ stp | options | stp type: 1 CM, 2 CT, 3 CB
 Some APIs use cursor-based paging, where each query uses a reference record ID (fromId) and a paging direction (direction) to retrieve records that are newer or older than the given ID. This approach supports navigating through data using "Previous" and "Next" pages.
 
 ### Input Parameters
-**fromId** 
+**fromId**  
 
 - The reference ID for pagination
 - Typically taken from a record on the previous or next page.
 - null or 0L indicates the first (most recent) page. 
   
-**direction** 
+**direction**   
+
 - Used to specify the pagination direction: 
 
 Value | Meaning | Query Condition | Sort Order
