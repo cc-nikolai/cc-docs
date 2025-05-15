@@ -361,10 +361,10 @@ Payload:
         "cr": -0.0721, // changeRate, Price change in percentage
         "s": "BTCUSD-28JUL23-33000-C", // symbol
         "uv24": 30783000.00000000, // volumeUsd24h, USD volume in 24hrs
-        "v": 1000.00000000, // volume
-        "v24": 1000.00000000, // volume24h, Volume in 24hrs
-        "oi": 1000.00000000, // openInterest
-        "up": 31248.97, // underlyingPrice
+        "v": 1000.00000000, // volume in USD
+        "v24": 1000.00000000, // volume24h in USD, Volume in 24hrs
+        "oi": 1000.00000000, // openInterest in USD
+        "up": 31248.97, // underlyingPrice in USD
         "gamma": 0.00010, // gamma
         "vega": 29.70793, // vega
         "ts": 1688449285840 // timestamp
