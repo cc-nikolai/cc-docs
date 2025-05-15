@@ -171,8 +171,8 @@ Get option details
 		"strike": 20000.00000000,// Strike price
 		"markPrice": 10.231632230252217,// Mark price
 		"underlyingPrice":27181.6936,// Underlying price
-		"volume": 1.00000000,// Trade volume
-		"volumeUsd": 1.00000000,// Trade value
+		"volume": 1.00000000,// Trade volume in USD
+		"volumeUsd": 1.00000000,// Trade value in USD
 		"openInterest": 0,// Open interest
 		"lastPrice": 10.231632230252217,// Last price
 		"premium": 0,// Premium
