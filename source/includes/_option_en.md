@@ -82,7 +82,7 @@ Get option chain
 			"lastPrice": 0,// Last price
 			"markPrice": 0.0,// Mark price
 			"volume": 0,// Trade volume
-			"openInterest": 0,// Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the openInterest refers to BTC.) 
+			"openInterest": 0,// Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the unit of openInterest is BTC) 
 			"ask": 0,// Best ask price
 			"askIv": 0.0,// Best ask IV
 			"askSize": 0,// Best ask size
@@ -173,7 +173,7 @@ Get option details
 		"underlyingPrice":27181.6936,// Underlying price
 		"volume": 1.00000000,// Trade volume in USD
 		"volumeUsd": 1.00000000,// Trade value in USD
-		"openInterest": 0,// Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the openInterest refers to BTC.) 
+		"openInterest": 0,// Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the unit of openInterest is BTC) 
 		"lastPrice": 10.231632230252217,// Last price
 		"premium": 0,// Premium
 		"changeRate": 2.87,// Price change in percentage

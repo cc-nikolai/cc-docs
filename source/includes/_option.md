@@ -97,7 +97,7 @@ let rates = api.option.get(123);
 			"lastPrice": 0,//最新价
 			"markPrice": 0.0,//标记价格
 			"tradeVolume": 0,//成交量
-			"openInterest": 0,//未平仓量  Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the openInterest refers to BTC.) 
+			"openInterest": 0,//未平仓量  Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the unit of openInterest is BTC) 
 			"ask": 0,//卖一
 			"askIv": 0.0,//卖一 IV
 			"askVolume": 0,//卖一量
@@ -212,7 +212,7 @@ let rates = api.option.detail(BTCUSD-XX);
 		"markPrice": 10.231632230252217,//标记价格
 		"tradeVolume": 1.00000000,//交易量
 		"tradeValue": 1.00000000,//交易价值
-		"openInterest": 0,//未平仓量  Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the openInterest refers to BTC.) 
+		"openInterest": 0,//未平仓量  Open interest in baseCurrency (For example, if the option name is BTCUSD-26OCT22-20000-P, then the unit of openInterest is BTC) 
 		"lastPrice": 10.231632230252217,//最新价
 		"premium": 0,//权利金
 		"changeRate": 2.87,//涨跌幅
