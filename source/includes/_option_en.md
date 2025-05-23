@@ -367,7 +367,7 @@ price | number | 19000.01 | false | Price, required for limit orders
 stp | integer | 1 | false | Value: [1,2,3]
 reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false
 mmp	 | boolean	| TRUE,FALSE	| FALSE | Market Maker Protection (MMP): TRUE indicates that the order is an MMP order.Effective for options only.
-slippage | number | 5 | false | 1 means 1%, 10 means 10%, and if not provided, the default slippage is 5%.
+slippage | integer | 5 | false | 1 means 1%, 10 means 10%, and if not provided, the default  is 5%.
 
 <!-- reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false -->
 
