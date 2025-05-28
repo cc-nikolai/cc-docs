@@ -166,9 +166,9 @@ secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b
 * queryString:  
       name=Mike&age=18  
 * prehashString:      
-`GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB%2BY1leitFl356YHrmts%3D&ts=1688436087184&x-req-ts-diff=3000`
+`GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
 * HMAC SHA256 Signature Calculation             
-    ` echo -n 'GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB%2BY1leitFl356YHrmts%3D&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
+    ` echo -n 'GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
 
   `SHA2-256(STDIN)= B196FEEC510CF118EE68D313B3FE32E350427B9B161468E48B07B530A1828BC4`  
 
