@@ -83,7 +83,7 @@ apiKey | true | your api key
 
 **sign:** signature string, the signature algorithm is as follows:
 
-First concatenate `method + uri + ?uuid=your_api_key&ts=your_timestamp` (where `+` represents String concatenation), then use HMAC SHA256 method to encrypt the concatenated string with `apiSecret`, and then perform Base64 encoding.
+First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where `+` represents String concatenation), then use HMAC SHA256 method to encrypt the concatenated string with `apiSecret`, and then perform Base64 encoding.
 
 `method`: always `GET`.
 
