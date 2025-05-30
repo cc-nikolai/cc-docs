@@ -309,3 +309,77 @@ curl -X GET
 }
 
 ```
+
+
+## Subaccount List (SIGNED) 
+Get Subaccount info List 
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/user/subAccount/list/v1`
+
+
+
+> Rquest: 
+
+```json
+
+curl -X GET 
+-H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
+-H "sign: A161477EB6C8F2D2CF490D792511D3084D23A0844752E6C01E8673532D30538D" 
+-H "ts: 1748598187413" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " 
+"https://beta.seizeyouralpha.com/open/user/subAccount/list/v1"
+
+```
+
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": {
+    "subAccounts": [
+      {
+        "name": "",
+        "email": "zwchdu@gmail.com",
+        "userId": 1695796692726153,
+        "subAccountType": 1,
+        "allowLogin": true,
+        "equityAmount": 99544030.18015793,
+        "availableBalance": 99524446.63267758,
+        "canTransferSmAmount": 99524446.63267758,
+        "canWithdrawAmount": 99524446.63267758,
+        "marginMode": 2,
+        "marginBalance": 99544030.18015793,
+        "unrealizedAmount": -49193.5,
+        "imAmount": 19582.45148035,
+        "mmAmount": 16318.70956696,
+        "trailAmount": 0
+      },
+      {
+        "name": "hello",
+        "email": "zwchdu@163.com",
+        "userId": 1695796692779320,
+        "subAccountType": 2,
+        "allowLogin": true,
+        "equityAmount": 222.00002098,
+        "availableBalance": 222.00002098,
+        "canTransferSmAmount": 222.00002098,
+        "canWithdrawAmount": 222.00002098,
+        "marginMode": 1,
+        "marginBalance": 222.00002098,
+        "unrealizedAmount": 0,
+        "imAmount": 0,
+        "mmAmount": 0,
+        "trailAmount": 0
+      }
+    ]
+  }
+}
+
+```
