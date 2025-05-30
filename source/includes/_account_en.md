@@ -419,12 +419,12 @@ curl -X GET
   "msg": "Success",
   "i18nArgs": null,
   "data": {
-    "amount": "100012761.00835726",
-    "currency": "USDT",
-    "status": 1,
-    "annualRate": "0.00000069",
-    "lastDayEarnings": "0.13660546",
-    "totalEarnings": "1.44159264"
+    "amount": "100012761.00835726",   //Current lent amount or debt amount
+    "currency": "USDT",               //Currency type
+     "status": 1,                     //1-Earning 2-Loaning
+    "annualRate": "0.0570",           //Annual interest rate: a return value of 0.0570 indicates 5.70%
+    "lastDayEarnings": "0.13660546",  //Earnings sum for yesterday
+    "totalEarnings": "1.44159264"     //Total accumulated earnings
   }
 }
 
