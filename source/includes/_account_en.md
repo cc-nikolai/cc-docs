@@ -261,3 +261,51 @@ curl
 }
 
 ```
+
+
+## Deposit Address API (SIGNED) 
+Get Deposit Address
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/account/getDepositAddress/v1 `
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+coin | String | ETH | true | Type of coin for deposit
+chainType | String | ETH | true |  Deposit chain type
+
+
+
+> Rquest: 
+
+```json
+curl -X GET 
+-H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
+-H "sign: 47A64BBFE773FBF36FBDBEE4E695A207240B17721E72BECAB6FB6AA10E590222"
+-H "ts: 1748593250583"
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " 
+"https://beta.seizeyouralpha.com/open/account/getDepositAddress/v1?coin=ETH&chainType=ETH"
+
+```
+
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "address": "0x992a0737f23f3061e297620f56252c4dbcdf411",
+    "coin": "ETH",
+    "chainType": "ETH",
+    "memo": null
+  }
+}
+
+```
