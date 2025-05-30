@@ -263,12 +263,12 @@ curl
 ```
 
 
-## Deposit Address API (SIGNED) 
+## Deposit Address  (SIGNED) 
 Get Deposit Address
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/account/getDepositAddress/v1 `
+`GET https://api.coincall.com/open/account/getDepositAddress/v1 `
 
 **Parameter**
 
@@ -379,6 +379,52 @@ curl -X GET
         "trailAmount": 0
       }
     ]
+  }
+}
+
+```
+
+
+## Lending Detail (SIGNED) 
+
+Lending Detail
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/lending/detail/v1 `
+
+
+
+
+
+> Rquest: 
+
+```json
+curl -X GET 
+-H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
+-H "sign: 718CA489C948A432999824B5B825D34B78765DE21D8E43C80A63010A6A156B2B" 
+-H "ts: 1748600547440" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " 
+"https://beta.seizeyouralpha.com/open/futures/lending/detail/v1"
+
+```
+
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "amount": "100012761.00835726",
+    "currency": "USDT",
+    "status": 1,
+    "annualRate": "0.00000069",
+    "lastDayEarnings": "0.13660546",
+    "totalEarnings": "1.44159264"
   }
 }
 
