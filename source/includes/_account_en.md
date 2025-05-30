@@ -316,7 +316,7 @@ Get Subaccount info List
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/user/subAccount/list/v1`
+`GET https://api.coincall.com/open/user/subAccount/list/v1`
 
 
 
