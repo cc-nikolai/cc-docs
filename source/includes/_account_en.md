@@ -346,7 +346,7 @@ curl -X GET
     "subAccounts": [
       {
         "name": "",
-        "email": "zwchdu@gmail.com",
+        "email": "zzztest@gmail.com",
         "userId": 1695796692726153,
         "subAccountType": 1,
         "allowLogin": true,
@@ -363,7 +363,7 @@ curl -X GET
       },
       {
         "name": "hello",
-        "email": "zwchdu@163.com",
+        "email": "zzztest@163.com",
         "userId": 1695796692779320,
         "subAccountType": 2,
         "allowLogin": true,
