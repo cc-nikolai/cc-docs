@@ -32,7 +32,7 @@ def on_message(ws, message):
 def get_signed_header(ts):
     verb='GET'
     uri = '/users/self/verify'
-    auth = verb + uri + '?uuid=' + api_key + '&ts=' + str(ts)
+    auth = verb + uri + '?apiKey=' + api_key + '&ts=' + str(ts)
     signature = hmac.new(api_sec.encode('utf-8'), auth.encode('utf-8'), hashlib.sha256).hexdigest()
     signature = signature.upper()
     return signature
