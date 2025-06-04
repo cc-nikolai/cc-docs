@@ -149,6 +149,7 @@ Please refer to the following field abbreviations for data fields in the futures
 | mb | marginBalance  |
 | btcv | btc value |
 | wb | canWithdrawPmAmount |
+| atwt | availableTradeWithTrail |
 | upnl | Unrealized Pnl |
 | ap | average proce |
 | coid | clientOrderId |
