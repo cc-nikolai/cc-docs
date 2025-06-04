@@ -429,3 +429,76 @@ curl -X GET
 }
 
 ```
+
+
+## SubAccount Transfer Records (SIGNED)
+Get SubAccount Transfer Records 
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/account/getDepositAddress/v1 `
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+page | Number | 1 | false | Number of query records default is 1
+pageSize | Number | 20 | false |  Number of records per page default is 20
+
+
+
+> Rquest: 
+
+```json
+curl -X GET 
+-H "X-CC-APIKEY: I+VmVk6wW84DiXiBkabjFo9OIOCXs3nzsVXtIbI/yRk=" 
+-H "sign: D69C271BF12C8288D5C4FA7C532E929F07D931E0DF479C4E619E478A4EEA936F" 
+-H "ts: 1749033885633" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " 
+"https://beta.seizeyouralpha.com/open/user/subAccount/transfer/records/v1?page=1&pageSize=20"
+```
+
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "id": 1694,
+        "mainUserId": 1695796692726153,       //Main account UserId
+        "sourceUserId": 1695796692726153,     //Transfer-out user ID
+        "toUserId": 1695796692779320,         //Transfer-in user ID
+        "sourceUserType": 1,                  //Transfer-out user type {1: Main account, 2: Sub-account}
+        "toUserType": 2,                      //Transfer-out user type {1: Main account, 2: Sub-account}
+        "sourceUserName": null,               // Transfer-out username
+        "toUserName": "hello",                // Transfer-in username
+        "amount": 20,                         // Transfer amount
+        "token": "USDT",                      //Currency (coin)
+        "createTime": 1749006859150
+      },
+      {
+        "id": 1693,
+        "mainUserId": 1695796692726153,
+        "sourceUserId": 1695796692726153,
+        "toUserId": 1695796692779320,
+        "sourceUserType": 1,
+        "toUserType": 2,
+        "sourceUserName": null,
+        "toUserName": "hello",
+        "amount": 20,
+        "token": "USDT",
+        "createTime": 1749005491786
+      }
+    ],
+    "pageTotal": 1,
+    "total": 4
+  }
+}
+
+```
