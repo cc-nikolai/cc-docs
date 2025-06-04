@@ -436,7 +436,7 @@ Get SubAccount Transfer Records
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/account/getDepositAddress/v1 `
+`GET https://api.coincall.com/open/user/subAccount/transfer/records/v1`
 
 **Parameter**
 
