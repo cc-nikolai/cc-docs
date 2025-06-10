@@ -145,6 +145,7 @@ Codes | Description
 10608|File expired
 10609|You are not able to trade temporarily because the contract is abnormal.
 10619|reject.order,Please check if the countdown setting needs to be reset. see https://docs.coincall.com/#public-endpoints-reset-countdown-settings
+10620|The option has not started or is not ready yet, trading is not allowed.
 20000|Coin not exist
 20001|Account not found
 20002|Coin not support
