@@ -246,6 +246,66 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD-26OCT22-15000-C | true | Option Name 
 
+
+## Kline
+
+Query for historical klines (also known as candles/candlesticks)
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: 6imq85+RDo1RK2leE5rLK9C0+CT43vHRiC03TeX3m9o=" 
+-H "sign: 15CEF683453293EBDB26EDD2D89315AA27E908A75ED31438886F226E050B1305" 
+-H "ts: 1749803587149" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/market/kline/history/v1/BTCUSD-20JUN25-106000-C?start=1652945192667&end=1652945192667&period=D1"
+```
+
+> Response:
+
+```json
+{
+	"code": 0,
+	"msg": "Success",
+	"i18nArgs": null,
+	"data": [{
+			"open": 27437.30000000, // Open price
+			"close": 27435.10000000, // Close price
+			"low": 27435.10000000, // Lowest price
+			"high": 27437.30000000, // Highest price
+			"volume": 14.24300000, // Trade volume
+			"time": 1693526400000, // Start time of this line (ms)
+			"period": "D1" // period
+		},
+		{
+			"open": 27435.10000000,
+			"close": 27434.90000000,
+			"low": 27434.90000000,
+			"high": 27435.10000000,
+			"volume": 0.00300000,
+			"time": 1693612800000,
+			"period": "D1"
+		}
+	]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/market/kline/history/v1/{optionName}`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+optionName | string | BTCUSD-20JUN25-106000-C | true | option name
+period | string | D1 | true | granularity of K-line, values: M0,M1,M2,M3,M4,M5,M10,M15,M30,H1,H4,D1,W1,MN1,QUARTER (M - minute, H - hour , D - day, W - week, MN - month, QUARTE - quarte)
+start | integer | 1697760509000 | true | Start time(ms)
+end | integer | 1697771549000 | true | End time(ms)
+limit | integer | 1 | true | Please make sure limit=1.
+
 ## Get Last Trade
 
 Get option last trade
