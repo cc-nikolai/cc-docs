@@ -515,8 +515,8 @@ Get Deposit Address List
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-coin | String | ETH | true | Type of coin for deposit
-chainType | String | ETH | true |  Deposit chain type
+coin | String | ETH | false | Type of coin for deposit
+chainType | String | ETH | false |  Deposit chain type
 
 **Parameter description**  
 
