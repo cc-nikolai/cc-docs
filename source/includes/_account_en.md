@@ -502,3 +502,66 @@ curl -X GET
 }
 
 ```
+
+
+## Get DepositAddress List(SIGNED) 
+Get Deposit Address List
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/account/getDepositAddressList/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+coin | String | ETH | true | Type of coin for deposit
+chainType | String | ETH | true |  Deposit chain type
+
+**Parameter description**
+* coin=null, chainType=null: Get all coin and chain address information for the user.
+
+* coin=USDT, chainType=null: Get all chain addresses for the specified coin (e.g. USDT).
+
+* coin=USDT, chainType=ETH: Get the the specified chain (e.g. ETH) address for the coin (e.g.USDT).
+
+* coin=null, chainType=ETH: Return the addresses of all coins on the specified chain(e.g. ETH).
+  
+
+> Rquest: 
+
+```json
+curl -X GET 
+-H "X-CC-APIKEY: gPAprrmTmwU/SEnwd23GE/SeSox7YSHu6VxHqT8eNvA=" 
+-H "sign: 759340BCA23728724B00098FF77083BE62AD1F62E0924FBBB1E8B94F16D44BB8" 
+-H "ts: 1750320144430" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/account/getDepositAddressList/v1?chainType=ETH&coin=USDT"
+
+```
+
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": [
+    {
+      "address": "0x2eaf68a26900f1f21c51423150820a36ac5d164f",
+      "coin": "USDT",
+      "chainType": "BSC",
+      "memo": null
+    },
+    {
+      "address": "TDWiDUUUafKDT9cavPrmv8CK7VagupS2XA",
+      "coin": "USDT",
+      "chainType": "TRON",
+      "memo": null
+    }
+  ]
+}
+
+```
