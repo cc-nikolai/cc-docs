@@ -814,7 +814,8 @@ page | number | 1 | false | default is 1
 Query delivery future Settlement history 
 
 
-> Request: 
+> Rquest: 
+
 ```json
 curl -X GET 
 -H "X-CC-APIKEY: rKhWnvo/KR3yXtCmaNNf6NxORXBAyOC24TnQzx0P7yY=" 
@@ -822,6 +823,7 @@ curl -X GET
 -H "ts: 1750326740785" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/delivery/settlement/history/v1?startTime=1663490353000&endTime=1663500353000&page=1&pageSize=20&symbol=BTCUSD"
+
 ```
 
 
