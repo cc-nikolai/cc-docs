@@ -518,7 +518,8 @@ Name | Type | Value | Required | Note
 coin | String | ETH | true | Type of coin for deposit
 chainType | String | ETH | true |  Deposit chain type
 
-**Parameter description**
+**Parameter description**  
+
 * coin=null, chainType=null: Get all coin and chain address information for the user.
 
 * coin=USDT, chainType=null: Get all chain addresses for the specified coin (e.g. USDT).
