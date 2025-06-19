@@ -806,3 +806,62 @@ startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
 page | number | 1 | false | default is 1
+
+
+
+## Get Settlement Record (SIGNED)
+
+Query delivery future Settlement history 
+
+
+> Request: 
+```json
+curl -X GET 
+-H "X-CC-APIKEY: rKhWnvo/KR3yXtCmaNNf6NxORXBAyOC24TnQzx0P7yY=" 
+-H "sign: F8F430FAA1E01A64FFC5A5AE4A37CDCFCD1A14CBBBD8305644405F76C7DCF478" 
+-H "ts: 1750326740785" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/delivery/settlement/history/v1?startTime=1663490353000&endTime=1663500353000&page=1&pageSize=20&symbol=BTCUSD"
+```
+
+
+> Response:
+
+```json
+{
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": {
+        "list": [
+            {
+                "symbol": "BTCUSD",    //futures name
+                "time": 1726248852785, //create time
+                "qty": 2.00000000,     //Position  quantity
+                "tradeSide": 2,        // Trade Side, 1 BUY 2 SELL
+                "entryPrice": 12200.00000000,  //entry price 
+                "settlementPrice": 12409.38569142,  //settlement price 
+                "settlementPnL": -418.77138284,   //Profit and Loss
+                "fees": 0.72317826     //Trading Fee
+            }
+        ],
+        "pageTotal": 1,
+        "total": 1
+    }
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/delivery/settlement/history/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | false | future symbol name
+startTime | number| 1686308840388 | false | Start time of the history
+endTime | number | 1686308840388 | false | End time of the history
+page | number | 1 | false | default is 1
+pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
