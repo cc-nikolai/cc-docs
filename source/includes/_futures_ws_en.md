@@ -193,6 +193,7 @@ Payload:
 {
   "dt": 30,
   "c": 20,
+  "ts": 1726248852790
   "d": {
     "pr": 1.1752, // last price
     "mp": 1.17521086, // mark Price 
@@ -203,8 +204,10 @@ Payload:
     "cr": 0.0209, // Price change in percentage
     "pr0": 1.05768, // price24hOpen, Open price on UTC 00:00:00
     "s": "ARBUSD", // symbol 
+    "oi": 23431.0343 //open interest
     "uv24": 320076.05815000, // volumeUsd24h, USD volume in 24hrs
     "v24": 278226.50000000 // volume24h, Volume in 24hrs
+    "ts":  1726248852785  //timestamp
   }
 }
 
