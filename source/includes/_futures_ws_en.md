@@ -356,6 +356,46 @@ Payload:
 
 ```
 
+## Last Trades v2
+### subscribe
+{
+    "action":"subscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+
+```json
+Payload:
+
+{
+    "dt": 43,
+    "c": 20,
+    "d": [
+        {
+            "matchPrice": "103751",
+            "matchQty": "0.001",   //match quantity
+            "matchValue": "103.751",
+            "symbol": "BTCUSD",
+            "tradeId": "1937466870584188928",
+            "tradeSide": "2",
+            "tradeTime": "1750763072834"
+        }
+    ],
+    "ts": 1750763073020
+}
+
+```
+
 ## Orders
 ### subscribe
 {
