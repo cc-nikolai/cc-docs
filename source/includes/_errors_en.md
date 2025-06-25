@@ -94,7 +94,7 @@ Codes | Description
 10555|API frozen
 10556|APIKey does not match current environment.
 10557|Timestamp request expired.
-10558|The requested amount is less than the minimum allowed.
+10558|The quantity in the request parameters is less than the minimum allowed..
 10560|Invalid CC-ACCESS-KEY.
 10561|Invalid CC-ACCESS-TIMESTAMP.
 10562|Invalid signature.
