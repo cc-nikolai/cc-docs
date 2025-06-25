@@ -573,6 +573,53 @@ Payload:
 }
 
 ```
+## Lastt Trades V2
+### subscribe
+
+*  Subscribe  
+
+{
+    "action":"subscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+
+
+### unsubscribe
+
+*  Single unsubscribe  
+{
+    "action":"unSubscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":"BTCUSD-27MAY23-26000-C"
+    }
+}
+
+
+```json
+Payload:
+{
+    "dt": 24,
+    "c": 20,
+    "d": [
+        {
+            "matchPrice": "6225",
+            "matchQty": "0.01",    //match quantity
+            "matchValue": "62.25",
+            "symbol": "BTCUSD-4JUL25-110000-P",
+            "tradeId": "1937466323152052224",
+            "tradeSide": "1",
+            "tradeTime": "1750762942243"
+        }
+    ],
+    "ts": 1750762942746
+}
+
+```
+
 
 ## Real-Time Account Margin
 ### subscribe
