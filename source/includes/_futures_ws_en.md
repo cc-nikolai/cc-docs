@@ -178,12 +178,31 @@ Payload:
         "symbol":"BTCUSD"
     }
 }
+
+### batch subscribe  
+{
+    "action":"subscribe",
+    "dataType":"spotPrice",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
+    }
+}
+
 ### unsubscribe
 {
     "action":"unSubscribe",
     "dataType":"spotPrice",
     "payload":{
         "symbol":"BTCUSD"
+    }
+}
+
+### batch unsubscribe 
+{
+    "action":"unSubscribe",
+    "dataType":"spotPrice",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
     }
 }
 
@@ -277,12 +296,30 @@ Payload:
         "symbol":"BTCUSD"
     }
 }
+
+### batch subscribe
+{
+    "action":"subscribe",
+    "dataType":"orderBook",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
+    }
+}
 ### unsubscribe
 {
     "action":"unSubscribe",
     "dataType":"orderBook",
     "payload":{
         "symbol":"BTCUSD"
+    }
+}
+
+### batch unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"orderBook",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
     }
 }
 
@@ -324,12 +361,30 @@ Payload:
         "symbol":"BTCUSD"
     }
 }
+
+### batch subscribe
+{
+    "action":"subscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
+    }
+}
 ### unsubscribe
 {
     "action":"unSubscribe",
     "dataType":"lastTrade",
     "payload":{
         "symbol":"BTCUSD"
+    }
+}
+
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"lastTrade",
+    "payload":{
+        "symbol":["BTCUSD", "ETHUSD"]
     }
 }
 
@@ -365,12 +420,30 @@ Payload:
         "symbol":"BTCUSD"
     }
 }
+
+### batch subscribe
+{
+    "action":"subscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
+    }
+}
 ### unsubscribe
 {
     "action":"unSubscribe",
     "dataType":"lasttradeV2",
     "payload":{
         "symbol":"BTCUSD"
+    }
+}
+
+### batch unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"lasttradeV2",
+    "payload":{
+        "symbol":["BTCUSD", "ETHUSD"]
     }
 }
 
@@ -395,6 +468,58 @@ Payload:
 }
 
 ```
+## Premium Index
+### subscribe
+{
+    "action":"subscribe",
+    "dataType":"premiumIndex",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+
+### batch subscribe
+{
+    "action":"subscribe",
+    "dataType":"premiumIndex",
+    "payload":{
+        "symbol":["BTCUSD","ETHUSD"]
+    }
+}
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"premiumIndex",
+    "payload":{
+        "symbol":"BTCUSD"
+    }
+}
+
+### batch unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"premiumIndex",
+    "payload":{
+        "symbol":["BTCUSD", "ETHUSD"]
+    }
+}
+
+```json
+Payload:
+
+{
+    "dt": 44,
+    "c": 20,
+    "d": {
+        "minute": "2025-07-01 03:34:00",
+        "premiumIndex": 0.00461866,
+        "symbol": "BTCUSD",
+        "ts": 1751340840064
+    },
+    "ts": 1751340852105
+}
+```
+
 
 ## Orders
 ### subscribe
