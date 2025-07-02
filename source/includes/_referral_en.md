@@ -37,7 +37,7 @@ Get referrals record
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-subAgentId |integer | 9905700 | false |
+subUserId |integer | 9905700 | false |
 page | integer | 1,2,3 | false |
 
 **Notice**
