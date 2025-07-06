@@ -500,7 +500,7 @@ Payload:
     "action":"unSubscribe",
     "dataType":"premiumIndex",
     "payload":{
-        "symbol":["BTCUSD", "ETHUSD"]
+        "symbol":["BTCUSD","ETHUSD"]
     }
 }
 
