@@ -421,7 +421,7 @@ Name | Type | Value | Required | Note
 clientOrderId | long | 123123123 | false | client order id
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
 tradeType | number | 1 | true | Trade Type, 1 LIMIT 3 POST_ONLY
-timeInForce | string | IOC | false | time in force (in limit order)：IOC，GTC，FOK, If it is a limit order, the default is IOC. For market orders, the timeInForce parameter does not need to be set.
+timeInForce | string | IOC | false | time in force (in limit order)：IOC，GTC，FOK, If it is a limit order, the default is GTC. For market orders, the timeInForce parameter does not need to be set.
 symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
 qty | number | 0.5 | true | Quantity 
 price | number | 19000.01 | false | Price, required for limit orders
