@@ -150,7 +150,7 @@ Get futures symbol
 
 Null
 
-## Get OrderBook(150 depth)
+## Get OrderBook Default depth 
 
  Get futures order book for 150 depth
 
