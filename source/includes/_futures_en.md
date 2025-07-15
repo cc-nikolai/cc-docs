@@ -150,9 +150,9 @@ Get futures symbol
 
 Null
 
-## Get OrderBook
+## Get OrderBook(150 depth)
 
- Get futures order book for 100 depth
+ Get futures order book for 150 depth
 
 > Response:
 
