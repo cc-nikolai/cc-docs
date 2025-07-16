@@ -178,7 +178,7 @@ Null
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/futures/order/orderbook/v1/{}`
+`GET https://api.coincall.com/open/futures/order/orderbook/v1/{symbol}`
 
 **Parameter**
 
