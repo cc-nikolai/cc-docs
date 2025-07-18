@@ -1204,6 +1204,7 @@ Get estimated expiration price
 
 **Parameter Description**  
 At least one of the parameters, endTime or index, must be provided:  
+
 * If only endTime is provided, it returns the estimated settlement prices for all option symbols on that expiration date.  
 * If only index is provided, it returns the estimated settlement prices for all expiration dates of that symbol.  
 * If both parameters are provided, only a single data record will be returned.  
