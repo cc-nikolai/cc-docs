@@ -1211,14 +1211,13 @@ At least one of the parameters, endTime or index, must be provided:
 
 > Request:
 
-```JSON
+```sh
 curl -X GET 
 -H "X-CC-APIKEY: 6imq85+RDo1RK2leE5rLK9C0+CT43vHRiC03TeX3m9o=" 
 -H "sign: 48C47DCCE1A1AA4D9409FED4A1EFDEACC72508BF4DC5D3CBA1C4C8D077643562" 
 -H "ts: 1752827408075" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: " "https://api.coincall.com/open/option/getEstimatedExpirationPrice/v1?index=BTCUSD&endTime=1666771200000"
-
 ```
 
 
