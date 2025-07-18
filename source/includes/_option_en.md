@@ -1183,3 +1183,64 @@ Public data, no signature required, returns a certain currency, all call-over se
   }
 }
 ```
+
+
+
+## Get Estimated Expiration Price
+
+Get estimated expiration price
+
+**HTTP Request**
+
+`GET http://api.coincall.com/open/option/getEstimatedExpirationPrice/v1`
+
+
+**Parameter:**
+
+| **Parameter** | **Required** | **Type** | **Enum**         | **Description**                                                     |
+| ------------- | ------------ | -------- | ---------------- | ------------------------------------------------------------------- |
+| index        | false         | string   | BTCUSD | Index identifier, matches (base) cryptocurrency with quote currency |
+| endTime        | false         | Integer   | 1666771200000 | Option Expiration Date |
+
+**Parameter Description**  
+At least one of the parameters, endTime or index, must be provided:
+* If only endTime is provided, it returns the estimated settlement prices for all option symbols on that expiration date.
+* If only index is provided, it returns the estimated settlement prices for all expiration dates of that symbol.
+* If both parameters are provided, only a single data record will be returned.
+
+
+> Request:
+
+```JSON
+
+curl -X GET 
+-H "X-CC-APIKEY: 6imq85+RDo1RK2leE5rLK9C0+CT43vHRiC03TeX3m9o=" 
+-H "sign: 48C47DCCE1A1AA4D9409FED4A1EFDEACC72508BF4DC5D3CBA1C4C8D077643562" 
+-H "ts: 1752827408075" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://api.coincall.com/open/option/getEstimatedExpirationPrice/v1?index=BTCUSD&endTime=1666771200000"
+
+```
+
+
+> Response:
+
+```JSON
+{
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": [
+        {
+            "estimatedExpirationPrice": "60.66",
+            "index": "BTCUSD",
+            "endTime": 1666771200000
+        },
+        {
+            "estimatedExpirationPrice": "20.66",
+            "index": "BTCUSD",
+            "endTime": 1666771600000
+        }
+    ]
+}
+```
