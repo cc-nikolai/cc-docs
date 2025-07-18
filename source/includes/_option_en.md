@@ -1203,15 +1203,15 @@ Get estimated expiration price
 | endTime        | false         | Integer   | 1666771200000 | Option Expiration Date |
 
 **Parameter Description**  
-At least one of the parameters, endTime or index, must be provided:
-* If only endTime is provided, it returns the estimated settlement prices for all option symbols on that expiration date.
-* If only index is provided, it returns the estimated settlement prices for all expiration dates of that symbol.
-* If both parameters are provided, only a single data record will be returned.
+At least one of the parameters, endTime or index, must be provided:  
+* If only endTime is provided, it returns the estimated settlement prices for all option symbols on that expiration date.  
+* If only index is provided, it returns the estimated settlement prices for all expiration dates of that symbol.  
+* If both parameters are provided, only a single data record will be returned.  
 
 
 > Request:
 
-```JSON
+```sh
 
 curl -X GET 
 -H "X-CC-APIKEY: 6imq85+RDo1RK2leE5rLK9C0+CT43vHRiC03TeX3m9o=" 
