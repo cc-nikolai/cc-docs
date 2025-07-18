@@ -1162,25 +1162,24 @@ Public data, no signature required, returns a certain currency, all call-over se
 
 ```JSON
 {
-  "code":0,
-    "msg":"Success",
-    "i18nArgs":null,
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
     "data": [
-      {
-        "date": "2024-12-23",
-        "delivery_price": 7131.214606410254
-      },
-      {
-        "date": "2024-12-22",
-        "delivery_price": 7150.943217777777
-      },
-      {
-        "date": "2024-12-21",
-        "delivery_price": 7175.988445532345
-      },
+        {
+            "date": "2024-12-23",
+            "delivery_price": 7131.214606410254
+        },
+        {
+            "date": "2024-12-22",
+            "delivery_price": 7150.943217777777
+        },
+        {
+            "date": "2024-12-21",
+            "delivery_price": 7175.988445532345
+        }
     ],
     "records_total": 58
-  }
 }
 ```
 
