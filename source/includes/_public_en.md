@@ -122,7 +122,7 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD,ETHUSD | false | Contract name (if not passed, all will be taken. Multiple can be taken separated by commas)
 
-## Set Countdown
+## Set Countdown(SIGNED)
 
 Set countdown time, only opened for MM.
 
