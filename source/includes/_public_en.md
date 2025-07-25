@@ -106,6 +106,7 @@ Get real-time funding rate
       "symbol": "BTCUSD",// Symbol
       "rate": "-0.00500000",// Funding rate
       "contractId": "1",// Contract ID
+      "nextFundingTime":1753459200000,
       "ts": 1687250525704 // Timestamp
     }
   ]
