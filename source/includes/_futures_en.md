@@ -809,6 +809,113 @@ page | number | 1 | false | default is 1
 
 
 
+
+## Get Funding Rate latest Details(SIGNED)
+
+Get the latest funding rate settlement records.
+
+> Request:
+
+```json
+
+curl -X GET 
+-H "X-CC-APIKEY: elYSEjC7KJw+CFJU9TqTpdh0m5/wTgJAVB6YnMy4b20=" 
+-H "sign: 311CB0E4C91BE42448CE61F4E558341EDAFF8BD9917B85AE3FE9C1E6BB1983D9" 
+-H "ts: 1753786530992" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/settle/future/latestRecord/v1?symbol=BTCUSD&startTime=1663490353000"
+
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "id": 543666,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": -0.05101865,
+        "fundRate": -5.4e-7,
+        "ctime": 1746604800015
+      },
+      {
+        "id": 543468,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": 1.08174426,
+        "fundRate": 0.00001145,
+        "ctime": 1746576000018
+      },
+      {
+        "id": 543217,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": 0.69439478,
+        "fundRate": 0.00000735,
+        "ctime": 1746547200022
+      },
+      {
+        "id": 542966,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": 4.21927528,
+        "fundRate": 0.00004466,
+        "ctime": 1746518400032
+      },
+      {
+        "id": 542715,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": 1.67909,
+        "fundRate": 0.00002023,
+        "ctime": 1746489600029
+      },
+      {
+        "id": 542412,
+        "symbol": "BTCUSD",
+        "displayName": "BTCUSDT Perp",
+        "tradeSide": 2,
+        "qty": 1,
+        "fundFee": -1.86501,
+        "fundRate": -0.00002247,
+        "ctime": 1746460800012
+      }
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/settle/future/latestRecord/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | false | futures symbol name
+startTime | number| 1663490353000 | false | Start time of the history
+
+**Parameter Description**   
+* If the symbol is empty, query the records for all symbols.    
+* If startTime is empty, the system will use the time 8 hours ago as the startTime for the query (startTime = now - 8 * 60 * 60 * 1000)  
+ 
+
 ## Get Settlement Record (SIGNED)
 
 Query delivery future Settlement history 
