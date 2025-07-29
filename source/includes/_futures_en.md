@@ -812,7 +812,7 @@ page | number | 1 | false | default is 1
 
 ## Get Funding Rate latest Details(SIGNED)
 
-Get the latest funding rate settlement records.
+Get the latest funding rate settlement records. 
 
 > Request:
 
@@ -909,11 +909,12 @@ curl -X GET
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | false | futures symbol name
-startTime | number| 1663490353000 | false | Start time of the history
+startTime | number| 1663490353000 | false | Start time of the records
 
-**Parameter Description**   
-* If the symbol is empty, query the records for all symbols.    
-* If startTime is empty, the system will use the time 8 hours ago as the startTime for the query (startTime = now - 8 * 60 * 60 * 1000)  
+**Parameter Description**  
+
+*  If the symbol is empty, query the records for all symbols.    
+*  If startTime is empty, the system will use the time 8 hours ago as the startTime for the query (startTime = now - 8 * 60 * 60 * 1000)  
  
 
 ## Get Settlement Record (SIGNED)
