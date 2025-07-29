@@ -914,7 +914,7 @@ startTime | number| 1663490353000 | false | Start time of the records
 **Parameter Description**  
 
 *  If the symbol is empty, query the records for all symbols.    
-*  If startTime is empty, the system will use the time 8 hours ago as the startTime for the query (startTime = now - 8 * 60 * 60 * 1000)  
+*  If startTime is empty, the query will use the time point 8 hours ago as the startTime (startTime = currentTimeMillis - 8 * 60 * 60 * 1000)
  
 
 ## Get Settlement Record (SIGNED)
