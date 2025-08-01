@@ -161,6 +161,8 @@ Query deposit and withdrawal history
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 type | integer | -1,0,1 | false |  query type -1 all 0 deposit 1 withdrawal
+startTime | number| 1686308840388 | false| Start time of the history
+endTime | number | 1686308840388 | false | End time of the history
 page | integer | 1 | false | Page number, default is 1
 pageSize | integer | 20 | false | Number of items per page, default is 20
 
