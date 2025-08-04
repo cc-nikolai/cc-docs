@@ -147,6 +147,8 @@ Codes | Description
 10609|You are not able to trade temporarily because the contract is abnormal.
 10619|reject.order,Please check if the countdown setting needs to be reset. see https://docs.coincall.com/#public-endpoints-reset-countdown-settings
 10620|The option has not started or is not ready yet, trading is not allowed.
+11101|Cancellation failed, order has already been cancelled
+11102|Cancellation failed, order has been filled
 12011|Market order does not support timeInForce parameter
 12012|You have entered an invalid timeInForce value,Supported values: GTC | IOC,The TimeInForce parameter in your request is incorrect. Please check this parameter.
 12013|Market order does not support 'price' parameter
