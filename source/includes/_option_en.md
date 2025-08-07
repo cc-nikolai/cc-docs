@@ -1148,7 +1148,7 @@ Public data, no signature required, returns a certain currency, all call-over se
 
 **HTTP Request**
 
-`GET http://api.coincall.com/open/option/get-delivery-prices/V1`
+`GET http://api.coincall.com/open/option/get-delivery-prices/v1`
 
 - 1S once
 
