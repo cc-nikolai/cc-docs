@@ -232,4 +232,5 @@ Codes | Description
 40041|Upload file frequently
 40042|File type is unknow
 40043|File type is error
+60008|MMP is not enabled，Please check the configuration: is MMP enabled?
 
