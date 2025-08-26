@@ -459,7 +459,7 @@ blocktradeId |integer | 1840685647012708354 | false | Private endpoint, user can
 fromId | integer | 1957268602021351424 | false | RFQ blocktradeId
 direction   |string| NEXT,PREV| false| Default is NEXT
 pageSize | integer | 20 | false| The value should be less than 500. Default: 20
-currency | string | BTC,ETh | false | Default to current time
+currency | string | BTC,ETh | false | Query currency type
 
 
 
