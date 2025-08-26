@@ -99,92 +99,361 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 
 ## Data Abbreviations
 
-Please refer to the following field abbreviations for data fields in the futures request/response:
-
-| Name | Note |
-| --- | --- |
-| c | code, Operations for Request Protocol Execution |
-| rc | responseCode, Status of the Response Protocol |
-| d | data, Request/Response payload |
-| p | position, Subscription Data Page Location |
-| s | symbol |
-| high | high, The highest price |
-| low | low, The lowest price |
-| pe | period, granularity of K-line |
-| v | volume |
-| close | close price |
-| open | open price |
-| ts | timestamp |
-| uv | tradeValue |
-| rt | rt, remian timestamp |
-| mp | markPrice |
-| lp | lastPrice |
-| ip | indexPrice |
-| delta | delta |
-| iv | Implied Volatility |
-| theta | theta |
-| cp | changePrice, Price change in value |
-| pr0 | price24hOpen, Open price on UTC 00:00:00 |
-| cr | changeRate, Price change in percentage |
-| uv24 | volumeUsd24h, USD volume in 24hrs |
-| v24 | volume24h, Volume in 24hrs |
-| oi | openInterest |
-| up | underlyingPrice |
-| gamma | gamma |
-| vega | vega |
-| biv | bidIv, Best bid IV |
-| aiv | askIv, Best ask IV |
-| bs | bidSize, Best bid size |
-| as | askSize, Best ask size |
-| ask | ask, Best ask price |
-| bid | bid, Best bid price |
-| pr | price, last price |
-| sz | size |
-| sd | tradeSide |
-| q | qty, quantity |
-| fq | fill qty |
-| mm | pmMmAmount, maintenanceMargin in PM |
-| ab | available balance |
-| e | equityAmount |
-| mb | marginBalance  |
-| btcv | btc value |
-| wb | canWithdrawPmAmount |
-| atwt | availableTradeWithTrail |
-| upnl | Unrealized Pnl |
-| ap | average proce |
-| coid | clientOrderId |
-| os |  order status |
-| im | initialMargin in PM |
-| dv | Value in dollar |
-| oid | orderId |
-| si | trade side |
-| ty | trade type |
-| uid | userId |
-| ct | createTime |
-| ro | reduceOnly |
-| tid | trade ID |
-| rq | remainQty, Unfilled Quantity |
-| mpr | match price |
-| mq | match quantity |
-| le | leverage |
-| it | isTaker |
-| cq | canceled quantity |
-| tif | time in force |
 
 
 <!-- ## options -->
 
-## HeartBeat
+## RFQ Maker 
+
+### subscribe 
+
+{ "action":"subscribe", "dataType":"rfqMaker" }
+
+### unsubscribe 
+
+{ "action":"unSubscribe", "dataType":"rfqMaker" }
+
+
+```json
+Payload:
+// 1.new RFQ request 
 {
-    "action":"heartbeat"
+    "dt": 28,
+    "c": 20,
+    "d": {
+        "createTime": 1755225804558,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-22AUG25-120000-C",
+                "price": "1788.51759065",
+                "quantity": "11",
+                "side": "BUY"
+            },
+            {
+                "instrumentName": "BTCUSD-29AUG25-120000-C",
+                "price": "2902.39496504",
+                "quantity": "22",
+                "side": "SELL"
+            }
+        ],
+        "requestId": "1956184923266224128",
+        "state": "ACTIVE"
+    },
+    "ts": 1755225804597
+} 
+
+// 2. RFQ request cancel 
+{
+    "dt": 28,
+    "c": 20,
+    "d": {
+        "createTime": 1755225804558,
+        "expiryTime": 1755261085596,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-22AUG25-119000-C",
+                "price": "2025.72422884",
+                "quantity": "11",
+                "side": "BUY",
+                "instrumentType": "OPTION",
+            },
+            {
+                "instrumentName": "BTCUSD-5SEP25-119000-C",
+                "price": "4018.83713307",
+                "quantity": "22",
+                "side": "BUY"
+            }
+        ],
+        "requestId": "1956317803187408896",
+        "state": "CANCELLED"
+    },
+    "ts": 1755257506166
+}
+
+// 3. RFQ Filled
+{
+    "dt": 28,
+    "c": 20,
+    "d": {
+        "createTime": 1755225804558,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-22AUG25-120000-C",
+                "price": "1788.51759065",
+                "quantity": "11",
+                "side": "BUY"
+            },
+            {
+                "instrumentName": "BTCUSD-29AUG25-120000-C",
+                "price": "2902.39496504",
+                "quantity": "22",
+                "side": "SELL"
+            }
+        ],
+        "requestId": "1956184923266224128",
+        "state": "FILLED"
+    },
+    "ts": 1755225804597
+}
+
+// 4. RFQ trade away
+
+{
+    "dt": 28,
+    "c": 20,
+    "d": {
+        "createTime": 1755225804558,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-22AUG25-120000-C",
+                "price": "1788.51759065",
+                "quantity": "11",
+                "side": "BUY",
+            },
+            {
+                "instrumentName": "BTCUSD-29AUG25-120000-C",
+                "price": 2902.39496504,
+                "quantity": 22,
+                "side": "SELL",
+            }
+        ],
+        "requestId": 1956184923266224128,
+        "state": "TRADED_AWAY"
+    },
+    "ts": 1755225804597
+}
+
+```
+
+
+## RFQ Quote
+
+### subscribe 
+
+{ "action":"subscribe", "dataType":"rfqQuote" }
+
+### unsubscribe 
+
+{ "action":"unSubscribe", "dataType":"rfqQuote" }
+
+
+```json
+Payload:
+// 1. Create  quote 
+{
+    "dt": 20,
+    "c": 20,
+    "d": {
+        "createTime": 1755260869424,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755260869424, // same as createTime if newly created
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-5SEP25-119000-C",
+                "price": "1",
+                "quantity": "22",
+                "side": "BUY"
+            },
+            {
+                "instrumentName": "BTCUSD-22AUG25-119000-C",
+                "price": "2",
+                "quantity": "11",
+                "side": "SELL"
+            }
+        ],
+        "quoteId": "1956331996126527489",
+        "requestId": "1956318807450587136",
+        "state": "OPEN",
+        "userId": "1695796692726153" // this should be the maker's userId
+    },
+    "ts": 1755260869548
+}} 
+
+// 2.  cancel quote
+//example-1:maker cancel
+{    
+    "dt": 20,
+    "c": 20,
+    "d": {
+        "createTime": 1755443848829,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-29AUG25-119000-C",
+                "price": "33",
+                "quantity": "22",
+                "side": "BUY"
+            },
+            {
+                "instrumentName": "BTCUSD-22AUG25-119000-C",
+                "price": "44",
+                "quantity": "11",
+                "side": "SELL"
+            }
+        ],
+        "quoteId": "1957099467376836610",
+        "requestId": "1957099347237801984",
+        "state": "CANCELLED",
+        "userId": "1695796692726153"
+    },
+    "ts": 1755443859795
+}}
+
+// 3. Quote filled
+{
+    "dt": 20,
+    "c": 20,
+    "d": {
+        "createTime": 1755507249763,
+        "expiryTime": 1755229404540,
+        "updateTime": 1755229404540,
+        "legs": [
+            {
+                "instrumentName": "BTCUSD-29AUG25-116000-C",
+                "price": "1",
+                "quantity": "111",
+                "side": "SELL"
+            }
+        ],
+        "quoteId": "1957365390167916545",
+        "requestId": "1957365371585564672",
+        "state": "FILLED",
+        "userId": "1695796692726153"
+    },
+    "ts": 1755507257415
+}
+
+```  
+
+
+
+## RFQ Trade Detail(private)
+**Subscribe to this WebSocket channel to receive private blockTrade transaction details.** 
+
+### subscribe
+{
+    "action":"subscribe",
+    "dataType":"blockTradeDetail"
+}
+
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"blockTradeDetail"
 }
 
 ```json
 Payload:
 
 {
-    "c":11,
-    "rc":1 // 1 Success
+    "dt": 22,
+    "c": 20,
+    "d": {
+        "blockTradeId": "1957110513105780738",
+        "quoteId": "1957110513105780738",
+        "requestId": "1957110456250404864",
+        "role": "MAKER",
+        "legs": [
+            {
+                "baseToken": "BTC",
+                "fee": "0",
+                "indexPrice": "118293.60725",
+                "instrumentName": "BTCUSD-29AUG25-119000-C",
+                "iv": "0.0183",
+                "markPrice": "2518.45453728",
+                "orderId": "1957110512533770240",
+                "price": "33",
+                "profit": "0",
+                "quantity": "22",
+                "quoteToken": "USDT",
+                "createTime": "1755446489697",
+                "tradeId": "1957110543978504192",
+                "side": "BUY",
+            },
+            {
+                "baseToken": "BTC",
+                "fee": "0",
+                "indexPrice": "118293.60725",
+                "instrumentName": "BTCUSD-22AUG25-119000-C",
+                "iv": "0.0413",
+                "markPrice": "1374.04138652",
+                "orderId": "1957110512600879104",
+                "price": "44",
+                "profit": "0",
+                "quantity": "11",
+                "quoteToken": "USDT",
+                "createTime": 1755446490017,
+                "tradeId": "1957110545320681472",
+                "side": "SELL",
+            }
+        ],
+        "userId": "1695796692726153"
+    },
+    "ts": 1755446491444
+}
+
+```
+
+
+## RFQ Trade Detail(public) 
+**Subscribe to this WebSocket channel to receive all blockTrade transaction details.**  
+
+### subscribe
+{
+    "action":"subscribe",
+    "dataType":"blockTradePublic"
+}
+
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"blockTradePublic"
+}
+
+```json
+Payload:
+
+{
+    "dt": 23,
+    "c": 20,
+    "d": {
+        "requestId": 1957108525360615424,
+        "legs": [
+            {
+                "baseToken": "BTC",
+                "indexPrice": "118246.51",
+                "instrumentName": "BTCUSD-29AUG25-119000-C",
+                "iv": "0.0198",
+                "markPrice": "2494.75991149",
+                "price": "33",
+                "quantity": "22",
+                "quoteToken": "USDT",
+                "createTime": 1755446402009,
+                "side": "SELL",
+            },
+            {
+                "baseToken": "BTC",
+                "indexPrice": "118246.51",
+                "instrumentName": "BTCUSD-22AUG25-119000-C",
+                "iv": "0.0434",
+                "markPrice": "1359.43197954",
+                "price": "44",
+                "quantity": "11",
+                "quoteToken": "USDT",
+                "createTime": 1755446402155,
+                "side": "BUY",
+            }
+        ],
+    },
+    "ts": 1755446403440
 }
 
 ```
