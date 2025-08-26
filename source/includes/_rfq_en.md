@@ -144,26 +144,26 @@ legs | array of object |  | true | Json object
 
 **Parameter Example**
 *RequestBody*
-```
-{
-    "requestId": 1916777612861149201,
-    "legs": [
-        {
-            "instrumentName": "BTCUSD-9AUG25-95000-C",
-            "symbol": "BTCUSD",
-            "side": "BUY",
-            "price": "1250.75",
-            "quantity": "10.5"
-        },
-        {
-            "instrumentName": "BTCUSD-9AUG25-100000-C",
-            "symbol": "BTCUSD",
-            "side": "SELL",
-            "price": "850.25",
-            "quantity": "10.5"
-        }
-    ]
-}
+``` 
+{ 
+    "requestId": 1916777612861149201, 
+    "legs": [ 
+        { 
+            "instrumentName": "BTCUSD-9AUG25-95000-C", 
+            "symbol": "BTCUSD", 
+            "side": "BUY", 
+            "price": "1250.75", 
+            "quantity": "10.5" 
+        }, 
+        { 
+            "instrumentName": "BTCUSD-9AUG25-100000-C", 
+            "symbol": "BTCUSD", 
+            "side": "SELL", 
+            "price": "850.25", 
+            "quantity": "10.5" 
+        } 
+    ] 
+} 
 ```
 
 ## Cancel Quote by ID(SIGNED)
@@ -211,9 +211,9 @@ quoteId |integer | 1840685647012708354 | true | Quote ID
 
 **Parameter Example** 
 *requestBody:* 
-{
- "quoteId": "1957266294866329602"
-}
+{ 
+ "quoteId": "1957266294866329602" 
+} 
 ## Create (SIGNED)
 
 Create block trade
