@@ -23,6 +23,7 @@ includes:
   - option_ws_en
   - futures_ws_en
   - spot_ws_en
+  - rfq_ws_en
   - referral_en
   - errors_en
 

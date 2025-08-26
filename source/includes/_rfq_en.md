@@ -1,4 +1,4 @@
-# RFQ
+# RFQ Endpoint  
 ## Board list(SIGNED)
 
 Get board list
