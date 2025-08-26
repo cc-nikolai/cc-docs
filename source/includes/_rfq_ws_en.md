@@ -99,8 +99,6 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 
 ## Data Abbreviations
 
-
-
 <!-- ## options -->
 
 ## RFQ Maker 
@@ -115,10 +113,9 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 
 
 ```json
-Payload:
+1.create new RFQ request:
 
-{   
-    // 1.new RFQ request 
+{    
     "dt": 28,
     "c": 20,
     "d": {
@@ -148,9 +145,8 @@ Payload:
 ``` 
 
 ```json
-Payload:
+2. RFQ request cancel :
 {
-    // 2. RFQ request cancel 
     "dt": 28,
     "c": 20,
     "d": {
@@ -180,10 +176,9 @@ Payload:
 ``` 
 
 ```json
-Payload:
+3.RFQ Filled:
 
-{   
-    // 3. RFQ Filled
+{  
     "dt": 28,
     "c": 20,
     "d": {
@@ -213,10 +208,9 @@ Payload:
 ``` 
 
 ```json
-Payload:
+4. RFQ trade away:
 
 {  
-    // 4. RFQ trade away
    "dt": 28,
     "c": 20,
     "d": {
@@ -258,10 +252,9 @@ Payload:
 
 
 ```json
-Payload:
+ 1. Create quote:
 
-{   
-    // 1. Create  quote 
+{    
     "dt": 20,
     "c": 20,
     "d": {
@@ -292,11 +285,9 @@ Payload:
 ```  
 
 ```json
-Payload: 
+2. cancel quote: 
 
 {    
-    
-    // 2.  cancel quote
     "dt": 20,
     "c": 20,
     "d": {
@@ -329,10 +320,9 @@ Payload:
 ```  
 
 ```json
-Payload: 
+3. Quote filled: 
 
 {
-    // 3. Quote filled
     "dt": 20,
     "c": 20,
     "d": {
