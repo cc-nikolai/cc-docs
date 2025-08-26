@@ -306,6 +306,163 @@ curl -X POST
 
 
 
+## Get List of Quotes(SIGNED)
+
+Get user Quote records
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: jV4mFZa4kBLczkrRfw77vcVSLfHc3Dm3wYyTG6RA58Y=" 
+-H "sign: E3118A3D58827E3062B39B654F6B365DDC1FC1551AF5903E9C383972CAB3CA6C" 
+-H "ts: 1756180090536" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/x-www-form-urlencoded" 
+"https://beta.seizeyouralpha.com/open/option/blocktrade/list-quote/v1?requestId=123456&quoteId=123456&state=OPEN&symbol=ETHUSD&startTime=1755051650&endTime=1754792450000"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": [
+    {
+      "quoteId": "1957269207860789249",
+      "requestId": "1957268602021351424",
+      "userId": "1695796693236896",
+      "state": "OPEN", //OPEN | CANCEL | FILLED
+      "createTime": 1755484318114,
+      "updateTime": 1755513118000,
+      "expiryTime": 1755484618114,
+      "legs": [
+        {
+          "instrumentName": "ETHUSD-26SEP25-4400-C",
+          "side": "BUY",
+          "price": "4500",
+          "quantity": "1"
+        },
+        {
+          "instrumentName": "ETHUSD-29AUG25-4400-C",
+          "side": "SELL",
+          "price": "4600",
+          "quantity": "1"
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/blocktrade/list-quote/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+quoteId |integer | 1840685647012708354 | false | Quote ID
+requestId | integer | 1957268602021351424 | false | RFQ request ID
+state   |string| OPEN,CLOSED| false| Default query all states
+symbol |string|BTCUSD,ETHUSD | symbol name
+startTime | integer | 1755484318114 | false| Default to 3 days from current time
+endTime | integer | 1755484618114 | false | Default to current time
+
+
+
+## Get List of Private Trades(SIGNED)
+
+Get user RFQ trades
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: jV4mFZa4kBLczkrRfw77vcVSLfHc3Dm3wYyTG6RA58Y=" 
+-H "sign: 5DB15133873C1CF10FF38D01AC7CB897D1013998E646448C537F5F552BFF0095" 
+-H "ts: 1756180090536" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/x-www-form-urlencoded" 
+"https://beta.seizeyouralpha.com/open/option/blocktrade/orderList/v1?blocktradeId=1347832697683&direction=NEXT&pageSize=20"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "blocktradeId": "123456789",   
+        "requestId": "24601",  // rqf request id if any
+        "symbol": "BTCUSD-16MAY25-95000-C",
+        "baseToken": "BTC",
+        "quoteToken": "USDT", 
+        "side": "BUY", // trade side, 1 buy, 2 sell
+        "price": "2053",
+        "qty": "20",
+        "iv": "0.4162",
+        "markPrice": "2052.3415235",
+        "indexPrice": "94475.478875",
+        "orderId": "1919971058081992700",
+        "tradeId": "1919971552670163000",
+        "fee": "850.27930988",
+        "createTime": 1746591864166,
+        "profit": "0",
+        "role": "MAKER"
+      },
+      {
+        "blocktradeId": "123456799",   
+        "requestId": "24602", 
+        "symbol": "BTCUSD-9MAY25-95000-C",
+        "displayName": "BTC-9MAY25-95000-C",
+        "baseToken": "BTC",
+        "quoteToken": "USDT",
+        "side": "SELL",
+        "price": "111",
+        "qty": "10",
+        "iv": "0.0327",
+        "markPrice": "2564.19894087",
+        "indexPrice": "87569.71888889",
+        "orderId": "1916776089900945400",
+        "tradeId": "1916777612844372000",
+        "fee": "138.75",
+        "createTime": 1745830369569,
+        "profit": "-8792.21",
+        "role": "MAKER"
+      },
+    "hasNext": false,
+    "hasPrev": true
+  }
+}
+
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/blocktrade/orderList/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+blocktradeId |integer | 1840685647012708354 | false | Private endpoint, user can only see own trades
+fromId | integer | 1957268602021351424 | false | RFQ blocktradeId
+direction   |string| NEXT,PREV| false| Default is NEXT
+pageSize | integer | 20 | false| The value should be less than 500. Default: 20
+currency | string | BTC,ETh | false | Default to current time
+
+
+
 ## Create (SIGNED)
 
 Create block trade
