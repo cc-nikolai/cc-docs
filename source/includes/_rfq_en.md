@@ -144,10 +144,28 @@ legs | array of object |  | true | Json object
 
 **Parameter Example**
 
-body = {
-            {'orderOpenApiDetailReqs': '[{"price":"2000","symbol":"BTCUSD-11OCT24-65000-C","type":"1"},{"price":"1000","symbol":"BTCUSD-11OCT24-60000-C","type":"1"}]', 
-            'requestId': 1840600952218980352}
+> RequestBody:
+```json
+{
+    "requestId": 1916777612861149201,
+    "legs": [
+        {
+            "instrumentName": "BTCUSD-9AUG25-95000-C",
+            "symbol": "BTCUSD",
+            "side": "BUY",
+            "price": "1250.75",
+            "quantity": "10.5"
+        },
+        {
+            "instrumentName": "BTCUSD-9AUG25-100000-C",
+            "symbol": "BTCUSD",
+            "side": "SELL",
+            "price": "850.25",
+            "quantity": "10.5"
         }
+    ]
+}
+```
 
 ## Cancel quote(SIGNED)
 
