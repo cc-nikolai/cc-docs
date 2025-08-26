@@ -1,5 +1,5 @@
 # RFQ Endpoint  
-## Get List of RFQs(SIGNED)
+## Get list of RFQs(SIGNED)
 
 Get RFQ list
 
@@ -57,7 +57,7 @@ curl -X GET
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-requestId |string | 198340374878321 | false | request id
+requestId |string | 198340374878321 | false | request RFQ ID
 state | string | OPEN, CLOSED| false | state of the rfq request
 role  | string | TAKER, MAKER | false | user role
 startTime | integer| 1725610332457 | Default to 3 days from current time
@@ -65,33 +65,82 @@ endTime | integer | 1725710332457 | Default to current time
 
 ## Create quote(SIGNED)
 
-Creates quote for RFQ
+Create quote for RFQ
+
+> Request:
+
+```sh
+curl -X POST 
+-H "X-CC-APIKEY: jV4mFZa4kBLczkrRfw77vcVSLfHc3Dm3wYyTG6RA58Y=" 
+-H "sign: 689C84E5EC2633337BFFE11D5622B07378CDDBE4F813BB6822990835FB6706EF" 
+-H "ts: 1756180090536" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" 
+-d '{
+    "requestId": 1916777612861149201,
+    "legs": [
+        {
+            "instrumentName": "BTCUSD-9AUG25-95000-C",
+            "symbol": "BTCUSD",
+            "side": "BUY",
+            "price": "1250.75",
+            "quantity": "10.5"
+        },
+        {
+            "instrumentName": "BTCUSD-9AUG25-100000-C",
+            "symbol": "BTCUSD",
+            "side": "SELL",
+            "price": "850.25",
+            "quantity": "10.5"
+        }
+    ]
+}' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/create/v1"
+```
 
 > Response:
 
 ```json
 {
-    "code": 0,
-    "msg": null,
-    "i18nArgs": null,
-    "data": 1840685647012708354 // Quote ID
+    "code": 0,                // API result code: 0 = success
+    "msg": "Success",         // Response message
+    "i18nArgs": null,         // Internationalization arguments (if any)
+    "data":{
+        "quoteId": "1957266294866329602",
+        "requestId": "1916777612861149201",
+        "createTime": 1755485875973,
+        "updateTime": 1755485875973,
+        "expiryTime": 1782460800000,
+        "legs":[
+            {
+               "instrumentName": "BTCUSD-29AUG25-125000-C",
+               "quantity": "0.1",
+               "price": "22",
+               "side": "BUY"
+            }, 
+            {
+               "instrumentName": "BTCUSD-26JUN26-125000-C",
+               "quantity": "0.1",
+               "price": "123",
+               "side": "SELL"
+            }
+        ]
+    }
 }
 ```
 
 
 **HTTP Request**
 
-`POST https://api.coincall.com/open/option/blockTrade/quote/create/v1`
+`POST https://api.coincall.com/open/option/blocktrade/quote/create/v1`
 
 **Parameter**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 requestId | integer | 1840685647012708354 | true | request RFQ ID.
-orderOpenApiDetailReqs | string |  | true | Json Map
+legs | array of object |  | true | Json object
+-> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> price | string | 10.1 | true | quote price
--> symbol | string | BTCUSD-13SEP24-56000-C | true | quote symbol
--> type | string | 1 | true | 1 Options, 2 Futures, 3 Spot
 
 **Parameter Example**
 
