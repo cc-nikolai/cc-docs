@@ -232,5 +232,8 @@ Codes | Description
 40041|Upload file frequently
 40042|File type is unknow
 40043|File type is error
+50012|Block trade quote exist
+50014|Block trade quote is not valid,Block trade quote does not match with seek
+60001|User is in ADL,ADL user not allow
 60008|MMP is not enabled，Please check the configuration: is MMP enabled?
 
