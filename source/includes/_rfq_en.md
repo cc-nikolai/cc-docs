@@ -1,51 +1,49 @@
 # RFQ Endpoint  
-## Board list(SIGNED)
+## Get List of RFQs(SIGNED)
 
-Get board list
+Get RFQ list
+
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: jV4mFZa4kBLczkrRfw77vcVSLfHc3Dm3wYyTG6RA58Y=" 
+-H "sign: 73103DE66FA8D9CDB955F58442104E3B19B8552000B3B4E080903B7CFA764C01" 
+-H "ts: 1756180090536" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/rfqList/v1?requestId=123456789&state=OPEN&role=MAKER&startTime=1663490353000&endTime=1663490453000"
+```
 
 > Response:
 
 ```json
 {
-    "code": 0,
-    "msg": "Success",
-    "i18nArgs": null,
-    "data": {
-        "requestList": [
+    "code": 0,                // API result code: 0 = success
+    "msg": "Success",         // Response message
+    "i18nArgs": null,         // Internationalization arguments (if any)
+    "data":{
+        "userId": "1695796692867071",
+        "rfqList":[
             {
-                "legList": [ // per request list
-                    {
-                        "type": 1, // trade type, 1 options, 2 futures, 3 spot
-                        "tradeSide": 1, // trade side, 1 buy, 2 sell
-                        "symbol": "BTCUSD-11OCT24-65000-C",
-                        "amount": 0.5 // trade size
-                    }
-                ],
-                "requestId": 1840600952218980352, // this request ID
-                "expireTime": 1727670238401
-            },
-            {
-                "legList": [
-                    {
-                        "type": 1,
-                        "tradeSide": 1,
-                        "symbol": "BTCUSD-13SEP24-56000-C",
-                        "amount": 0.1
-                    },
-                    {
-                        "type": 1,
-                        "tradeSide": 1,
-                        "symbol": "BTCUSD-20SEP24-56000-P",
-                        "amount": 0.1
-                    }
-                ],
-                "requestId": 1831961206433386496,
-                "expireTime": 1725610362477
+                "requestId": "1957272427713138688",
+                "state": "ACTIVE", // CANCELLED | ACTIVE | FILLED | EXPIRED | TRADED_AWAY
+                "role": "MAKER", // MAKER | TAKER
+                "createTime": 1755485879163,
+                "expiryTime": 1755485879163,
+                "updateTime": 1755485879163,
+                "legs":[{
+                      "instrumentName": "BTCUSD-9AUG25-100000-C",
+                      "side": "BUY",                    // Leg direction: BUY or SELL
+                      "quantity": "10.5"
+                },
+                {
+                      "instrumentName": "BTCUSD-9AUG25-100000-C",
+                      "side": "SELL",                    // Leg direction: BUY or SELL
+                      "quantity": "10.5"
+                }]
             }
-        ],
-        "currentPage": 1,
-        "pageTotal": 1,
-        "total": 2
+        ]
     }
 }
 ```
@@ -53,14 +51,17 @@ Get board list
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/blockTrade/seek/list/v1`
+`GET https://api.coincall.com/open/option/blocktrade/rfqList/v1`
 
 **Parameter**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-currentPage |integer | 1 | true | No default.
-pageSize | integer | 10 | true | No default, max size is 1500
+requestId |string | 198340374878321 | false | request id
+state | string | OPEN, CLOSED| false | state of the rfq request
+role  | string | TAKER, MAKER | false | user role
+startTime | integer| 1725610332457 | Default to 3 days from current time
+endTime | integer | 1725710332457 | Default to current time
 
 ## Create quote(SIGNED)
 
