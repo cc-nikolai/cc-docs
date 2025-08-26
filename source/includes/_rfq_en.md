@@ -143,7 +143,6 @@ legs | array of object |  | true | Json object
 -> price | string | 10.1 | true | quote price
 
 **Parameter Example**
-*RequestBody:* 
 ```
 {
     "requestId": 1916777612861149201,
@@ -210,7 +209,6 @@ Name | Type | Value | Required | Note
 quoteId |integer | 1840685647012708354 | true | Quote ID
 
 **Parameter Example**
-*RequestBody:* 
 ```
 {
  "quoteId": "1957266294866329602"
