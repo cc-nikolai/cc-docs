@@ -1,7 +1,7 @@
 # RFQ Endpoint  
 ## Get list of RFQs(SIGNED)
 
-Get RFQ list
+Get RFQ request list
 
 
 > Request:
@@ -60,8 +60,8 @@ Name | Type | Value | Required | Note
 requestId |string | 198340374878321 | false | request RFQ ID
 state | string | OPEN, CLOSED| false | state of the rfq request
 role  | string | TAKER, MAKER | false | user role
-startTime | integer| 1725610332457 | Default to 3 days from current time
-endTime | integer | 1725710332457 | Default to current time
+startTime | integer| 1725610332457 | false | Default to 3 days from current time
+endTime | integer | 1725710332457 | false | Default to current time
 
 ## Create quote(SIGNED)
 
@@ -146,7 +146,6 @@ legs | array of object |  | true | Json object
 
 *RequestBody* 
 
-``` 
 { 
     "requestId": 1916777612861149201, 
     "legs": [ 
@@ -166,59 +165,6 @@ legs | array of object |  | true | Json object
         } 
     ] 
 } 
-```
-
-## Cancel Quote by ID(SIGNED)
-
-Cancel quote for RFQ
-
-> Request:
-
-```sh
-curl -X POST 
--H "X-CC-APIKEY: jV4mFZa4kBLczkrRfw77vcVSLfHc3Dm3wYyTG6RA58Y=" 
--H "sign: 8C3BF7C0F9FA29905079503E18310FC4DB9A290E9BF64B96675D05CB6C5AECC0" 
--H "ts: 1756180090536" 
--H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/json" 
--d '{
-        "quoteId": 1957266294866329602
-     }
-' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/cancel/v1"
-```
-
-> Response:
-
-```json
-{
-    "code": 0,                // API result code: 0 = success
-    "msg": "Success",         // Response message
-    "i18nArgs": null,         // Internationalization arguments (if any)
-    "data":{
-        "quoteId": "1957266294866329602"
-     }
-}
-```
-
-
-**HTTP Request**
-
-`POST https://api.coincall.com/open/option/blocktrade/quote/cancel/v1`
-
-**Parameter**
-
-Name | Type | Value | Required | Note
----- | ---- | ----- | -------- | ----
-quoteId |integer | 1840685647012708354 | true | Quote ID
-
-**Parameter Example**  
-
-*requestBody:*  
-
-{ 
- "quoteId": "1957266294866329602" 
-}  
-
 
 ## Cancel Quote by ID(SIGNED)
 

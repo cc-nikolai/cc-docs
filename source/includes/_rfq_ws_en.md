@@ -145,7 +145,7 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 ``` 
 
 ```json
-2. RFQ request cancel :
+2. RFQ request cancel:
 {
     "dt": 28,
     "c": 20,
