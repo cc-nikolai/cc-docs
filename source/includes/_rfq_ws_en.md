@@ -116,8 +116,9 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 
 ```json
 Payload:
-// 1.new RFQ request 
-{
+
+{   
+    // 1.new RFQ request 
     "dt": 28,
     "c": 20,
     "d": {
@@ -144,8 +145,12 @@ Payload:
     "ts": 1755225804597
 } 
 
-// 2. RFQ request cancel 
+``` 
+
+```json
+Payload:
 {
+    // 2. RFQ request cancel 
     "dt": 28,
     "c": 20,
     "d": {
@@ -172,9 +177,13 @@ Payload:
     },
     "ts": 1755257506166
 }
+``` 
 
-// 3. RFQ Filled
-{
+```json
+Payload:
+
+{   
+    // 3. RFQ Filled
     "dt": 28,
     "c": 20,
     "d": {
@@ -200,11 +209,15 @@ Payload:
     },
     "ts": 1755225804597
 }
+ 
+``` 
 
-// 4. RFQ trade away
+```json
+Payload:
 
-{
-    "dt": 28,
+{  
+    // 4. RFQ trade away
+   "dt": 28,
     "c": 20,
     "d": {
         "createTime": 1755225804558,
@@ -246,8 +259,9 @@ Payload:
 
 ```json
 Payload:
-// 1. Create  quote 
-{
+
+{   
+    // 1. Create  quote 
     "dt": 20,
     "c": 20,
     "d": {
@@ -274,11 +288,15 @@ Payload:
         "userId": "1695796692726153" // this should be the maker's userId
     },
     "ts": 1755260869548
-}} 
+}
+```  
 
-// 2.  cancel quote
-//example-1:maker cancel
+```json
+Payload: 
+
 {    
+    
+    // 2.  cancel quote
     "dt": 20,
     "c": 20,
     "d": {
@@ -305,10 +323,16 @@ Payload:
         "userId": "1695796692726153"
     },
     "ts": 1755443859795
-}}
+}
 
-// 3. Quote filled
+
+```  
+
+```json
+Payload: 
+
 {
+    // 3. Quote filled
     "dt": 20,
     "c": 20,
     "d": {
