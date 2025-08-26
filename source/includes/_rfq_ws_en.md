@@ -333,8 +333,6 @@ Payload:
 
 ```  
 
-
-
 ## RFQ Trade Detail(private)
 **Subscribe to this WebSocket channel to receive private blockTrade transaction details.** 
 
@@ -352,7 +350,6 @@ Payload:
 
 ```json
 Payload:
-
 {
     "dt": 22,
     "c": 20,
@@ -420,7 +417,6 @@ Payload:
 
 ```json
 Payload:
-
 {
     "dt": 23,
     "c": 20,
