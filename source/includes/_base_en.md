@@ -197,7 +197,7 @@ Name | Product | Note
 ---- | ------- | ----
 type | options | Option order type: 1 CALL, 2 PUT
 tradeSide | options/futures/websocket | Trade side: 1 BUY, 2 SELL
-tradeType | options/futures/websocket | Trade type: 1 LIMIT, 2 MARKET, 3 POST_ONLY, 4 STOP_LIMIT, 5 STOP_MARKET
+tradeType | options/futures/websocket | Trade type: 1 LIMIT, 2 MARKET, 3 POST_ONLY, 4 STOP_LIMIT,5 STOP_MARKET, 14 BLOCK_TRADE
 reduceOnly | options/futures/websocket | Reduce only: 0 FALSE, 1 TRUE
 state | options/websocket | Order status: -10 ILLEGAL, -1 PRE, 0 NEW, 1 FILLED, 2 PARTIALLY_FILLED, 3 CANCELED, 4 PRE_CANCEL, 5 CANCELING, 6 INVALID, 10 CANCEL_BY_EXERCISE
 state | futures/websocket | Order status: -2 WAITING_EFFECT, -1 PRE, 0 NEW, 1 FILLED, 2 PARTIALLY_FILLED, 3 CANCELED, 4 PRE_CANCEL, 5 CANCELING, 6 INVALID
