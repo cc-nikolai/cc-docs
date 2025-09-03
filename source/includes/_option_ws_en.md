@@ -694,7 +694,7 @@ Status: 0 NEW
     "q": "1", // Order Quantity
     "pr": "500", // Price
     "si": 1,  // Trade side > si
-    "ty": 1,  // Trade type > ty
+    "ty": 1,  // Trade type    1 LIMIT, 2 MARKET, 3 POST_ONLY, 4 STOP_LIMIT,5 STOP_MARKET, 14 BLOCK_TRADE
     "ct": 1685326195118,// Time of the order created
     "ts": 1685326195118,// Time of this event
     "ro": 0,  //Reduce only
@@ -721,7 +721,7 @@ Status: 1 FILLED
     "mq": "0.5", // filled quantity in this trade
     "ap": "2095.6",// Average price
     "si": 1,// Trade side
-    "ty": 1,// Trade type
+    "ty": 1,// Trade type  1 LIMIT, 2 MARKET, 3 POST_ONLY, 4 STOP_LIMIT,5 STOP_MARKET, 14 BLOCK_TRADE
     "ct": 1666667584739,// Time of the order created
     "ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
@@ -748,7 +748,7 @@ Status: 2 PARTIALLY_FILLED
 	"mq": "0.5", // filled quantity in this trade
     "ap": "2095.6",// Average filled price(accumulated)
     "si": 1,// Trade side
-    "ty": 1,// Trade type
+    "ty": 1,// Trade type  
     "ct": 1666667584739,// Time of the order created
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
@@ -773,7 +773,7 @@ Status: 3 CANCELED, 10 CANCEL_BY_EXERCISE
     "pr": "2095.6",// Price
     "ap": "2095.6",// Average filled price(accumulated)
     "si": 1,// Trade side
-    "ty": 1,// Trade type
+    "ty": 1,// Trade type 
     "ct": 1666667584739,// Time of the order created
 	"ts": 1685326195118,// Time of this event
     "ro": 0, // Reduce only
