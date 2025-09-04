@@ -703,7 +703,9 @@ Payload:
 
 ```
 
-## Position
+## Position   
+After subscribing, the user’s future position information will be pushed at a fixed frequency, once per second.  
+
 ### subscribe
 {
     "action":"subscribe",
@@ -713,6 +715,52 @@ Payload:
 {
     "action":"unSubscribe",
     "dataType":"position"
+}
+
+```json
+Payload:
+
+{
+    "dt": 36,
+    "c": 20,
+    "d": {
+        "ap": "2976.11", // average price
+        "elp": "-86087698.84122056", // Elp estimated Liquidation Price
+        "im": "80.81664", // Im initMargin 初始保证金
+        "le": "5", //leverage
+        "mm": "1.93959936", // Mm maintMargin
+        "mp": "3367.36", // mark price 
+        "os": "1", // postition statues 1 - opening 2 - close
+        "q": "0.12",// filled quantity,Current quantity of this position, after any position changes. Snapshot value, not a delta.
+        "s": "ETHUSD", // symbol
+        "si": "1", // side 交易方向 1 - long 2 - short
+        "tim": "", //Initial margin in this currency
+        "tmm": "", //Maintenance margin in this currency
+        "uid": "8098470908", // user id
+        "upnl": "46.95", // Unrealized Pnl calculated at the markPirce
+        "upnlblp": "46.95", //Unrealized Pnl calculated at the lastprice
+        "roiblp": "46.95", // Roi calculated at the lastprice
+        "lp": "2976.21", // lastPrice
+        "ctp":"E" // Perp
+},
+    "ts": 1719907751060
+}
+
+```
+
+
+## Position Event 
+The user’s future position event push subscription is event-driven. When an open or close position event occurs, the position information message will be pushed to the subscribed user.   
+
+### subscribe
+{
+    "action":"subscribe",
+    "dataType":"positionEvent"
+}
+### unsubscribe
+{
+    "action":"unSubscribe",
+    "dataType":"positionEvent"
 }
 
 ```json
