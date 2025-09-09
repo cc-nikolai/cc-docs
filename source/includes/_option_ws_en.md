@@ -151,7 +151,7 @@ Please refer to the following field abbreviations for data fields in the futures
 | wb | canWithdrawPmAmount |
 | atwt | availableTradeWithTrail |
 | upnl | Unrealized Pnl |
-| ap | average proce |
+| ap | average price |
 | coid | clientOrderId |
 | os |  order status |
 | im | initialMargin in PM |
