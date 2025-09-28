@@ -456,11 +456,11 @@ curl -X POST
 
 ## Accept (SIGNED)
 
-Create block trade
+Accept block trade
 
 **HTTP Request**  
 
-`GET https://api.coincall.com/open/option/blockTrade/accept/v1`
+`POST https://api.coincall.com/open/option/blockTrade/accept/v1`
 
 **Parameter** 
 
