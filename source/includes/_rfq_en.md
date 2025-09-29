@@ -467,7 +467,6 @@ Accept block trade
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 key | 	String | 	eyJyb2xlIjowLCJzaWduYXR1cmUiOiJbe1wiYnV5XCI6dHJ1ZSxcImNMb3NlXCI6ZmFsc2UsXCJjbGllbnRPcmRlcklkXCI6MTkyMDAyNTQwNTgzMDU5ODY1NixcImNsb3NlVHlwZVwiOjA	| true	 |  Block trade code 
-role | Number | 1 | true |   RFQ order info
 role | Number | 0 | true | user role : 1.taker 0.maker
 marginMode | Number | 2 | true | margin mode  1.SM 2.PM 3.MULTICURRENCY
 
