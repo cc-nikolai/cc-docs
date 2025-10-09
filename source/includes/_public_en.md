@@ -217,5 +217,5 @@ Reset Countdown Settings, only opened for MM.
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | BTCUSD,ETHUSD | true | Contract name
+symbols | string | BTCUSD,ETHUSD | true | Contract name
 type | integer | 1 | true | Type of trade, 1:options, 2:futures, 3:spot
