@@ -140,7 +140,10 @@ Name | Type | Value | Required | Note
 requestId | integer | 1840685647012708354 | true | request RFQ ID.
 legs | array of object |  | true | Json object
 -> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
+-> symbol | string | BTCUSD | true | symbol
 -> price | string | 10.1 | true | quote price
+-> side | string | BUY OR SELL| true | trade side
+-> quantity | string | 10.1 | true | quote quantity
 
 **Parameter Example** 
 
