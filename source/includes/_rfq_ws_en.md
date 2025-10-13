@@ -255,6 +255,7 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
  1. Create quote:
 
 {    
+    
     "dt": 30,
     "c": 20,
     "d": {
