@@ -288,7 +288,7 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 2. cancel quote: 
 
 {    
-    "dt": 20,
+    "dt": 30,
     "c": 20,
     "d": {
         "createTime": 1755443848829,
@@ -323,7 +323,7 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
 3. Quote filled: 
 
 {
-    "dt": 20,
+    "dt": 30,
     "c": 20,
     "d": {
         "createTime": 1755507249763,
