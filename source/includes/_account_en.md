@@ -219,6 +219,59 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 ```
 
 
+## Get System Credit Records (SIGNED)
+Query System Transfer Records
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/account/sysTransferRecords/v1`
+
+**Parameter**
+
+
+
+> Rquest: 
+
+```json
+curl -X GET 
+-H "X-CC-APIKEY: r8mqJhJDkFPHk325ONFKQQmgHiRkXWXn8MG/0vcPv74=" 
+-H "sign: CBE3D82CD9BEA7BCF030255B00971A28F97E7295C68C44C233C2968D5E626D33" 
+-H "ts: 1761041311358" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/account/sysCreditRecords/v1"
+
+```
+
+> Response: 
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "time": 1761125808090,
+        "type": 2,  //Tansfer business type: 0 - CREDIT, 1 - REWARDS, 2 - tranfer in/out, 3 - Trail Bonus, 4 - Release Trail Bonus
+        "side": 0,  //0 - increase  1 - decrease 
+        "creditChange": 1000,  //quantity
+        "txId": "1699989620019593480", //Transaction ID
+        "state": 1, //Transaction state , 0 - Unsettled 1 - Settled
+        "coin": "USDT",
+        "note": "Daniel Test",
+        "userId": "1695796693279021"
+      }
+    ],
+    "pageTotal": 1,
+    "total": 1
+  }
+}
+
+```
+
+
 
 ## Subaccount funds transfer API (SIGNED) 
 Transfer funds between subaccounts
