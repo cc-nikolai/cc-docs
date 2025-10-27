@@ -156,7 +156,7 @@ Query deposit and withdrawal history
 
 `GET https://api.coincall.com/open/account/historyList/v1`
 
-
+**Parameter**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
@@ -229,6 +229,7 @@ Query System Transfer Records
 
 **Parameter** 
 
+Null 
 
 
 > Rquest: 
