@@ -227,8 +227,7 @@ Query System Transfer Records
 
 `GET https://api.coincall.com/open/account/sysTransferRecords/v1`
 
-**Parameter**
-
+**Parameter** 
 
 
 > Rquest: 
