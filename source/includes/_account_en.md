@@ -219,7 +219,7 @@ pageSize | integer | 20 | false | Number of items per page, default is 20
 ```
 
 
-## Get System Credit Records (SIGNED)
+## Get System Transfer Records (SIGNED)
 Query System Transfer Records
 
 
@@ -228,6 +228,7 @@ Query System Transfer Records
 `GET https://api.coincall.com/open/account/sysTransferRecords/v1`
 
 **Parameter** 
+
 
 
 > Rquest: 
