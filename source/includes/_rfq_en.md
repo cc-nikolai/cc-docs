@@ -1,5 +1,5 @@
 # RFQ Endpoint  
-## Create quote(SIGNED)
+## Create RFQ(SIGNED)
 
 Create RFQ
 
@@ -304,20 +304,6 @@ seekId=1978394601173684224&blockTradeOrderId=1978394816938655746
 }
 ```
 
-
-**HTTP Request**
-
-`POST https://api.coincall.com/open/option/blocktrade/request/cancel/v1`
-
-**Parameter**
-
-Name | Type | Value | Required | Note
----- | ---- | ----- | -------- | ----
-requestId |integer | 1840685647012708354 | true | request ID
-
-**Parameter Example**  
-
-requestId=1978391652129181696
 
 
 
