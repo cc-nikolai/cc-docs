@@ -1,4 +1,326 @@
 # RFQ Endpoint  
+## Create quote(SIGNED)
+
+Create RFQ
+
+> Request:
+
+```sh
+curl -X POST 
+-H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
+-H "sign: D0E928B7322729CC6B0D4B0675206DD929B72B422A976F79D163BCD487AC139D" 
+-H "ts: 1761633329230" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" 
+-d '{
+    "legs": [
+        {
+            "instrumentName": "BTCUSD-29OCT25-109000-C",
+            "side": "BUY",
+            "qty": "0.2"
+        },
+        {
+            "instrumentName": "BTCUSD-29OCT25-109000-P",
+            "side": "SELL",
+            "qty": "0.2"
+        }
+    ]
+}' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/create/v1"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "requestId": "1983060031318396928",
+    "createTime": 1761633329597,
+    "expiryTime": 1761636929597,
+    "legs": [
+      {
+        "instrumentName": "BTCUSD-29OCT25-109000-C",
+        "qty": "0.2",
+        "side": "BUY"
+      },
+      {
+        "instrumentName": "BTCUSD-29OCT25-109000-P",
+        "qty": "0.2",
+        "side": "SELL"
+      }
+    ],
+    "state": "ACTIVE"
+  }
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/blocktrade/request/create/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+requestId | integer | 1840685647012708354 | true | request RFQ ID.
+legs | array of object |  | true | Json object
+-> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
+-> side | string | BUY OR SELL| true | trade side
+-> qty | string | 10.1 | true | quote quantity
+
+**Parameter Example** 
+
+*RequestBody* 
+
+{
+    "legs": [
+        {
+            "instrumentName": "BTCUSD-29OCT25-109000-C",
+            "side": "BUY",
+            "qty": "0.2"
+        },
+        {
+            "instrumentName": "BTCUSD-29OCT25-109000-P",
+            "side": "SELL",
+            "qty": "0.2"
+        }
+    ]
+}
+
+## Cancel RFQ by ID(SIGNED)
+
+Cancel RFQ 
+
+> Request:
+
+```sh
+curl -X POST 
+-H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
+-H "sign: C682166D0936C406AEDD4BC3DEEA278D59EBE5EB5220656E1871AB49F7CF6255" 
+-H "ts: 1761650065385" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/x-www-form-urlencoded" 
+-d 'requestId=1983130245586358272' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/cancel/v1"
+
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": true
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/blocktrade/request/cancel/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+requestId |integer | 1840685647012708354 | true | request ID
+
+**Parameter Example**  
+
+requestId=1978391652129181696
+
+
+
+## Get Quotes Received(SIGNED)
+
+Get RFQ quotes 
+
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
+-H "sign: 33F92DC129B7133F6772F977562FE1B08121D00839EBEB249E8F7575C0D737EB" 
+-H "ts: 1761650261346" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" "https://beta.seizeyouralpha.com/open/option/blocktrade/request/getQuotesReceived/v1?requestId=1983130719395909632"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": [
+    {
+      "quoteId": "1983131007357546497",
+      "requestId": "1983130719395909632",
+      "userId": "1695796692726153",
+      "state": "OPEN",
+      "createTime": 1761650251603,
+      "updateTime": 1761650252000,
+      "expiryTime": 1761650551603,
+      "legs": [
+        {
+          "instrumentName": "BTCUSD-29OCT25-109000-C",
+          "side": "SELL",
+          "price": "1",
+          "quantity": "0.2"
+        },
+        {
+          "instrumentName": "BTCUSD-29OCT25-109000-P",
+          "side": "BUY",
+          "price": "2",
+          "quantity": "0.2"
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/blocktrade/request/getQuotesReceived/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+requestId |string | 198340374878321 | false | request RFQ ID
+
+
+
+## Execute Quote(SIGNED)
+
+The taker executes quote
+
+> Request:
+
+```sh
+## Cancel RFQ by ID(SIGNED)
+
+Cancel RFQ 
+
+> Request:
+
+```sh
+curl -X POST 
+-H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
+-H "sign: F5551686049622DF067B4B93855D7EA6B6813E954131A684FA9EAF55D0743CFA" 
+-H "ts: 1761650457177" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/x-www-form-urlencoded" 
+-d 'requestId=1983130719395909632&quoteId=1983131007357546497' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/accept/v1"
+
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": {
+    "userId": null,
+    "blockTradeId": "1983131007357546497",
+    "requestId": "1983130719395909632",
+    "quoteId": "1983131007357546497",
+    "role": "TAKER",
+    "legs": [
+      {
+        "instrumentName": "BTCUSD-29OCT25-109000-C",
+        "baseToken": "BTC",
+        "quoteToken": "USDT",
+        "side": "BUY",
+        "price": "1",
+        "quantity": "0.2",
+        "iv": "6.0E-4",
+        "markPrice": "5365.90199481",
+        "indexPrice": "109543.52",
+        "orderId": "1983131927527428096",
+        "tradeId": "1983131929700110336",
+        "fee": "0.025000000",
+        "createTime": 1761650471507,
+        "profit": "0"
+      },
+      {
+        "instrumentName": "BTCUSD-29OCT25-109000-P",
+        "baseToken": "BTC",
+        "quoteToken": "USDT",
+        "side": "SELL",
+        "price": "2",
+        "quantity": "0.2",
+        "iv": "0.3799",
+        "markPrice": "18.06805125",
+        "indexPrice": "109543.52",
+        "orderId": "1983131927699394560",
+        "tradeId": "1983131929729470464",
+        "fee": "0",
+        "createTime": 1761650471514,
+        "profit": "0"
+      }
+    ]
+  }
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/blocktrade/request/accept/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+requestId |String | 1983130719395909632 | true | request ID
+quoteId|String| 1983131007357546497 | true| quote ID
+
+
+**Parameter Example**  
+
+seekId=1978394601173684224&blockTradeOrderId=1978394816938655746
+
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "Success",
+  "i18nArgs": null,
+  "data": true
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/option/blocktrade/request/cancel/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+requestId |integer | 1840685647012708354 | true | request ID
+
+**Parameter Example**  
+
+requestId=1978391652129181696
+
+
+
 ## Get list of RFQs(SIGNED)
 
 Get RFQ request list
