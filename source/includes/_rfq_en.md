@@ -127,7 +127,7 @@ curl -X POST
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-requestId |integer | 1840685647012708354 | true | request ID
+requestId | String | 1840685647012708354 | true | request ID
 
 **Parameter Example**  
 
