@@ -65,7 +65,6 @@ curl -X POST
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-requestId | integer | 1840685647012708354 | true | request RFQ ID.
 legs | array of object |  | true | Json object
 -> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> side | string | BUY OR SELL| true | trade side
