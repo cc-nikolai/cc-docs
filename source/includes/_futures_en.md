@@ -1061,7 +1061,7 @@ symbol | string | BTCUSD | true | future symbol name
 startTime | number| 1686308840388 | false | Start time of the history records
 endTime | number | 1686308840388 | false | End time of the history records
 page | number | 1 | false | default is 1
-pageSize | number | 20 | false | Number of items per page, default is 60, miniumm value is 1, maximum value is 200
+pageSize | number | 60 | false | Number of items per page, default is 60, miniumm value is 1, maximum value is 200
 
 **Parameter Description**  
 
