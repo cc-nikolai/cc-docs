@@ -974,15 +974,15 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | false | future symbol name
 startTime | number| 1686308840388 | false | Start time of the history
-endTime | number | 1686308840388 | false | End time of the history
+endTime | number | 1686308850388 | false | End time of the history
 page | number | 1 | false | default is 1
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
 
 
 
-## Get Premium Index history Record (SIGNED)
+## Get Premium Index history Records (SIGNED)
 
- Premium index history record
+ Query premium index history records
 
 
 > Rquest: 
@@ -1067,6 +1067,6 @@ pageSize | number | 20 | false | Number of items per page, default is 60, minium
 
 *  If startTime is empty, the query will use the time point 24 hours ago as the startTime (startTime = currentTimeMillis - 24 * 60 * 60 * 1000).
 *  If endTime is empty, the query will use the current time point  as the endTime
-*  The maximum query range is 24 hours (endTime - startTime must be greater than currentTimeMillis - 24 * 60 * 60 * 1000)
+*  The maximum query range is 24 hours (endTime - startTime must be greater than 24 * 60 * 60 * 1000)
 
 
