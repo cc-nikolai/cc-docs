@@ -916,7 +916,7 @@ startTime | number| 1663490353000 | false | Start time of the records
 
 *  If the symbol is empty, query the records for all symbols.    
 *  If startTime is empty, the query will use the time point 8 hours ago as the startTime (startTime = currentTimeMillis - 8 * 60 * 60 * 1000).
-*  The maximum query range is 24 hours (startTime must be greater than currentTimeMillis - 8 * 60 * 60 * 1000)
+*  The maximum query range is 24 hours (startTime must be greater than currentTimeMillis - 24 * 60 * 60 * 1000)
  
 
 ## Get Settlement Record (SIGNED)
@@ -977,3 +977,96 @@ startTime | number| 1686308840388 | false | Start time of the history
 endTime | number | 1686308840388 | false | End time of the history
 page | number | 1 | false | default is 1
 pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
+
+
+
+## Get Premium Index history Record (SIGNED)
+
+ Premium index history record
+
+
+> Rquest: 
+
+```json 
+
+curl -X GET 
+-H "X-CC-APIKEY: Ipl6mkcZxxE3ESvPMYUJYJ9JY81myuefEpKDelht77k=" 
+-H "sign: 4E3EDCF9A7E0EE0F26A2ED93FBCEEEE8393BB5B10F5EE04E9442242BDFDBA4E9" 
+-H "ts: 1761881198823" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/market/premiumIndexHistory/v1?symbol=BTCUSD&pageSize=5"
+
+```
+
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "records": [
+      {
+        "symbol": "BTCUSD",
+        "premiumIndex": "0.0042492700000000",
+        "fundingRate": "0.0030000000000000",
+        "minute": "2025-10-31 03:26"
+      },
+      {
+        "symbol": "BTCUSD",
+        "premiumIndex": "0.0042492700000000",
+        "fundingRate": "0.0030000000000000",
+        "minute": "2025-10-31 03:25"
+      },
+      {
+        "symbol": "BTCUSD",
+        "premiumIndex": "0.0042492700000000",
+        "fundingRate": "0.0030000000000000",
+        "minute": "2025-10-31 03:24"
+      },
+      {
+        "symbol": "BTCUSD",
+        "premiumIndex": "0.0042492700000000",
+        "fundingRate": "0.0030000000000000",
+        "minute": "2025-10-31 03:23"
+      },
+      {
+        "symbol": "BTCUSD",
+        "premiumIndex": "0.0042492700000000",
+        "fundingRate": "0.0030000000000000",
+        "minute": "2025-10-31 03:22"
+      }
+    ],
+    "total": 1438,
+    "size": 5,
+    "current": 1,
+    "pages": 288,
+    "hasNext": true,
+    "hasPrevious": false
+  }
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/futures/market/premiumIndexHistory/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+symbol | string | BTCUSD | true | future symbol name
+startTime | number| 1686308840388 | false | Start time of the history records
+endTime | number | 1686308840388 | false | End time of the history records
+page | number | 1 | false | default is 1
+pageSize | number | 20 | false | Number of items per page, default is 60, miniumm value is 1, maximum value is 200
+
+**Parameter Description**  
+
+*  If startTime is empty, the query will use the time point 24 hours ago as the startTime (startTime = currentTimeMillis - 24 * 60 * 60 * 1000).
+*  If endTime is empty, the query will use the current time point  as the endTime
+*  The maximum query range is 24 hours (endTime - startTime must be greater than currentTimeMillis - 24 * 60 * 60 * 1000)
+
+
