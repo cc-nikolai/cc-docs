@@ -425,7 +425,7 @@ timeInForce | string | IOC | false | time in force (in limit order)：IOC，GTC�
 symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
 qty | number | 0.5 | true | Quantity 
 price | number | 19000.01 | false | Price, required for limit orders
-stp | integer | 1 | false | Value: [0,1,2,3],  1 Cancel Make, 2 Cancel Taker  0 Cancel Both(Taker and Maker)  Default is 0 .
+stp | integer | 1 | false | Value: [0,1,2,3],  1 Cancel Maker, 2 Cancel Taker, 0 Cancel Both(Taker and Maker)  Default is 0.
 reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false. Default  is 0
 mmp	 | boolean	| true or false	| false | Market Maker Protection (MMP): true indicates that the order is an MMP order.Effective for options only.Default  is false.
 slippage | integer | 5 | false | 1 means 1%, 10 means 10%, and if not provided, the default  is 5%.

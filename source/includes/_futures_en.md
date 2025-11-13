@@ -401,7 +401,7 @@ qty | number | 0.5 | true | Quantity
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
 tradeType | number | 1 | true | Trade Type, 1 LIMIT 2 MARKET 3 POST_ONLY 4 STOP_LIMIT 5 STOP_MARKET
 timeInForce | string | GTC | false | IOC, FOK. default: GTC
-stp | integer | 1 | false | Value: [0,1,2,3], 1 Cancel Make, 2 Cancel Taker  0 Cancel Both(Taker and Maker)  Default is 0.
+stp | integer | 1 | false | Value: [0,1,2,3], 1 Cancel Maker, 2 Cancel Taker, 0 Cancel Both(Taker and Maker)  Default is 0.
 reduceOnly | number | 1 | false | Reduce the position quantity only, 1 reduce only true, 0 reduce only false
 triggerPrice | number | 18000.01 | false | The trigger price when tradeType is 4 (STOP_LIMIT) or 5 (STOP_MARKET)
 *Time in force (timeInForce):*
