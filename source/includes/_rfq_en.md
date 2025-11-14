@@ -725,7 +725,7 @@ Create block trade
 
 **HTTP Request**  
 
-`GET https://api.coincall.com/open/option/blockTrade/create/v1`
+`POST https://api.coincall.com/open/option/blockTrade/create/v1`
 
 **Parameter** 
 
