@@ -625,7 +625,7 @@ Name | Type | Value | Required | Note
 quoteId |integer | 1840685647012708354 | false | Quote ID
 requestId | integer | 1957268602021351424 | false | RFQ request ID
 state   |string| OPEN,CLOSED| false| Default query all states
-symbol |string|BTCUSD,ETHUSD | symbol name
+symbol |string|BTCUSD,ETHUSD | false |symbol name
 startTime | integer | 1755484318114 | false| Default to 3 days from current time
 endTime | integer | 1755484618114 | false | Default to current time
 
