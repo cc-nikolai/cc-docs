@@ -360,7 +360,7 @@ The RFQ Maker subscribes this channel to get quote order info.
  1. Create quote:
 
 {    
-    "dt": 30,
+    "dt": 130,
     "c": 20,
     "d": {
         "createTime": 1755260869424,
