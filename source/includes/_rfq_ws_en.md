@@ -393,7 +393,7 @@ The RFQ Maker subscribes this channel to get quote order info.
 2. cancel quote: 
 
 {    
-    "dt": 30,
+    "dt": 130,
     "c": 20,
     "d": {
         "createTime": 1755443848829,
@@ -428,7 +428,7 @@ The RFQ Maker subscribes this channel to get quote order info.
 3. Quote filled: 
 
 {
-    "dt": 30,
+    "dt": 130,
     "c": 20,
     "d": {
         "createTime": 1755507249763,
