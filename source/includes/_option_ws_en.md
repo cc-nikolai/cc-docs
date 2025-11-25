@@ -150,7 +150,9 @@ Please refer to the following field abbreviations for data fields in the futures
 | btcv | btc value |
 | wb | canWithdrawPmAmount |
 | atwt | availableTradeWithTrail |
-| upnl | Unrealized Pnl |
+| pnl | Profit and Loss |
+| rpnl|  Realized Profit and Loss |
+| upnl | Unrealized Profit and Loss |
 | ap | average price |
 | coid | clientOrderId |
 | os |  order status |
