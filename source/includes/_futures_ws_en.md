@@ -139,7 +139,9 @@ Please refer to the following field abbreviations for data fields in the futures
 | uid | userId |
 | elp | estimated Liquidation Price |
 | mm | maintenance Margin |
-| upnl | Unrealized Pnl |
+| pnl | Profit and Loss |
+| rpnl|  Realized Profit and Loss |
+| upnl | Unrealized Profit and Loss |
 | dt | dataType, websocket channels |
 | ct | createTime |
 | ro | reduceOnly |
