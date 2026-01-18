@@ -577,47 +577,38 @@ Payload:
     "dt": 22,
     "c": 20,
     "d": {
-        "blockTradeId": "1957110513105780738",
-        "quoteId": "1957110513105780738",
-        "requestId": "1957110456250404864",
-        "role": "MAKER",
+        "blockTradeId": 2012858690077081602,
+        "createTime": 1768737895986,
+        "description": "BTC Call 23 Jan 26 96000",
+        "quoteId": 2012858690077081602,
+        "requestId": 2012858573230575616,
+        "role": "TAKER",
+        "strategyName": "Call",
+        "strategyPrice": "1147.00000000",
+        "strategyQuantity": "0.1",
+        "tradeSide": "SELL",
+        "userId": 1695796693211199,
         "legs": [
             {
                 "baseToken": "BTC",
-                "fee": "0",
-                "indexPrice": "118293.60725",
-                "instrumentName": "BTCUSD-29AUG25-119000-C",
-                "iv": "0.0183",
-                "markPrice": "2518.45453728",
-                "orderId": "1957110512533770240",
-                "price": "33",
-                "profit": "0",
-                "quantity": "22",
+                "createTime": 1768737895819,
+                "fee": "14.337500000",
+                "indexPrice": "90682.04",
+                "instrumentName": "BTCUSD-23JAN26-96000-C",
+                "iv": "0.3616",
+                "markPrice": "1151.43744045",
+                "orderId": "2012858739870273536",
+                "price": "1147",
+                "profit": "-23.13333333",
+                "quantity": "0.1",
                 "quoteToken": "USDT",
-                "createTime": "1755446489697",
-                "tradeId": "1957110543978504192",
-                "side": "BUY",
-            },
-            {
-                "baseToken": "BTC",
-                "fee": "0",
-                "indexPrice": "118293.60725",
-                "instrumentName": "BTCUSD-22AUG25-119000-C",
-                "iv": "0.0413",
-                "markPrice": "1374.04138652",
-                "orderId": "1957110512600879104",
-                "price": "44",
-                "profit": "0",
-                "quantity": "11",
-                "quoteToken": "USDT",
-                "createTime": 1755446490017,
-                "tradeId": "1957110545320681472",
                 "side": "SELL",
+                "tradeId": "2012858741841629184"
             }
-        ],
-        "userId": "1695796692726153"
+        ]
+
     },
-    "ts": 1755446491444
+    "ts": 1768737895989
 }
 
 ```
