@@ -635,35 +635,56 @@ Payload:
     "dt": 23,
     "c": 20,
     "d": {
-        "requestId": 1957108525360615424,
+        "createTime": 1768738265533,
+        "description": "BTC Call Butterfly 23 Jan 26 95000/96000/97000",
         "legs": [
             {
                 "baseToken": "BTC",
-                "indexPrice": "118246.51",
-                "instrumentName": "BTCUSD-29AUG25-119000-C",
-                "iv": "0.0198",
-                "markPrice": "2494.75991149",
-                "price": "33",
-                "quantity": "22",
+                "createTime": 1768738265271,
+                "indexPrice": "90682.04",
+                "instrumentName": "BTCUSD-23JAN26-95000-C",
+                "iv": "0.3694",
+                "markPrice": "1604.81214548",
+                "price": "1605",
+                "quantity": "0.1",
                 "quoteToken": "USDT",
-                "createTime": 1755446402009,
-                "side": "SELL",
+                "side": "BUY",
+                "tradeId": "2012860291435634688"
             },
             {
                 "baseToken": "BTC",
-                "indexPrice": "118246.51",
-                "instrumentName": "BTCUSD-22AUG25-119000-C",
-                "iv": "0.0434",
-                "markPrice": "1359.43197954",
-                "price": "44",
-                "quantity": "11",
+                "createTime": 1768738265277,
+                "indexPrice": "90682.04",
+                "instrumentName": "BTCUSD-23JAN26-96000-C",
+                "iv": "0.3647",
+                "markPrice": "1147.49001880",
+                "price": "1149",
+                "quantity": "0.2",
                 "quoteToken": "USDT",
-                "createTime": 1755446402155,
+                "side": "SELL",
+                "tradeId": "2012860291460800512"
+            },
+            {
+                "baseToken": "BTC",
+                "createTime": 1768738265283,
+                "indexPrice": "90682.04",
+                "instrumentName": "BTCUSD-23JAN26-97000-C",
+                "iv": "0.3642",
+                "markPrice": "805.38458599",
+                "price": "805",
+                "quantity": "0.1",
+                "quoteToken": "USDT",
                 "side": "BUY",
+                "tradeId": "2012860291485966336"
             }
         ],
+        "requestId": 2012860195142766592,
+        "strategyName": "Call Butterfly",
+        "strategyPrice": "112.00000000",
+        "strategyQuantity": "0.1",
+        "tradeSide": "BUY"
     },
-    "ts": 1755446403440
+    "ts": 1768738265535
 }
 
 ```
