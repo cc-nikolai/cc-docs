@@ -718,6 +718,241 @@ pageSize | integer | 20 | false| The value should be less than 500. Default: 20
 currency | string | BTC,ETh | false | Query currency type
 
 
+## Get List of RFQ Private Trades(SIGNED)
+
+Get user private RFQ trades
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: sf7D2eLvr+931g/mMugcbhdpwJIQWo+GncQr4rU19vA=" 
+-H "sign: 3ABF3EEEE221FEE9CCF90AAE31BE1478F8E072ED9BD645221981FFB80E5A9134" 
+-H "ts: 1768812827993" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/trade-detail/private/v1?symbol=BTCUSD&fromId=0&pageSize=2"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "requestId": "2012860195142766592",
+        "tradeSide": "BUY",
+        "strategyPrice": "112.00000000",
+        "strategyQuantity": "0.10000000",
+        "description": "BTC Call Butterfly 23 Jan 26 95000/96000/97000",
+        "strategyName": "Call Butterfly",
+        "legs": [
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265283,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-97000-C",
+            "iv": "0.3642",
+            "markPrice": "805.38458599",
+            "price": "805.00000000",
+            "quantity": "0.10000000",
+            "quoteToken": "USDT",
+            "side": "BUY",
+            "tradeId": "2012860291485966336",
+            "fee": "10.06250000",
+            "orderId": "2012860288822546432",
+            "profit": "0",
+            "reduceOnly": null
+          },
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265277,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-96000-C",
+            "iv": "0.3647",
+            "markPrice": "1147.49001880",
+            "price": "1149.00000000",
+            "quantity": "0.20000000",
+            "quoteToken": "USDT",
+            "side": "SELL",
+            "tradeId": "2012860291460800512",
+            "fee": "0.00000000",
+            "orderId": "2012860288742854656",
+            "profit": "0",
+            "reduceOnly": null
+          },
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265271,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-95000-C",
+            "iv": "0.3694",
+            "markPrice": "1604.81214548",
+            "price": "1605.00000000",
+            "quantity": "0.10000000",
+            "quoteToken": "USDT",
+            "side": "BUY",
+            "tradeId": "2012860291435634688",
+            "fee": "20.06250000",
+            "orderId": "2012860288658968576",
+            "profit": "0",
+            "reduceOnly": null
+          }
+        ],
+        "createTime": 1768738264776,
+        "userId": "1695796693211199",
+        "blockTradeId": "2012860289361002497",
+        "quoteId": "2012860289361002497",
+        "role": "TAKER"
+      }
+    ],
+    "hasNext": true,
+    "hasPrev": false
+  }
+}
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/blocktrade/trade-detail/private/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+blocktradeId |integer | 1840685647012708354 | false | block trade id
+fromId | integer | 1957268602021351424 | false | RFQ blocktradeId used for query comparison default 0
+direction   |string| NEXT,PREV| false| Default is NEXT
+pageSize | integer | 20 | false| The value should be less than 50. Default: 20
+symbol | string | BTCUSD,ETHUSD | false | symbol name of option
+ 
+
+
+## Get List of RFQ Public Trades(SIGNED)
+
+Get public RFQ trades Info
+
+> Request:
+
+```sh
+curl -X GET 
+-H "X-CC-APIKEY: sf7D2eLvr+931g/mMugcbhdpwJIQWo+GncQr4rU19vA=" 
+-H "sign: 67DC07EE12FEC4A792ACF5DCF4172604076E402AE340EC7B51FF6E5DB94E4CD2" 
+-H "ts: 1768812346092" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/trade-detail/public/v1?symbol=BTCUSD&fromId=0&pageSize=2"
+```
+
+> Response:
+
+```json
+{
+  "code": 0,
+  "msg": null,
+  "i18nArgs": null,
+  "data": {
+    "list": [
+      {
+        "requestId": "2012860195142766592",
+        "tradeSide": "BUY",
+        "strategyPrice": "112.00000000",
+        "strategyQuantity": "0.10000000",
+        "description": "BTC Call Butterfly 23 Jan 26 95000/96000/97000",
+        "strategyName": "Call Butterfly",
+        "legs": [
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265283,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-97000-C",
+            "iv": "0.3642",
+            "markPrice": "805.38458599",
+            "price": "805.00000000",
+            "quantity": "0.10000000",
+            "quoteToken": "USDT",
+            "side": "BUY",
+            "tradeId": "2012860291485966336"
+          },
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265277,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-96000-C",
+            "iv": "0.3647",
+            "markPrice": "1147.49001880",
+            "price": "1149.00000000",
+            "quantity": "0.20000000",
+            "quoteToken": "USDT",
+            "side": "SELL",
+            "tradeId": "2012860291460800512"
+          },
+          {
+            "baseToken": "BTC",
+            "createTime": 1768738265271,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-95000-C",
+            "iv": "0.3694",
+            "markPrice": "1604.81214548",
+            "price": "1605.00000000",
+            "quantity": "0.10000000",
+            "quoteToken": "USDT",
+            "side": "BUY",
+            "tradeId": "2012860291435634688"
+          }
+        ],
+        "createTime": 1768738264776
+      },
+      {
+        "requestId": "2012858573230575616",
+        "tradeSide": "SELL",
+        "strategyPrice": "1147.00000000",
+        "strategyQuantity": "0.10000000",
+        "description": "BTC Call 23 Jan 26 96000",
+        "strategyName": "Call",
+        "legs": [
+          {
+            "baseToken": "BTC",
+            "createTime": 1768737895819,
+            "indexPrice": "90682.04000000",
+            "instrumentName": "BTCUSD-23JAN26-96000-C",
+            "iv": "0.3616",
+            "markPrice": "1151.43744045",
+            "price": "1147.00000000",
+            "quantity": "0.10000000",
+            "quoteToken": "USDT",
+            "side": "SELL",
+            "tradeId": "2012858741841629184"
+          }
+        ],
+        "createTime": 1768737895480
+      }
+    ],
+    "hasNext": true,
+    "hasPrev": false
+  }
+}
+
+```
+
+
+**HTTP Request**
+
+`GET https://api.coincall.com/open/option/blocktrade/trade-detail/public/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+blocktradeId |integer | 1840685647012708354 | false | block trade id
+fromId | integer | 1957268602021351424 | false | RFQ blocktradeId used for query comparison default 0
+direction   |string| NEXT,PREV| false| Default is NEXT
+pageSize | integer | 20 | false| The value should be less than 50. Default: 20
+symbol | string | BTCUSD,ETHUSD | false |  symbol name of option
+
 
 ## Create (SIGNED)
 
@@ -800,3 +1035,6 @@ curl -X POST
 {"code":0,"msg":null,"i18nArgs":null,"data":"success"}
 
 ``` 
+
+
+
