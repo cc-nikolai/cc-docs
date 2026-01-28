@@ -707,7 +707,7 @@ Cancel option orders by Option Name
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/batchCancelByOption/v1/{symbol}`
+`GET https://api.coincall.com/open/option/order/batchCancelByOption/v1/{optionName}`
 
 **Parameter**
 
