@@ -689,9 +689,9 @@ clientOrderIdList | list | false | clientOrderId list
 * You can cancel unfilled or partially filled orders.
 * The ack of cancel order request indicates that the request is successfully accepted. Please use websocket order stream to confirm the order status
 
-## Cancel Orders by symbol(SIGNED)
+## Cancel Orders By Option Name(SIGNED)
 
-Cancel option orders by symbol
+Cancel option orders by Option Name
 
 > Response:
 
