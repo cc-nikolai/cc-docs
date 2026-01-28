@@ -631,7 +631,7 @@ Cancel option orders by index
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 version | string | v1 | true | version, only v1 for now
-index | string | BTCUSD | true | coin index symbol name
+symbol | string | BTCUSD | true | coin index symbol name
 
 ## Batch Cancel Order(SIGNED)
 
@@ -713,7 +713,7 @@ Cancel option orders by symbol
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
-symbol | string | KASUSD-31MAY24-0.1250-C | true | Options symbol name
+optionName | string | KASUSD-31MAY24-0.1250-C | true | Options symbol name
 
 
 ## Get Open Orders(SIGNED)
