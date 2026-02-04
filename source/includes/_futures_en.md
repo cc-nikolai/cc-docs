@@ -230,9 +230,9 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 symbol | string | BTCUSD | true | Symbol name
 period | string | D1 | true | granularity of K-line
-start | integer | 1697760509000 | true | Start time(ms)
-end | integer | 1697771549000 | true | End time(ms)
-limit | integer | 1 | true | Please make sure limit=1.
+start | integer | 1697760509000 | false | Start time(ms)
+end | integer | 1697771549000 | false | End time(ms)
+limit | integer | 1 | false | Please make sure limit=1.
 
 ## Get Last Trade
 
