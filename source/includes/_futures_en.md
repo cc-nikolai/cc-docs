@@ -372,6 +372,27 @@ Null
 
  Place a futures order
 
+
+> Rquest:  
+
+```json
+curl -X POST 
+-H "X-CC-APIKEY: 5CxMpJSlz8uQGVDmS0gxIXlb5NtuKG4WYSJqWIhi4uI=" 
+-H "sign: 132413A1E46C3DDB0CDAFD5094FBE3E447103D8D8C48104869DBC5DD510395EC" 
+-H "ts: 1770202753624" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" 
+-d '{
+    "tradeSide": 1,
+    "symbol": "BTCUSD-13FEB26-77000-C",
+    "tradeType": 1,
+    "qty": 1,
+    "price": 2550
+}' "https://beta.seizeyouralpha.com/open/option/order/create/v1"
+
+```
+
+
 > Response:
 
 ```json
