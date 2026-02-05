@@ -229,7 +229,12 @@ Query System Transfer Records
 
 **Parameter** 
 
-Null 
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+startTime | number| 1686308840388 | false | Start time of the Records
+endTime | number | 1686308850388 | false | End time of the Records
+page | number | 1 | false | default is 1
+pageSize | number | 20 | false | Number of items per page, default is 20, maximum value is 50
 
 
 > Rquest: 
