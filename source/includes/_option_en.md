@@ -301,7 +301,7 @@ curl -X GET
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 optionName | string | BTCUSD-20JUN25-106000-C | true | option name
-period | string | D1 | true | granularity of K-line, values: M0,M1,M2,M3,M4,M5,M10,M15,M30,H1,H4,D1,W1,MN1,QUARTER (M - minute, H - hour , D - day, W - week, MN - month, QUARTE - quarte)
+period | string | D1 | true | granularity of K-line, values: "m1", "m5", "m15", "m30", "h1", "h4", "d1", "w1", "mn1","quarter"
 start | integer | 1697760509000 | true | Start time(ms)
 end | integer | 1697771549000 | true | End time(ms)
 limit | integer | 1 | true | Please make sure limit=1.

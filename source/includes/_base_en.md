@@ -30,11 +30,12 @@ Endpoint | Rate Limit | Rule
 Get Public Configuration | 10 / 2s | per IP address and product
 Get Funding Rate | 10 / 2s | per IP address
 Get Position / Open Orders | 5 / 1s | per User ID
-Get Historical Order / Transactions | 4 / 1s | per User ID
+Get Historical Order / Transactions | 5 / 1s | per User ID
 Get Account Information | 2 / 1s | per User ID
 Get Orderbook | 30 / 2s | per User ID
 Place Order | 30 / 2s | per User ID
 Cancel Order | 30 / 2s | per User ID
+Get Pending Order | 5 / 1s | per User ID
 
 <aside class="notice">
     It is strongly recommended to use websocket stream for getting data as much as possible, which can not only ensure the timeliness of the message, but also reduce the access restriction pressure caused by the request.
