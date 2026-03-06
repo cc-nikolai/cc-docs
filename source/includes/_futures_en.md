@@ -499,10 +499,10 @@ curl -X POST
 
 ```json
 {
-	"code": 0,// Status code
-	"msg": "Success",// Message
-	"i18nArgs": null,
-	"data": null
+    "code": 0,
+    "msg": "Success",
+    "i18nArgs": null,
+    "data": 3690324480192708608
 }
 ```
 
