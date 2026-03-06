@@ -475,7 +475,25 @@ symbol | string | BTCUSD | true | Futures symbol name
 
 ## Amend Order(SIGNED)  
 
-Modify unfilled or partially filled orders 
+Modify unfilled or partially filled orders  
+
+
+> Request:
+
+```sh
+curl -X POST 
+-H "X-CC-APIKEY: 5CxMpJSlz8uQGVDmS0gxIXlb5NtuKG4WYSJqWIhi4uI=" 
+-H "sign: E5FF1E28DDF83BAAE668E38E944CFC539B152BCB29DF0563AE3729A29F3C2B3F" 
+-H "ts: 1772783081817" 
+-H "X-REQ-TS-DIFF: 5000" 
+-H "Content-Type: application/json" 
+-d '{
+    "orderId": 1937785628783481,
+    "qty": 0.1,
+    "price": 125,
+    "symbol": "BTCUSD"
+}' "https://beta.seizeyouralpha.com/open/futures/order/modify/v1"
+```
 
 > Response:
 
