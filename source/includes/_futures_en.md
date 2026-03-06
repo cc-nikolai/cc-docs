@@ -472,6 +472,37 @@ Name | Type | Value | Required | Note
 version | string | v1 | true | version, only v1 for now
 symbol | string | BTCUSD | true | Futures symbol name
 
+
+## Amend Order(SIGNED)  
+
+Modify unfilled or partially filled orders 
+
+> Response:
+
+```json
+{
+	"code": 0,// Status code
+	"msg": "Success",// Message
+	"i18nArgs": null,
+	"data": null
+}
+```
+
+
+**HTTP Request**
+
+`POST https://api.coincall.com/open/futures/order/modify/v1`
+
+**Parameter**
+
+Name | Type | Value | Required | Note
+---- | ---- | ----- | -------- | ----
+clientOrderId | long | 1234773234311 | false | client order id. Either orderId or clientOrderId is required
+orderId | number | 166382091409530012234 | false | order id. Either orderId or clientOrderId is required
+symbol | string | BTCUSD | true |  Future symbol
+qty | number | 0.5 | false | Order quantity after modification. Do not pass it if not modify the qty 
+price | number | 19000.01 | false | Order price after modification. Do not pass it if not modify the price
+
 ## Batch Cancel Order(SIGNED)
 
 Cancel batch Orders by ids
