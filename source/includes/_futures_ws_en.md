@@ -97,6 +97,11 @@ First concatenate `method + uri + ?apiKey=your_api_key&ts=your_timestamp` (where
     <p>3. Expect 'rc':1 as a response. If the response message is not received within N seconds, please raise an error or reconnect.</p>
 </aside>
 
+**Access frequency limit**   
+The request rate for a single connection must not exceed 100 requests per second, including sub, unsub, heartBeat, and any other invalid requests. If this limit is exceeded, a "too many request" error message will be returned.  
+
+
+
 ## Data Abbreviations
 
 Please refer to the following field abbreviations for data fields in the futures request/response:
