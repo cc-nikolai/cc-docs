@@ -385,20 +385,19 @@ curl -X POST
 -H "Content-Type: application/json" 
 -d '{
     "requestId": 1916777612861149201,
+    "quoteSide": "BUY"
     "legs": [
         {
-            "instrumentName": "BTCUSD-9AUG25-95000-C",
-            "symbol": "BTCUSD",
-            "side": "BUY",
-            "price": "1250.75",
-            "quantity": "10.5"
+            "instrumentName": "BTCUSD-29AUG25-125000-C",
+            "quantity": "1", // Optional Field
+            "side": "BUY", // Optional Field
+            "price": "850.25"
         },
         {
-            "instrumentName": "BTCUSD-9AUG25-100000-C",
-            "symbol": "BTCUSD",
-            "side": "SELL",
-            "price": "850.25",
-            "quantity": "10.5"
+            "instrumentName": "BTCUSD-26JUN26-125000-C",
+            "quantity": "2", // Optional Field
+            "side": "SELL", // Optional Field
+            "price": "1250.75"
         }
     ]
 }' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/create/v1"
@@ -417,18 +416,25 @@ curl -X POST
         "createTime": 1755485875973,
         "updateTime": 1755485875973,
         "expiryTime": 1782460800000,
+        "description": "BTC Call Spread 28 Nov 25 100000/120000",
+        "strategyName": "Call Spread",
+        "strategyQuantity": "100",
+        "quoteSide": "BUY",
+         "strategyPrice": "123",
         "legs":[
             {
                "instrumentName": "BTCUSD-29AUG25-125000-C",
-               "quantity": "0.1",
-               "price": "22",
-               "side": "BUY"
+               "quantity": "1",
+               "price": "850.25",
+               "side": "BUY",
+               "ratio": "1"
             }, 
             {
                "instrumentName": "BTCUSD-26JUN26-125000-C",
-               "quantity": "0.1",
-               "price": "123",
-               "side": "SELL"
+               "quantity": "2",
+               "price": "1250.75",
+               "side": "SELL",
+               "ratio": "2"
             }
         ]
     }
@@ -445,6 +451,7 @@ curl -X POST
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 requestId | integer | 1840685647012708354 | true | request RFQ ID.
+quoteSide | string | BUY OR SELL | true | quote side
 legs | array of object |  | true | Json object
 -> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> symbol | string | BTCUSD | true | symbol
