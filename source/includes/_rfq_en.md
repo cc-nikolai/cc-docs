@@ -451,7 +451,7 @@ curl -X POST
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 requestId | integer | 1840685647012708354 | true | request RFQ ID.
-quoteSide | string | BUY OR SELL | true | quote side
+quoteSide | string | BUY OR SELL | false | quote side (default value is SELL)
 legs | array of object |  | true | Json object
 -> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> symbol | string | BTCUSD | true | symbol
