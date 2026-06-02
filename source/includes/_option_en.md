@@ -259,7 +259,7 @@ curl -X GET
 -H "sign: 15CEF683453293EBDB26EDD2D89315AA27E908A75ED31438886F226E050B1305" 
 -H "ts: 1749803587149" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/market/kline/history/v1/BTCUSD-20JUN25-106000-C?start=1652945192667&end=1652945192667&period=D1"
+"https://api.coincall.com/open/option/market/kline/history/v1/BTCUSD-20JUN25-106000-C?start=1652945192667&end=1652945192667&period=D1"
 ```
 
 > Response:
@@ -412,7 +412,7 @@ curl -X POST
     "tradeType": 1,
     "qty": 1,
     "price": 2550
-}' "https://beta.seizeyouralpha.com/open/option/order/create/v1"
+}' "https://api.coincall.com/open/option/order/create/v1"
 
 ```
 
@@ -463,12 +463,16 @@ Value | Name | Note |
 
 Create batch Orders
 
+<aside class="notice">
+    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission or system error response.
+</aside>
+
 You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
 ```sh
-curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
+curl -X POST 'https://api.coincall.com/open/option/order/batchCreate/v1' \
 --header 'Content-Type: application/json' \
 --header 'sign: XXXXXXXXXXX' \
 --data '{
@@ -478,6 +482,7 @@ curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
             "qty": 0.1,
             "tradeSide": 1,
             "tradeType": 1,
+            "timeInForce": "GTC",
             "price": 2321.0,
             "remark": "test remark",
             "stp": 1,
@@ -488,6 +493,7 @@ curl -X 'https://api.coincall.com/open/option/order/batchCreate/v1' \
             "qty": 0.5,
             "tradeSide": 1,
             "tradeType": 0,
+            "timeInForce": "GTC",
             "price": 2329.0,
             "remark": "test remark",
             "stp": 1,
@@ -532,6 +538,7 @@ Name | Type | value | Required | Note
 clientOrderId | long | 123123123 | false | client order id
 tradeSide | number | 1 | true | Trade Side, 1 BUY 2 SELL
 tradeType | number | 1 | true | Trade Type, 1 LIMIT 3 POST_ONLY
+timeInForce | string | GTC | true | Time in force for each order: GTC, IOC, or FOK. Use GTC unless another supported value is required.
 symbol | string | BTCUSD-26OCT22-15000-C | true |  Option name
 qty | number | 0.5 | true | Quantity 
 price | number | 19000.01 | false | Price, required for limit orders
@@ -645,7 +652,7 @@ Cancel option orders by index
 
 **HTTP Request**
 
-`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{index}`
+`GET https://api.coincall.com/open/option/order/cancelOpenOrders/{version}/{symbol}`
 
 **Parameter**
 
@@ -1000,12 +1007,16 @@ page | number | 1 | false | default is 1
 
 ## Batch Change Order (SIGNED)
 
+<aside class="notice">
+    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission or system error response.
+</aside>
+
 You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 
 ```sh
-curl -X https://api.coincall.com/open/option/order/batchModify/v1' \
+curl -X POST 'https://api.coincall.com/open/option/order/batchModify/v1' \
 --header 'Content-Type: application/json' \
 --header 'sign: XXXXXXXXXXX' \
 --data '{
@@ -1147,7 +1158,7 @@ curl -X https://api.coincall.com/open/option/order/batchModify/v1' \
 
 **HTTP Request**
 
-`POST http://api.coincall.com/open/option/order/batchModify/v1`
+`POST https://api.coincall.com/open/option/order/batchModify/v1`
 
  **Parameter:**
 
@@ -1174,7 +1185,7 @@ Public data, no signature required, returns a certain currency, all call-over se
 
 **HTTP Request**
 
-`GET http://api.coincall.com/open/option/get-delivery-prices/v1`
+`GET https://api.coincall.com/open/option/get-delivery-prices/v1`
 
 - 1S once
 
@@ -1217,7 +1228,7 @@ Get estimated expiration price
 
 **HTTP Request**
 
-`GET http://api.coincall.com/open/option/getEstimatedExpirationPrice/v1`
+`GET https://api.coincall.com/open/option/getEstimatedExpirationPrice/v1`
 
 
 **Parameter:**
@@ -1243,7 +1254,7 @@ curl -X GET
 -H "sign: 48C47DCCE1A1AA4D9409FED4A1EFDEACC72508BF4DC5D3CBA1C4C8D077643562" 
 -H "ts: 1752827408075" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://api.coincall.com/open/option/getEstimatedExpirationPrice/v1?index=BTCUSD&endTime=1666771200000"
+"https://api.coincall.com/open/option/getEstimatedExpirationPrice/v1?index=BTCUSD&endTime=1666771200000"
 ```
 
 

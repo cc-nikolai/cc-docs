@@ -35,3 +35,4 @@ build/
 ### VS Code ###
 .vscode/
 id_rsa*
+CC_DOCS_FIX_LIST.md
