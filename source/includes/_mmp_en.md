@@ -1,5 +1,9 @@
 # Mmp Endpoint
 
+<aside class="notice">
+    MMP endpoints require MMP or market-maker permission. Accounts without permission may receive `not.allow`.
+</aside>
+
 ## Set MMP Config (SIGNED)
 
 Use this interface to configure MMP. 

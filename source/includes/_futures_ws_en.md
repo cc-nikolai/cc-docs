@@ -422,7 +422,7 @@ Payload:
 ### subscribe
 {
     "action":"subscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":"BTCUSD"
     }
@@ -431,7 +431,7 @@ Payload:
 ### batch subscribe
 {
     "action":"subscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":["BTCUSD","ETHUSD"]
     }
@@ -439,7 +439,7 @@ Payload:
 ### unsubscribe
 {
     "action":"unSubscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":"BTCUSD"
     }
@@ -448,7 +448,7 @@ Payload:
 ### batch unsubscribe
 {
     "action":"unSubscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":["BTCUSD", "ETHUSD"]
     }

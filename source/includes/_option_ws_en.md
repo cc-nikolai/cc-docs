@@ -582,7 +582,7 @@ Payload:
 
 {
     "action":"subscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
     }
@@ -594,7 +594,7 @@ Payload:
 *  Single unsubscribe  
 {
     "action":"unSubscribe",
-    "dataType":"lasttradeV2",
+    "dataType":"lastTradeV2",
     "payload":{
         "symbol":"BTCUSD-27MAY23-26000-C"
     }

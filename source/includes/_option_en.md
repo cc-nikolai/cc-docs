@@ -464,10 +464,10 @@ Value | Name | Note |
 Create batch Orders
 
 <aside class="notice">
-    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission or system error response.
+    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission error or 404 Not Found.
 </aside>
 
-You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can submit up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be created one by one.
 
 > Request:
 
@@ -492,7 +492,7 @@ curl -X POST 'https://api.coincall.com/open/option/order/batchCreate/v1' \
             "symbol": "BTCUSD-22NOV24-104000-C",
             "qty": 0.5,
             "tradeSide": 1,
-            "tradeType": 0,
+            "tradeType": 1,
             "timeInForce": "GTC",
             "price": 2329.0,
             "remark": "test remark",
@@ -665,7 +665,7 @@ symbol | string | BTCUSD | true | coin index symbol name
 
 Cancel batch Orders by ids
 
-You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can cancel up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be canceled one by one.
 
 > Request:
 
@@ -1008,10 +1008,10 @@ page | number | 1 | false | default is 1
 ## Batch Change Order (SIGNED)
 
 <aside class="notice">
-    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission or system error response.
+    This endpoint is for market-maker accounts. Accounts without the required market-maker access may receive a permission error or 404 Not Found.
 </aside>
 
-You can submit and modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
+You can modify up to 40 orders in batches at a time. The request parameters should be passed in array format, and the orders will be modified one by one.
 
 > Request:
 

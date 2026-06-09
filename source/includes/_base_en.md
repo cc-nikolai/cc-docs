@@ -161,9 +161,9 @@ secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b
 * contentType:
       application/json
 * requestBody:
-      {"name":"mike","orders":[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":null,"tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]}
+      {"name":"mike","orders":[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":null,"tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":1,"tradeType":1}]}
 * prehashString:
-      POST/open/option/order/batchCreate/v1?name=mike&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000
+      POST/open/option/order/batchCreate/v1?name=mike&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000
 
 **Example 4: POST with form body**
 

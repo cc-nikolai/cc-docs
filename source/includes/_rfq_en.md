@@ -209,13 +209,6 @@ The taker executes quote
 > Request:
 
 ```sh
-## Cancel RFQ by ID(SIGNED)
-
-Cancel RFQ 
-
-> Request:
-
-```sh
 curl -X POST 
 -H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
 -H "sign: F5551686049622DF067B4B93855D7EA6B6813E954131A684FA9EAF55D0743CFA" 
@@ -292,22 +285,7 @@ quoteId|String| 1983131007357546497 | true| quote ID
 
 **Parameter Example**  
 
-seekId=1978394601173684224&blockTradeOrderId=1978394816938655746
-
-```
-
-> Response:
-
-```json
-{
-  "code": 0,
-  "msg": "Success",
-  "i18nArgs": null,
-  "data": true
-}
-```
-
-
+requestId=1983130719395909632&quoteId=1983131007357546497
 
 
 ## Get list of RFQs(SIGNED)
@@ -396,7 +374,7 @@ curl -X POST
 -H "Content-Type: application/json" 
 -d '{
     "requestId": 1916777612861149201,
-    "quoteSide": "BUY"
+    "quoteSide": "BUY",
     "legs": [
         {
             "instrumentName": "BTCUSD-29AUG25-125000-C",
