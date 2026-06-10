@@ -3,6 +3,10 @@
 
 Create RFQ
 
+<aside class="notice">
+    RFQ request legs use `qty`. RFQ quote legs use `quantity`.
+</aside>
+
 > Request:
 
 ```sh
@@ -25,7 +29,7 @@ curl -X POST
             "qty": "0.2"
         }
     ]
-}' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/create/v1"
+}' "https://api.coincall.com/open/option/blocktrade/request/create/v1"
 ```
 
 > Response:
@@ -68,7 +72,7 @@ Name | Type | Value | Required | Note
 legs | array of object |  | true | Json object
 -> instrumentName | string | BTCUSD-13SEP24-56000-C | true | quote symbol
 -> side | string | BUY OR SELL| true | trade side
--> qty | string | 10.1 | true | quote quantity
+-> qty | string | 10.1 | true | RFQ request quantity. Do not use `quantity` for RFQ request creation.
 
 **Parameter Example** 
 
@@ -102,7 +106,7 @@ curl -X POST
 -H "ts: 1761650065385" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/x-www-form-urlencoded" 
--d 'requestId=1983130245586358272' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/cancel/v1"
+-d 'requestId=1983130245586358272' "https://api.coincall.com/open/option/blocktrade/request/cancel/v1"
 
 ```
 
@@ -147,7 +151,7 @@ curl -X GET
 -H "sign: 33F92DC129B7133F6772F977562FE1B08121D00839EBEB249E8F7575C0D737EB" 
 -H "ts: 1761650261346" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/json" "https://beta.seizeyouralpha.com/open/option/blocktrade/request/getQuotesReceived/v1?requestId=1983130719395909632"
+"https://api.coincall.com/open/option/blocktrade/request/getQuotesReceived/v1?requestId=1983130719395909632"
 ```
 
 > Response:
@@ -205,20 +209,13 @@ The taker executes quote
 > Request:
 
 ```sh
-## Cancel RFQ by ID(SIGNED)
-
-Cancel RFQ 
-
-> Request:
-
-```sh
 curl -X POST 
 -H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
 -H "sign: F5551686049622DF067B4B93855D7EA6B6813E954131A684FA9EAF55D0743CFA" 
 -H "ts: 1761650457177" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/x-www-form-urlencoded" 
--d 'requestId=1983130719395909632&quoteId=1983131007357546497' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/accept/v1"
+-d 'requestId=1983130719395909632&quoteId=1983131007357546497' "https://api.coincall.com/open/option/blocktrade/request/accept/v1"
 
 ```
 
@@ -288,28 +285,16 @@ quoteId|String| 1983131007357546497 | true| quote ID
 
 **Parameter Example**  
 
-seekId=1978394601173684224&blockTradeOrderId=1978394816938655746
-
-```
-
-> Response:
-
-```json
-{
-  "code": 0,
-  "msg": "Success",
-  "i18nArgs": null,
-  "data": true
-}
-```
-
-
+requestId=1983130719395909632&quoteId=1983131007357546497
 
 
 ## Get list of RFQs(SIGNED)
 
 Get RFQ request list
 
+<aside class="notice">
+    RFQ maker-side quote/list operations require RFQ quote access.
+</aside>
 
 > Request:
 
@@ -319,7 +304,7 @@ curl -X GET
 -H "sign: 73103DE66FA8D9CDB955F58442104E3B19B8552000B3B4E080903B7CFA764C01" 
 -H "ts: 1756180090536" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/rfqList/v1?requestId=123456789&state=OPEN&role=MAKER&startTime=1663490353000&endTime=1663490453000"
+"https://api.coincall.com/open/option/blocktrade/rfqList/v1?requestId=123456789&state=OPEN&role=MAKER&startTime=1663490353000&endTime=1663490453000"
 ```
 
 > Response:
@@ -374,6 +359,10 @@ endTime | integer | 1725710332457 | false | Default to current time
 
 Create quote for RFQ
 
+<aside class="notice">
+    This endpoint requires RFQ quote access.
+</aside>
+
 > Request:
 
 ```sh
@@ -385,7 +374,7 @@ curl -X POST
 -H "Content-Type: application/json" 
 -d '{
     "requestId": 1916777612861149201,
-    "quoteSide": "BUY"
+    "quoteSide": "BUY",
     "legs": [
         {
             "instrumentName": "BTCUSD-29AUG25-125000-C",
@@ -400,7 +389,7 @@ curl -X POST
             "price": "1250.75"
         }
     ]
-}' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/create/v1"
+}' "https://api.coincall.com/open/option/blocktrade/quote/create/v1"
 ```
 
 > Response:
@@ -487,6 +476,10 @@ legs | array of object |  | true | Json object
 
 Cancel quote for RFQ
 
+<aside class="notice">
+    This endpoint requires RFQ quote access.
+</aside>
+
 > Request:
 
 ```sh
@@ -499,7 +492,7 @@ curl -X POST
 -d '{
         "quoteId": 1957266294866329602
      }
-' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/cancel/v1"
+' "https://api.coincall.com/open/option/blocktrade/quote/cancel/v1"
 ```
 
 > Response:
@@ -539,6 +532,10 @@ quoteId |integer | 1840685647012708354 | true | Quote ID
 
 Cancel all quotes
 
+<aside class="notice">
+    This endpoint requires RFQ quote access.
+</aside>
+
 > Request:
 
 ```sh
@@ -548,7 +545,7 @@ curl -X POST
 -H "ts: 1756180090536" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/x-www-form-urlencoded" 
--d '' "https://beta.seizeyouralpha.com/open/option/blocktrade/quote/cancel-all/v1"
+-d '' "https://api.coincall.com/open/option/blocktrade/quote/cancel-all/v1"
 ```
 
 > Response:
@@ -573,6 +570,10 @@ curl -X POST
 
 Get user Quote records
 
+<aside class="notice">
+    This endpoint requires RFQ quote access.
+</aside>
+
 > Request:
 
 ```sh
@@ -581,8 +582,7 @@ curl -X GET
 -H "sign: E3118A3D58827E3062B39B654F6B365DDC1FC1551AF5903E9C383972CAB3CA6C" 
 -H "ts: 1756180090536" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/x-www-form-urlencoded" 
-"https://beta.seizeyouralpha.com/open/option/blocktrade/list-quote/v1?requestId=123456&quoteId=123456&state=OPEN&symbol=ETHUSD&startTime=1755051650&endTime=1754792450000"
+"https://api.coincall.com/open/option/blocktrade/list-quote/v1?requestId=123456&quoteId=123456&state=OPEN&symbol=ETHUSD&startTime=1755051650&endTime=1754792450000"
 ```
 
 > Response:
@@ -650,8 +650,7 @@ curl -X GET
 -H "sign: 5DB15133873C1CF10FF38D01AC7CB897D1013998E646448C537F5F552BFF0095" 
 -H "ts: 1756180090536" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/x-www-form-urlencoded" 
-"https://beta.seizeyouralpha.com/open/option/blocktrade/orderList/v1?blocktradeId=1347832697683&direction=NEXT&pageSize=20"
+"https://api.coincall.com/open/option/blocktrade/orderList/v1?blocktradeId=1347832697683&direction=NEXT&pageSize=20"
 ```
 
 > Response:
@@ -737,7 +736,7 @@ curl -X GET
 -H "sign: 3ABF3EEEE221FEE9CCF90AAE31BE1478F8E072ED9BD645221981FFB80E5A9134" 
 -H "ts: 1768812827993" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/trade-detail/private/v1?symbol=BTCUSD&fromId=0&pageSize=2"
+"https://api.coincall.com/open/option/blocktrade/trade-detail/private/v1?symbol=BTCUSD&fromId=0&pageSize=2"
 ```
 
 > Response:
@@ -851,7 +850,7 @@ curl -X GET
 -H "sign: 67DC07EE12FEC4A792ACF5DCF4172604076E402AE340EC7B51FF6E5DB94E4CD2" 
 -H "ts: 1768812346092" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/option/blocktrade/trade-detail/public/v1?symbol=BTCUSD&fromId=0&pageSize=2"
+"https://api.coincall.com/open/option/blocktrade/trade-detail/public/v1?symbol=BTCUSD&fromId=0&pageSize=2"
 ```
 
 > Response:
@@ -989,7 +988,7 @@ curl -X POST
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/x-www-form-urlencoded"
 --data-raw 'symbol=BTCUSD&orderList=%5B%7B%22optionName%22%3A%22BTCUSD-16MAY25-95000-C%22%2C%22contractId%22%3A1%2C%22tradeType%22%3A1%2C%22expiryDate%22%3A1747353600000%2C%22strike%22%3A95000%2C%22type%22%3A1%2C%22tradeSide%22%3A1%2C%22price%22%3A2036%2C%22amount%22%3A10%7D%5D%0D%0A&role=0&marginMode=2'
-"https://beta.seizeyouralpha.com/open/option/blockTrade/create/v1" 
+"https://api.coincall.com/open/option/blockTrade/create/v1"
 }
 ```
 
@@ -1032,7 +1031,7 @@ curl -X POST
 -H "ts: 1746609528249" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/json" 
--d '{"key":"eyJyb2xlIjowLCJzaWduYXR1cmUiOiJbe1wiYnV5XCI6dHJ1ZSxcImNMb3NlXCI6ZmFsc2UsXCJjbGllbnRPcmRlcklkXCI6MTkyMDAyNTQwNTgzMDU5ODY1NixcImNsb3NlVHlwZVwiOjAsXCJjcmVhdGVUaW1lXCI6MTc0NjYwNDcwMzc1NCxcImRlYWxUeXBlXCI6MCxcImRlbGV0ZWRcIjowLFwiZW5kVGltZVwiOjE3NDczODI0MDAwMDAsXCJleHRcIjpcIntcXFwic29ydFxcXCI6XFxcIjFcXFwifVwiLFwiZmlsbFZvbHVtZVwiOjAsXCJmcmVlSW1Wb2x1bWVcIjowLFwiZnJvemVuRmVlXCI6NDI1LjEzOTY1NDk0MCxcImZyb3plblZvbHVtZVwiOjEwLFwiaW1DYWxjVm9sdW1lXCI6MTAsXCJvcHRpb25JZFwiOjE5MTUzMTUwMjU1ODU3NzQ2NjIsXCJvcHRpb25OYW1lXCI6XCJCVENVU0QtMTZNQVkyNS05NTAwMC1DXCIsXCJvcmRlcklkXCI6MTkyMDAyNTQwNTgzMDU5ODY1NixcInBlbmRpbmdWb2x1bWVcIjoxMCxcInByaWNlXCI6MjAzNixcInNlbGxcIjpmYWxzZSxcInN0YXRlXCI6MCxcInN0cmlrZVwiOjk1MDAwLjAwMDAwMDAwLFwidHJhZGVTaWRlXCI6MSxcInRyYWRlU3RyYXRlZ3lcIjowLFwidHJhZGVUeXBlXCI6MTQsXCJ1bmRlclN5bWJvbFwiOlwiQlRDVVNEXCIsXCJ1cGRhdGVUaW1lXCI6MTc0NjYwNDcwMzc1NCxcInVzZXJJZFwiOjE2OTU3OTY2OTI3MjYxNTMsXCJ2b2x1bWVcIjoxRSsxfV0iLCJzeW1ib2wiOiJCVENVU0QiLCJ0aW1lc3RhbXAiOjE3NDY2MDQ3MDM4MDUsInRyYWRlcyI6W3siYW1vdW50IjoxMCwiZXhwaXJ5RGF0ZSI6MTc0NzM1MzYwMDAwMCwib3B0aW9uTmFtZSI6IkJUQ1VTRC0xNk1BWTI1LTk1MDAwLUMiLCJwcmljZSI6MjAzNiwic29ydCI6MSwic3RyaWtlIjo5NTAwMCwidHJhZGVTaWRlIjoxLCJ0cmFkZVR5cGUiOjEsInR5cGUiOjF9XSwidXNlcklkIjoxNjk1Nzk2NjkyNzI2MTUzfQ==","role":1,"marginMode":2}' "https://beta.seizeyouralpha.com/open/option/blockTrade/accept/v1"
+-d '{"key":"eyJyb2xlIjowLCJzaWduYXR1cmUiOiJbe1wiYnV5XCI6dHJ1ZSxcImNMb3NlXCI6ZmFsc2UsXCJjbGllbnRPcmRlcklkXCI6MTkyMDAyNTQwNTgzMDU5ODY1NixcImNsb3NlVHlwZVwiOjAsXCJjcmVhdGVUaW1lXCI6MTc0NjYwNDcwMzc1NCxcImRlYWxUeXBlXCI6MCxcImRlbGV0ZWRcIjowLFwiZW5kVGltZVwiOjE3NDczODI0MDAwMDAsXCJleHRcIjpcIntcXFwic29ydFxcXCI6XFxcIjFcXFwifVwiLFwiZmlsbFZvbHVtZVwiOjAsXCJmcmVlSW1Wb2x1bWVcIjowLFwiZnJvemVuRmVlXCI6NDI1LjEzOTY1NDk0MCxcImZyb3plblZvbHVtZVwiOjEwLFwiaW1DYWxjVm9sdW1lXCI6MTAsXCJvcHRpb25JZFwiOjE5MTUzMTUwMjU1ODU3NzQ2NjIsXCJvcHRpb25OYW1lXCI6XCJCVENVU0QtMTZNQVkyNS05NTAwMC1DXCIsXCJvcmRlcklkXCI6MTkyMDAyNTQwNTgzMDU5ODY1NixcInBlbmRpbmdWb2x1bWVcIjoxMCxcInByaWNlXCI6MjAzNixcInNlbGxcIjpmYWxzZSxcInN0YXRlXCI6MCxcInN0cmlrZVwiOjk1MDAwLjAwMDAwMDAwLFwidHJhZGVTaWRlXCI6MSxcInRyYWRlU3RyYXRlZ3lcIjowLFwidHJhZGVUeXBlXCI6MTQsXCJ1bmRlclN5bWJvbFwiOlwiQlRDVVNEXCIsXCJ1cGRhdGVUaW1lXCI6MTc0NjYwNDcwMzc1NCxcInVzZXJJZFwiOjE2OTU3OTY2OTI3MjYxNTMsXCJ2b2x1bWVcIjoxRSsxfV0iLCJzeW1ib2wiOiJCVENVU0QiLCJ0aW1lc3RhbXAiOjE3NDY2MDQ3MDM4MDUsInRyYWRlcyI6W3siYW1vdW50IjoxMCwiZXhwaXJ5RGF0ZSI6MTc0NzM1MzYwMDAwMCwib3B0aW9uTmFtZSI6IkJUQ1VTRC0xNk1BWTI1LTk1MDAwLUMiLCJwcmljZSI6MjAzNiwic29ydCI6MSwic3RyaWtlIjo5NTAwMCwidHJhZGVTaWRlIjoxLCJ0cmFkZVR5cGUiOjEsInR5cGUiOjF9XSwidXNlcklkIjoxNjk1Nzk2NjkyNzI2MTUzfQ==","role":1,"marginMode":2}' "https://api.coincall.com/open/option/blockTrade/accept/v1"
 }
 ```
 
@@ -1042,6 +1041,3 @@ curl -X POST
 {"code":0,"msg":null,"i18nArgs":null,"data":"success"}
 
 ``` 
-
-
-

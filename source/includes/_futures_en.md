@@ -62,7 +62,7 @@ curl -X GET
 -H "sign: DDD580BDF67B2CE93FACA962C96716D425FE878652A22A92CDDBFF39971584D1" 
 -H "ts: 1745918318045" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/market/orderbook?symbol=BTC-USD"
+"https://api.coincall.com/open/futures/market/orderbook?symbol=BTC-USD"
 
 ```
 
@@ -492,7 +492,7 @@ curl -X POST
     "qty": 0.1,
     "price": 125,
     "symbol": "BTCUSD"
-}' "https://beta.seizeyouralpha.com/open/futures/order/modify/v1"
+}' "https://api.coincall.com/open/futures/order/modify/v1"
 ```
 
 > Response:
@@ -873,7 +873,7 @@ curl -X GET
 -H "sign: 311CB0E4C91BE42448CE61F4E558341EDAFF8BD9917B85AE3FE9C1E6BB1983D9" 
 -H "ts: 1753786530992" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/settle/future/latestRecord/v1?symbol=BTCUSD&startTime=1663490353000"
+"https://api.coincall.com/open/settle/future/latestRecord/v1?symbol=BTCUSD&startTime=1663490353000"
 
 ```
 
@@ -981,7 +981,7 @@ curl -X GET
 -H "sign: F8F430FAA1E01A64FFC5A5AE4A37CDCFCD1A14CBBBD8305644405F76C7DCF478" 
 -H "ts: 1750326740785" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/delivery/settlement/history/v1?startTime=1663490353000&endTime=1663500353000&page=1&pageSize=20&symbol=BTCUSD"
+"https://api.coincall.com/open/futures/delivery/settlement/history/v1?startTime=1663490353000&endTime=1663500353000&page=1&pageSize=20&symbol=BTCUSD"
 
 ```
 
@@ -1043,7 +1043,7 @@ curl -X GET
 -H "sign: 4E3EDCF9A7E0EE0F26A2ED93FBCEEEE8393BB5B10F5EE04E9442242BDFDBA4E9" 
 -H "ts: 1761881198823" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/futures/market/premiumIndexHistory/v1?symbol=BTCUSD&pageSize=5"
+"https://api.coincall.com/open/futures/market/premiumIndexHistory/v1?symbol=BTCUSD&pageSize=5"
 
 ```
 
@@ -1117,5 +1117,3 @@ pageSize | number | 60 | false | Number of items per page, default is 60, minium
 *  If startTime is empty, the query will use the time point 24 hours ago as the startTime (startTime = currentTimeMillis - 24 * 60 * 60 * 1000).
 *  If endTime is empty, the query will use the current time point  as the endTime
 *  The maximum query range is 24 hours (endTime - startTime must be greater than 24 * 60 * 60 * 1000)
-
-
