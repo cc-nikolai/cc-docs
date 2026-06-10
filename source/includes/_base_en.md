@@ -47,7 +47,7 @@ Get Pending Order | 5 / 1s | per User ID
 
 If you have any API related issues, please contact `api@coincall.com`.
 
-* [Python SDK](https://github.com/Coincall-exchange/python-coincall)
+* [Python SDK](https://github.com/CoincallExchange/coincall-python-sdk)
 
 ### Generating API Keys
 
