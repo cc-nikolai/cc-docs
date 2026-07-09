@@ -133,16 +133,6 @@ Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
 requestId | String | 1840685647012708354 | true | request ID
 
-**Parameter Example**  
-
-
-```json
-
-{ "requestId": 1983130245586358272 }
-
-```
-
-
 
 ## Get Quotes Received(SIGNED)
 
