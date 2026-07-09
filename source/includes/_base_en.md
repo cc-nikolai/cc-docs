@@ -16,7 +16,7 @@ Welcome to the Coincall API! You can use our API to access Coincall  Open API en
 ## Working with Endpoints
 
 * For `GET`endpoints, parameters must be sent as a `query string`.
-* For `POST`endpoint, the parameters must be sent in the `request body` with content type `application/json`.
+* For `POST` endpoints, send parameters with the `Content-Type` documented for that endpoint. Most order endpoints use `application/json`; some signed endpoints use `application/x-www-form-urlencoded`.
 * Parameters may be sent in any order.
 * Because the API system is asynchronous, it is normal and expected that there will be a delay in the returned data.
 
@@ -47,7 +47,7 @@ Get Pending Order | 5 / 1s | per User ID
 
 If you have any API related issues, please contact `api@coincall.com`.
 
-* [Python SDK](https://github.com/Coincall-exchange/python-coincall)
+* [Python SDK](https://github.com/CoincallExchange/coincall-python-sdk)
 
 ### Generating API Keys
 
@@ -89,7 +89,7 @@ All private REST requests must contain the following headers:
 * `ts` The timestamp of your request .e.g : 1688436087184
 * `X-REQ-TS-DIFF` sent to specify the number of milliseconds after `ts` the request is valid for. If `X-REQ-TS-DIFF` is not sent, **it defaults to 5000**.
 
-Request bodies should have content type `application/json` and be in valid JSON format.
+Request bodies must match the documented endpoint `Content-Type`. For JSON endpoints, send valid compact JSON. For form endpoints, send `application/x-www-form-urlencoded` form fields.
 
 ```javascript
   if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= X-REQ-TS-DIFF) {
@@ -111,85 +111,88 @@ Networks can be unstable and unreliable, which can lead to requests taking varyi
 
 **Sign Procedures:**
 
-* Add `?` after request uri path, separate each parameter with a `&` which represents Parameters concatenation, sort them alphabetically. (If no prameter here, can only add `?` after request uri path)
-* Create a prehash string of `method + uri + &uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` (where `+` represents String concatenation, if no prameter here, please use `method + uri + uuid=your_api_key&ts=your_timestamp&x-req-ts-diff=your_ts_diff ` instead).
-* Sign the prehash string with the apiSecret using the HMAC SHA256.
-* Encode the signature in the Hex format.
-* The `sign` should be UPPER.  
-  
-***Examples:***  
-**The following API key and secret are for demonstration purposes only**  
+* Build a parameter map from the values that will be sent in the request. For `GET`, use query parameters. For `application/json`, flatten the top-level JSON fields. For `application/x-www-form-urlencoded`, use the form fields.
+* Remove fields whose value is `null`.
+* Serialize nested objects and arrays as compact JSON, without extra spaces.
+* Sort parameters alphabetically by parameter name and join them as `key=value` pairs with `&`.
+* Append the authentication fields `uuid`, `ts`, and `x-req-ts-diff` to the signing string.
+* The prehash format is `METHOD + path + ? + sorted_params + &uuid=...&ts=...&x-req-ts-diff=...`. If the request has no parameters, use `METHOD + path + ?uuid=...&ts=...&x-req-ts-diff=...`.
+* Sign the prehash string with the API secret using HMAC SHA256.
+* Encode the signature in hex and send it in uppercase.
 
-key               | value                     
+***Examples:***
+**The following API key and secret are for demonstration purposes only**
+
+key               | value
 ----------------- | ---------------------------------------------
 apiKey(uuid)      | xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=
 secretKey         | fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8
 
-**HMAC SHA256 Signature Calculation Principles**  
-    `sign=hmac.new(your_api_secret.encode('utf-8'), your_prehash_string.encode('utf-8'), hashlib.sha256).hexdigest()`  
+**HMAC SHA256 Signature Calculation Principle**
 
-**Example1: The request type is POST, and parameters are sent through the query string**  
+`sign=hmac.new(your_api_secret.encode("utf-8"), your_prehash_string.encode("utf-8"), hashlib.sha256).hexdigest().upper()`
 
-* requestMethod:   
-      POST  
-* uri:  
-      /open/futures/leverage/set/v1  
-* queryString:   
-      leverage=1&symbol=BTCUSD  
-* prehashString:      
-`POST/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`  
-* HMAC SHA256 Signature Calculation          
-    ` echo -n "POST/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000" | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'
-`  
-`SHA2-256(STDIN)= B6D7D7853A096258782A270FCAEE810DD520CDB51B76E48DC787D2E982D9AB0A`  
+**Example 1: GET with query parameters**
 
-**Example2: The request type is POST, and content-type is application/json**  
+* requestMethod:
+      GET
+* uri:
+      /open/futures/leverage/current/v1
+* queryString:
+      symbol=BTCUSD
+* prehashString:
+`GET/open/futures/leverage/current/v1?symbol=BTCUSD&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
 
-* requestMethod:  
-      POST  
-* uri:  
-      /open/options/create/v1  
-* requestBody(json string):  
-      {"name":"mike","num":"2","orders":[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":null,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]}  
-* prehashString:  
-      POST/open/options/create/v1?name=mike&num=2&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000   
-* HMAC SHA256 Signature Calculation   
-    `echo -n 'POST/open/options/create/v1?name=mike&num=2&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"tradeType":1},{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
+**Example 2: GET with no parameters**
 
-    `SHA2-256(STDIN)= A32855D60620D3B948DD48B62FB6E4D3D3980C6B664C7C5EB25927A9B7626BF6`  
+* requestMethod:
+      GET
+* uri:
+      /open/user/info/v1
+* prehashString:
+`GET/open/user/info/v1?uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
 
-**Example3: The request type is GET, and parameters are sent through the query string**  
+**Example 3: POST with JSON body**
 
-* requestMethod:  
-      GET  
-* uri:  
-      /get/userInfo/v1  
-* queryString:  
-      name=Mike&age=18  
-* prehashString:      
-`GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000`
-* HMAC SHA256 Signature Calculation             
-    ` echo -n 'GET/get/userInfo/v1?age=18&name=Mike&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000' | openssl dgst -sha256 -hmac "fce1102b2a0dea92957fa7d2e981df826295cd85696e40f0d521a6b8707b94c8" | tr '[:lower:]' '[:upper:]'`  
+* requestMethod:
+      POST
+* uri:
+      /open/option/order/batchCreate/v1
+* contentType:
+      application/json
+* requestBody:
+      {"name":"mike","orders":[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":null,"tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":1,"tradeType":1}]}
+* prehashString:
+      POST/open/option/order/batchCreate/v1?name=mike&orders=[{"clientOrderId":212112212112,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","tradeType":1},{"clientOrderId":212112212113,"symbol":"BTCUSD-10JAN25-89000-C","tradeSide":1,"price":1,"qty":0.1,"timeInForce":"GTC","stp":1,"tradeType":1}]&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000
 
-  `SHA2-256(STDIN)= 4A17D8318638A49C486A041513E4756DF20FCD8C2CF6FC437C6BBDC5C9EB58C7`  
+**Example 4: POST with form body**
 
-**Attentions:**    
+* requestMethod:
+      POST
+* uri:
+      /open/user/subAccount/fund/transfer/v1
+* contentType:
+      application/x-www-form-urlencoded
+* formBody:
+      fromUserId=1695796692726153&toUserId=1695796692779320&currency=USDT&amount=111
+* prehashString:
+      POST/open/user/subAccount/fund/transfer/v1?amount=111&currency=USDT&fromUserId=1695796692726153&toUserId=1695796692779320&uuid=xdtHWn32rsuDQConutzl9JDZB+Y1leitFl356YHrmts=&ts=1688436087184&x-req-ts-diff=3000
+
+**Attentions:**
 
     The timestamp value is the same as the `ts` header with UNIX millisecond timestamp of when the request was created and sent, e.g. 1688436087184
 
     The request `method` should be in UPPERCASE: e.g. `GET` and `POST`.
 
-    The `uri` is the path of requesting an endpoint, separate each parameter with a `&`, `?` represents Parameters concatenation.
-
-    Example: `/open/futures/leverage/set/v1?leverage=1&symbol=BTCUSD`
+    The `uri` is the path of requesting an endpoint, not the full URL.
 
     <aside class="notice">
-        GET request parameters are counted as uri, not body
-    </aside>  
-    
-    Your API Secret is generated when you create an APIKey.  
+        GET request parameters are counted as uri query parameters, not body fields.
+    </aside>
 
-    In a POST request, the order of the request parameter fields needs to be sorted, and null values in the fields should be removed before performing the signature calculation.
+    Your API Secret is generated when you create an APIKey.
+
+    For signed POST requests, sort the request parameter fields and remove null values before signature calculation.
 
 
 ## Field Type Enumeration

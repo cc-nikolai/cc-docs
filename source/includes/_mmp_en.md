@@ -1,5 +1,9 @@
 # Mmp Endpoint
 
+<aside class="notice">
+    MMP endpoints require MMP or market-maker permission. Accounts without permission may receive `not.allow`.
+</aside>
+
 ## Set MMP Config (SIGNED)
 
 Use this interface to configure MMP. 
@@ -33,7 +37,7 @@ curl -X POST
             "frozenTime":"5000", //Freeze interval, in milliseconds. "0" means the state remains frozen until the "Reset MMP Status" API is called to unfreeze it.For non-permanent freeze, set a value within the range [1000, 1000000000]
             "qtyLimit": "5000",  //Trade notional limit, must be greater than 0. Valid range: ≥ 0.01.
             "deltaLimit": "10"   //Net trade delta limit, must be greater than 0.Valid range: ≥ 0.01.
-        }' "https://beta.seizeyouralpha.com/open/mmp/set-mmp-config/v1"
+        }' "https://api.coincall.com/open/mmp/set-mmp-config/v1"
 }
 
 ```
@@ -73,8 +77,7 @@ indexName | 	String | 	BTCUSD	|TRUE	 | Index identifier of derivative
     -H "sign: 4C8ADD9FBCA839970C9871E993EA29BE2EC5AC36CF946FC03DCAF07E7E98A69D" 
     -H "ts: 1745477060021" 
     -H "X-REQ-TS-DIFF: 5000" 
-    -H "Content-Type: "
-     "https://beta.seizeyouralpha.com/open/mmp/get-mmp-config/v1?indexName=BTCUSD"
+     "https://api.coincall.com/open/mmp/get-mmp-config/v1?indexName=BTCUSD"
 }
 ```
 
@@ -130,7 +133,7 @@ indexName	| string	| BTCUSD	| TRUE	| indexName
     -H "Content-Type: application/json" -d '{
             "instType":"OPTION",
             "indexName":"BTCUSD"
-        }' "https://beta.seizeyouralpha.com/open/mmp/reset-mmp/v1"
+        }' "https://api.coincall.com/open/mmp/reset-mmp/v1"
 }
 ```
 
@@ -149,4 +152,3 @@ indexName	| string	| BTCUSD	| TRUE	| indexName
 
 
 ``` 
-

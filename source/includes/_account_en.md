@@ -245,7 +245,7 @@ curl -X GET
 -H "sign: CBE3D82CD9BEA7BCF030255B00971A28F97E7295C68C44C233C2968D5E626D33" 
 -H "ts: 1761041311358" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/account/sysCreditRecords/v1"
+"https://api.coincall.com/open/account/sysTransferRecords/v1"
 
 ```
 
@@ -300,7 +300,7 @@ currency | String | ETH,USDT | true | Transfer currency
 
 ```json
 curl 
--X POST "https://beta.seizeyouralpha.com/open/user/subAccount/fund/transfer/v1"
+-X POST "https://api.coincall.com/open/user/subAccount/fund/transfer/v1"
 -H "X-CC-APIKEY: yc9GYhc/tBBNq4VJGpCyDPvxM6iaUrjphQnoCRnv0TU=" 
 -H "sign: D6D850F24E488EFF8B859E748370345437757DDEFBAF921613D06B0D7BA220F9" 
 -H "ts: 1744629390441" 
@@ -348,8 +348,7 @@ curl -X GET
 -H "sign: 47A64BBFE773FBF36FBDBEE4E695A207240B17721E72BECAB6FB6AA10E590222"
 -H "ts: 1748593250583"
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " 
-"https://beta.seizeyouralpha.com/open/account/getDepositAddress/v1?coin=ETH&chainType=ETH"
+"https://api.coincall.com/open/account/getDepositAddress/v1?coin=ETH&chainType=ETH"
 
 ```
 
@@ -390,8 +389,7 @@ curl -X GET
 -H "sign: A161477EB6C8F2D2CF490D792511D3084D23A0844752E6C01E8673532D30538D" 
 -H "ts: 1748598187413" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " 
-"https://beta.seizeyouralpha.com/open/user/subAccount/list/v1"
+"https://api.coincall.com/open/user/subAccount/list/v1"
 
 ```
 
@@ -466,8 +464,7 @@ curl -X GET
 -H "sign: 718CA489C948A432999824B5B825D34B78765DE21D8E43C80A63010A6A156B2B" 
 -H "ts: 1748600547440" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " 
-"https://beta.seizeyouralpha.com/open/futures/lending/detail/v1"
+"https://api.coincall.com/open/futures/lending/detail/v1"
 
 ```
 
@@ -516,8 +513,7 @@ curl -X GET
 -H "sign: D69C271BF12C8288D5C4FA7C532E929F07D931E0DF479C4E619E478A4EEA936F" 
 -H "ts: 1749033885633" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " 
-"https://beta.seizeyouralpha.com/open/user/subAccount/transfer/records/v1?page=1&pageSize=20"
+"https://api.coincall.com/open/user/subAccount/transfer/records/v1?page=1&pageSize=20"
 ```
 
 
@@ -588,6 +584,8 @@ chainType | String | ETH | false |  Deposit chain type
 * coin=USDT, chainType=ETH: Get the the specified chain (e.g. ETH) address for the coin (e.g.USDT).
 
 * coin=null, chainType=ETH: Return the addresses of all coins on the specified chain(e.g. ETH).
+
+* Use the `chainType` values returned by this endpoint when requesting a deposit address. For example, USDT may return `TRON`; do not assume aliases such as `TRC20` are accepted.
   
 
 > Rquest: 
@@ -598,7 +596,7 @@ curl -X GET
 -H "sign: 759340BCA23728724B00098FF77083BE62AD1F62E0924FBBB1E8B94F16D44BB8" 
 -H "ts: 1750320144430" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: " "https://beta.seizeyouralpha.com/open/account/getDepositAddressList/v1?chainType=ETH&coin=USDT"
+"https://api.coincall.com/open/account/getDepositAddressList/v1?coin=USDT"
 
 ```
 
