@@ -111,15 +111,17 @@ curl -X POST
 
 ```
 
-> Response:
 
-```json
+> Response: 
+
+```json 
 {
   "code": 0,
   "msg": "Success",
   "i18nArgs": null,
   "data": true
 }
+
 ```
 
 
