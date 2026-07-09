@@ -97,12 +97,12 @@ Cancel RFQ
 
 ```sh
 curl -X POST 
--H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
--H "sign: C682166D0936C406AEDD4BC3DEEA278D59EBE5EB5220656E1871AB49F7CF6255" 
--H "ts: 1761650065385" 
+-H "X-CC-APIKEY: RUKF1eOehGzhezAcnrxXwy+IETEy3rzfN6S0cvX9iRo=" 
+-H "sign: 760113E7FE89D0731D849607DAD1E08FA963B6430D0663B3E3CBB3511961AA55" 
+-H "ts: 1783589169536" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/x-www-form-urlencoded" 
--d 'requestId=1983130245586358272' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/cancel/v1"
+-H "Content-Type: application/json" 
+-d '{"requestId": 1983130245586358272}' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/cancel/v1"
 
 ```
 
@@ -130,7 +130,11 @@ requestId | String | 1840685647012708354 | true | request ID
 
 **Parameter Example**  
 
-requestId=1978391652129181696
+```json
+
+{ "requestId": 1983130245586358272 }
+
+```
 
 
 
