@@ -273,7 +273,11 @@ curl -X POST
 
 `POST https://api.coincall.com/open/option/blocktrade/request/accept/v1`
 
-**Parameter**
+**请求头 (Headers)** 
+
+`Content-Type: application/json`
+
+**Parameter (requet body)**
 
 Name | Type | Value | Required | Note
 ---- | ---- | ----- | -------- | ----
