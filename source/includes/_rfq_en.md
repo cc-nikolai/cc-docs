@@ -208,12 +208,12 @@ The taker executes quote
 
 ```sh
 curl -X POST 
--H "X-CC-APIKEY: cYW/BtS6YsMFZYvUA2pW+1FeFN4ceM+Wv0aS+PQc1hc=" 
--H "sign: F5551686049622DF067B4B93855D7EA6B6813E954131A684FA9EAF55D0743CFA" 
--H "ts: 1761650457177" 
+-H "X-CC-APIKEY: X46H8BawfWR9hzoy7jnMQAMvFdosrLQ07VI7ueB68xQ=" 
+-H "sign: BC681415C48C517E4EF6E038B6D3E68D36FA9AE398699E3F54C66F37B6ACDBC6" 
+-H "ts: 1785210037825" 
 -H "X-REQ-TS-DIFF: 5000" 
--H "Content-Type: application/x-www-form-urlencoded" 
--d 'requestId=1983130719395909632&quoteId=1983131007357546497' "https://api.coincall.com/open/option/blocktrade/request/accept/v1"
+-H "Content-Type: application/json" 
+-d '{"requestId": 1983131007357546497, "quoteId": 1983131007357546497}' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/accept/v1"
 
 ```
 
@@ -281,9 +281,6 @@ requestId |String | 1983130719395909632 | true | request ID
 quoteId|String| 1983131007357546497 | true| quote ID
 
 
-**Parameter Example**  
-
-requestId=1983130719395909632&quoteId=1983131007357546497
 
 
 ## Get list of RFQs(SIGNED)
