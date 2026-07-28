@@ -213,7 +213,7 @@ curl -X POST
 -H "ts: 1785210037825" 
 -H "X-REQ-TS-DIFF: 5000" 
 -H "Content-Type: application/json" 
--d '{"requestId": 1983131007357546497, "quoteId": 1983131007357546497}' "https://beta.seizeyouralpha.com/open/option/blocktrade/request/accept/v1"
+-d '{"requestId": 1983131007357546497, "quoteId": 1983131007357546497}' "https://api.coincall.com/open/option/blocktrade/request/accept/v1"
 
 ```
 
