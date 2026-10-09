@@ -237,18 +237,8 @@ Codes | Description
 50014|Block trade quote is not valid,Block trade quote does not match with seek
 60001|User is in ADL,ADL user not allow
 60008|MMP is not enabled，Please check the configuration: is MMP enabled?
-60009|Reserved. Not returned by the current market-maker trading-control flow.
-60010|Cancellation failed. Please retry. The disable-and-cancel request failed, including cancellation dispatch or acknowledgement timeout.
+60009|Trading rejected. All orders have been cancelled.
+60010|Cancellation failed. Please retry.
 60011|Trading is not disabled. No need to resume.
-60012|Trading is disabled. A protected order request or repeated disable request was rejected; a resume request can also return this code while active orders remain.
+60012|Trading is disabled.
 
-## Market-maker trading-control errors
-
-These codes apply to options and futures market-maker trading control under `/open/option/order/` and `/open/futures/order/`.
-
-- **60010 — Disable-and-cancel failed:** Some cancellation requests may already have been accepted. Check the returned `data.state` / `data.disabled`, query `tradingControl/v1` for the current trading status, and verify the actual order status before retrying. If trading is enabled, retry `disableAndCancel/v1` as needed. If trading remains disabled, a repeated disable request returns `60012`; contact support to resolve remaining orders. No automatic background cancellation retry is scheduled by this operation.
-- **60011 — Resume is unnecessary:** `resumeTrading/v1` found that trading is not disabled. Confirm the current status before continuing; there is no need to repeat the resume request.
-- **60012 — Operation rejected:** Disabled users cannot place, modify, or cancel orders through the protected trading APIs. Repeating `disableAndCancel/v1` does not start another cancellation pass. On `resumeTrading/v1`, this code can mean that active orders still prevent resuming; verify order status and contact support if necessary. Query endpoints remain available.
-- **60009 — Reserved:** This code remains defined but is not emitted by the current flow. Do not use it as the expected cancellation-completion signal.
-
-A successful `disableAndCancel/v1` response (`code=0`, `state=DISABLED`) confirms that the cancellation messages were acknowledged, not that every order has finished cancelling. Verify order status; an order may fill before its cancellation takes effect. The existing `10000` (try again later) may also occur when the trading-control state cannot currently be confirmed; re-query the status before retrying an operation.

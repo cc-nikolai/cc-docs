@@ -222,18 +222,8 @@ The Coincall API uses the following error codes:
 40041|Upload file frequently
 40042|File type is unknow
 40043|File type is error
-60009|保留错误码，当前做市商交易控制流程不返回。
-60010|撤单失败，请重试。禁止交易并撤单请求失败，包括撤单发送失败或回调超时。
-60011|交易未被禁用，无需解禁。
-60012|交易已禁用，受保护的订单操作或重复禁用请求被拒绝；解禁时仍有活动订单也会返回此码。
+60009|Trading rejected. All orders have been cancelled.
+60010|Cancellation failed. Please retry.
+60011|Trading is not disabled. No need to resume.
+60012|Trading is disabled.
 
-## 做市商交易控制错误码
-
-适用于 `/open/option/order/` 和 `/open/futures/order/` 下的期权、期货做市商交易控制。
-
-- **60010 — 禁用并撤单失败：** 部分撤单请求可能已经被接收。先查看响应中的 `data.state` / `data.disabled`，通过 `tradingControl/v1` 查询最新禁用状态，并核对实际订单状态。交易已启用时，可按需重试 `disableAndCancel/v1`；仍禁用时，重复禁用会返回 `60012`，如有遗留订单请联系支持人员处理。本操作不会安排后台自动重试撤单。
-- **60011 — 无需解禁：** `resumeTrading/v1` 检查到交易未被禁用。确认当前状态后继续，无需重复解禁。
-- **60012 — 操作被拒绝：** 禁用用户不能通过受保护的交易 API 下单、改单或撤单；重复调用 `disableAndCancel/v1` 不会再次发起撤单。调用 `resumeTrading/v1` 时，此码也可能表示仍有活动订单，暂不能解禁；请核对订单状态，必要时联系支持人员。查询接口仍可使用。
-- **60009 — 保留：** 错误码仍有定义，但当前流程不返回，不能将其作为预期的撤单完成信号。
-
-`disableAndCancel/v1` 返回成功（`code=0`、`state=DISABLED`）表示撤单消息已获接收确认，不代表所有订单均已撤销。请核对订单状态；撤单生效前，订单仍可能成交。暂时无法确认交易控制状态时，也可能返回原有的 `10000`（稍后重试），重试操作前应重新查询状态。
