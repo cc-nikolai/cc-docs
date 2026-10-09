@@ -8,6 +8,7 @@ Codes | Description
 ---------- | -------
 0|Success
 500|Internal servererror
+503|internal server busy. please try again later
 2015|User does not exist.
 2016|Public key not exist
 2017|Private key not exist
