@@ -222,7 +222,6 @@ The Coincall API uses the following error codes:
 40041|Upload file frequently
 40042|File type is unknow
 40043|File type is error
-60009|Trading rejected. All orders have been cancelled.
 60010|Cancellation failed. Please retry.
 60011|Trading is not disabled. No need to resume.
 60012|Trading is disabled.

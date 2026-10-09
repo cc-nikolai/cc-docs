@@ -237,7 +237,6 @@ Codes | Description
 50014|Block trade quote is not valid,Block trade quote does not match with seek
 60001|User is in ADL,ADL user not allow
 60008|MMP is not enabled，Please check the configuration: is MMP enabled?
-60009|Trading rejected. All orders have been cancelled.
 60010|Cancellation failed. Please retry.
 60011|Trading is not disabled. No need to resume.
 60012|Trading is disabled.
