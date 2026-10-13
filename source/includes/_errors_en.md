@@ -239,6 +239,6 @@ Codes | Description
 60008|MMP is not enabled，Please check the configuration: is MMP enabled?
 60010|Failed to disable trading and cancel orders. Please retry.
 60011|Trading is not disabled.
-60012|Trading is disabled.
+60012|Trading is disabled. 
 60013|Cannot resume trading while active orders remain.
 
